@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, DM_Sans } from "next/font/google";
+import { projectId } from "@/sanity/env";
 import { SanityLive } from "@/sanity/lib/live";
 import "./globals.css";
 
@@ -41,7 +42,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
-        <SanityLive />
+        {projectId && <SanityLive />}
       </body>
     </html>
   );

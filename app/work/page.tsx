@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { ALL_PORTFOLIO_ITEMS_QUERY, WORK_PAGE_QUERY } from "@/sanity/lib/queries";
