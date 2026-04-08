@@ -11,16 +11,17 @@ const live = defineLive({
 
 export const SanityLive = live.SanityLive;
 
-export async function sanityFetch<T = unknown>({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function sanityFetch({
   query,
   params,
 }: {
   query: string;
   params?: Record<string, unknown>;
-}): Promise<{ data: T | null }> {
+}): Promise<{ data: any }> {
   try {
     const result = await live.sanityFetch({ query, params });
-    return result as { data: T | null };
+    return result as { data: any };
   } catch {
     return { data: null };
   }
