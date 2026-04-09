@@ -1,6 +1,8 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { PORTFOLIO_SECTION_QUERY } from "@/sanity/lib/queries";
 import { PORTFOLIO_ITEMS } from "@/app/(landing)/_lib/landing-content";
+import { SectionHeader } from "./section-header";
+import { CategoryPillsMarquee } from "./category-pills-marquee";
 import { PortfolioCarousel } from "./portfolio-carousel";
 import { PortfolioGrid } from "./portfolio-grid";
 
@@ -16,7 +18,7 @@ export async function PortfolioSection() {
   };
   const viewAllText = data?.viewAllLinkText ?? "View All Work";
   const categories = data?.categoryPills ?? FALLBACK_CATEGORIES;
-  const items = data?.featuredItems?.map((item) => ({
+  const items = data?.featuredItems?.map((item: { _id: string; title?: string; category?: string; videoUrl?: string }) => ({
     id: item._id,
     title: item.title ?? "",
     category: item.category ?? "",
@@ -27,16 +29,12 @@ export async function PortfolioSection() {
     <section id="portfolio" className="py-[var(--section-padding-y)]">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-primary-500">
-              {header.subtitle}
-            </p>
-            <h2 className="mt-3 font-heading text-4xl font-black tracking-tight text-foreground uppercase sm:text-5xl">
-              {header.heading}
-            </h2>
-          </div>
+          <SectionHeader
+            subtitle={header.subtitle}
+            heading={header.heading}
+          />
           <a
-            href="/work"
+            href="/portfolio"
             className="inline-flex items-center gap-2 self-start rounded-full border-2 border-foreground px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-foreground hover:text-background md:self-auto"
           >
             {viewAllText}
@@ -44,17 +42,8 @@ export async function PortfolioSection() {
         </div>
       </div>
 
-      <div className="mt-8 overflow-clip">
-        <div className="flex gap-3 animate-marquee whitespace-nowrap py-2">
-          {[...categories, ...categories, ...categories, ...categories].map((cat, i) => (
-            <span
-              key={i}
-              className="inline-flex items-center rounded-full border-2 border-primary-200 bg-white px-5 py-2 text-sm font-bold text-primary-600 whitespace-nowrap"
-            >
-              {cat}
-            </span>
-          ))}
-        </div>
+      <div className="mt-8">
+        <CategoryPillsMarquee categories={categories} />
       </div>
 
       <div className="mt-8 hidden px-6 lg:block">

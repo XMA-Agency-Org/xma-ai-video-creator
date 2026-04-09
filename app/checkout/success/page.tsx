@@ -1,4 +1,5 @@
-import { Button, SectionContainer } from "@/app/_components/primitives";
+import { Button } from "@/app/_components/primitives/button";
+import { SectionContainer } from "@/app/_components/primitives/section-container";
 import { CheckCircle } from "lucide-react";
 
 export default function CheckoutSuccessPage() {

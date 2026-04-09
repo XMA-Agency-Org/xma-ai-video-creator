@@ -166,7 +166,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
             exit="exit"
           >
             <div className="flex items-center justify-between border-t border-white/10 pt-6">
-              <span>admin@xmaagency.com</span>
+              <a href="mailto:admin@xmaagency.com" className="transition-colors hover:text-white/70">admin@xmaagency.com</a>
               <span>Dubai, UAE</span>
             </div>
           </motion.div>

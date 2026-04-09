@@ -6,24 +6,18 @@ import { ALL_PORTFOLIO_ITEMS_QUERY, WORK_PAGE_QUERY } from "@/sanity/lib/queries
 import { readFileSync } from "fs";
 import { join } from "path";
 import { WorkPageContent } from "./_components/work-page-content";
+import type { VideoEntry } from "./_types/portfolio-types";
 
 export const metadata: Metadata = {
   title: "Our Work | XMA AI Video Creator",
   description: "Browse our full portfolio of AI-generated video content for brands.",
 };
 
-type FallbackEntry = {
-  id: string;
-  video: string;
-  category: string;
-  title: string;
-};
-
-function getFallbackVideos() {
+function getFallbackVideos(): VideoEntry[] {
   try {
     const manifestPath = join(process.cwd(), "public/videos/manifest-final.json");
     const raw = readFileSync(manifestPath, "utf-8");
-    const entries: FallbackEntry[] = JSON.parse(raw);
+    const entries: VideoEntry[] = JSON.parse(raw);
     return entries.map((e) => ({
       id: e.id,
       video: e.video,

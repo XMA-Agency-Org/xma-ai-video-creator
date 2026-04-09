@@ -3,20 +3,11 @@ import { FOOTER_QUERY } from "@/sanity/lib/queries";
 import { Logo } from "./logo";
 
 const FALLBACK_LINKS = [
-  {
-    groupTitle: "Services",
-    links: [
-      { label: "AI Video Creation", href: "#" },
-      { label: "CGI Content", href: "#" },
-      { label: "UGC Production", href: "#" },
-      { label: "Brand Content", href: "#" },
-    ],
-  },
-  {
+{
     groupTitle: "Company",
     links: [
       { label: "About XMA", href: "https://xma.ae" },
-      { label: "Portfolio", href: "#portfolio" },
+      { label: "Portfolio", href: "/portfolio" },
       { label: "Pricing", href: "#pricing" },
       { label: "Contact", href: "mailto:admin@xmaagency.com" },
     ],
@@ -59,6 +50,7 @@ export async function SiteFooter() {
                     <a
                       href={link.href ?? "#"}
                       className="text-sm text-neutral-400 transition-colors hover:text-white"
+                      {...(link.href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     >
                       {link.label}
                     </a>

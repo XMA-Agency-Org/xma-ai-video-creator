@@ -1,6 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { PRICING_SECTION_QUERY } from "@/sanity/lib/queries";
 import { PRICING_PLANS } from "@/app/(landing)/_lib/landing-content";
+import { SectionHeader } from "./section-header";
 import { PricingCard } from "./pricing-card";
 
 export async function PricingSection() {
@@ -12,7 +13,7 @@ export async function PricingSection() {
     description: "No hidden fees, no surprises. Pick what fits and get started today.",
   };
 
-  const plans = data?.displayedPlans?.map((p) => ({
+  const plans = data?.displayedPlans?.map((p: { _id: string; name?: string; price?: number; description?: string; features?: string[]; highlighted?: boolean; stripePriceId?: string }) => ({
     id: p._id,
     name: p.name ?? "",
     price: p.price ?? 0,
@@ -25,20 +26,15 @@ export async function PricingSection() {
   return (
     <section id="pricing" className="py-[var(--section-padding-y)]">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
-        <div className="text-center">
-          <p className="text-sm font-bold uppercase tracking-widest text-primary-500">
-            {header.subtitle}
-          </p>
-          <h2 className="mt-3 font-heading text-4xl font-black tracking-tight text-foreground uppercase sm:text-5xl">
-            {header.heading}
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-lg text-muted-foreground">
-            {header.description}
-          </p>
-        </div>
+        <SectionHeader
+          subtitle={header.subtitle}
+          heading={header.heading}
+          description={header.description}
+          align="center"
+        />
 
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3 items-start">
-          {plans.map((plan) => (
+          {plans.map((plan: { id: string; name: string; price: number; description: string; features: string[]; highlighted: boolean; stripePriceId: string }) => (
             <PricingCard key={plan.id} plan={plan} />
           ))}
         </div>

@@ -3,13 +3,7 @@
 import { useState, useMemo } from "react";
 import { VideoGridItem } from "./video-grid-item";
 import { VideoFilterBar } from "./video-filter-bar";
-
-type VideoEntry = {
-  id: string;
-  video: string;
-  category: string;
-  title: string;
-};
+import type { VideoEntry } from "@/app/portfolio/_types/portfolio-types";
 
 type WorkPageContentProps = {
   videos: VideoEntry[];

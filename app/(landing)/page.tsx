@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import { Suspense } from "react";
 import { HeroSection } from "./_components/hero-section";
 import { StatsSection } from "./_components/stats-section";
 import { HowItWorksSection } from "./_components/how-it-works-section";
@@ -13,15 +14,33 @@ import { CtaBannerSection } from "./_components/cta-banner-section";
 export default function LandingPage() {
   return (
     <>
-      <HeroSection />
-      <StatsSection />
-      <HowItWorksSection />
-      <PortfolioSection />
-      <MarqueeSection />
-      <TestimonialsSection />
-      <PricingSection />
-      <FaqSection />
-      <CtaBannerSection />
+      <Suspense>
+        <HeroSection />
+      </Suspense>
+      <Suspense>
+        <StatsSection />
+      </Suspense>
+      <Suspense>
+        <HowItWorksSection />
+      </Suspense>
+      <Suspense>
+        <PortfolioSection />
+      </Suspense>
+      <Suspense>
+        <MarqueeSection />
+      </Suspense>
+      <Suspense>
+        <TestimonialsSection />
+      </Suspense>
+      <Suspense>
+        <PricingSection />
+      </Suspense>
+      <Suspense>
+        <FaqSection />
+      </Suspense>
+      <Suspense>
+        <CtaBannerSection />
+      </Suspense>
     </>
   );
 }
