@@ -2,6 +2,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { PORTFOLIO_SECTION_QUERY } from "@/sanity/lib/queries";
 import { PORTFOLIO_ITEMS } from "@/app/(landing)/_lib/landing-content";
 import { PortfolioCarousel } from "./portfolio-carousel";
+import { PortfolioGrid } from "./portfolio-grid";
 
 const FALLBACK_CATEGORIES = ["Haircare", "Food & Beverage", "Product Ads", "UGC", "CGI & 3D", "Skincare", "Fragrance", "Fashion & Lifestyle"];
 
@@ -56,7 +57,10 @@ export async function PortfolioSection() {
         </div>
       </div>
 
-      <div className="mx-auto mt-8 max-w-[var(--container-max-width)] px-6">
+      <div className="mt-8 hidden px-6 lg:block">
+        <PortfolioGrid items={items} />
+      </div>
+      <div className="mx-auto mt-8 max-w-[var(--container-max-width)] px-6 lg:hidden">
         <PortfolioCarousel items={items} />
       </div>
     </section>
