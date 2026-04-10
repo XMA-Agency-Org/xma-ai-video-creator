@@ -22,18 +22,27 @@ export type Testimonial = {
   company: string;
 };
 
-export type PricingPlan = {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  features: string[];
-  highlighted: boolean;
-  stripePriceId: string;
-};
-
 export type FaqItem = {
   id: string;
   question: string;
   answer: string;
+};
+
+export type ComparisonFeature = {
+  feature: string;
+  xma: string | boolean;
+  diy: string | boolean;
+};
+
+export type ChecklistItem = {
+  id: string;
+  title: string;
+  description: string;
+  iconName: string;
+};
+
+export type ClientLogo = {
+  id: string;
+  name: string;
+  src: string;
 };

@@ -8,8 +8,8 @@ import { MobileMenu } from "./mobile-menu";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
+  { label: "Why XMA", href: "#why-xma" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -42,10 +42,10 @@ export function NavigationHeader() {
           </ul>
 
           <a
-            href="#pricing"
+            href="#book"
             className="hidden rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary-600 transition-all duration-200 hover:bg-lime-300 hover:text-primary-800 md:inline-flex"
           >
-            GET STARTED
+            BOOK A CALL
           </a>
 
           <MenuToggle

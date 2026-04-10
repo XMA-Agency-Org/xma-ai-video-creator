@@ -8,7 +8,7 @@ const FALLBACK_LINKS = [
     links: [
       { label: "About XMA", href: "https://xma.ae" },
       { label: "Portfolio", href: "/portfolio" },
-      { label: "Pricing", href: "#pricing" },
+      { label: "Book a Call", href: "#book" },
       { label: "Contact", href: "mailto:admin@xmaagency.com" },
     ],
   },

@@ -4,9 +4,9 @@ import { CTA_BANNER_QUERY } from "@/sanity/lib/queries";
 export async function CtaBannerSection() {
   const { data } = await sanityFetch({ query: CTA_BANNER_QUERY });
 
-  const headline = data?.headline ?? "Lower Your CAC With AI-Driven Video Ads";
-  const description = data?.description ?? "Build a creative system that scales your revenue";
-  const cta = data?.cta ?? { label: "Let's Do This", href: "#pricing", style: "accent" };
+  const headline = data?.headline ?? "Ready to Scale Your Video Content?";
+  const description = data?.description ?? "Book a free strategy call and see how our team can transform your content pipeline.";
+  const cta = data?.cta ?? { label: "Book Your Free Strategy Call", href: "#book", style: "accent" };
 
   return (
     <section className="py-[var(--section-padding-y)]">
@@ -24,7 +24,7 @@ export async function CtaBannerSection() {
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
-                href={cta.href ?? "#pricing"}
+                href={cta.href ?? "#book"}
                 className="inline-flex items-center gap-2 rounded-full bg-lime-300 px-8 py-4 text-base font-black text-foreground transition-all hover:bg-lime-400"
               >
                 {cta.label} &rarr;

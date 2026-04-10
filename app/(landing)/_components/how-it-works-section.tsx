@@ -8,9 +8,9 @@ export async function HowItWorksSection() {
   const { data } = await sanityFetch({ query: HOW_IT_WORKS_QUERY });
 
   const header = data?.header ?? {
-    subtitle: "THE COMPLETE AI VIDEO SYSTEM",
+    subtitle: "YOUR DEDICATED TEAM",
     heading: "How It Works",
-    description: "We combine creative strategy with cutting-edge AI to deliver:",
+    description: "Your project gets a full creative team, not just an AI tool:",
   };
 
   const steps = data?.steps ?? PROCESS_STEPS.map((s) => ({
@@ -18,7 +18,7 @@ export async function HowItWorksSection() {
     title: s.title,
     description: s.description,
     iconName: s.icon.displayName ?? "FileText",
-    highlighted: s.stepNumber === 2,
+    highlighted: s.stepNumber === 3,
   }));
 
   return (

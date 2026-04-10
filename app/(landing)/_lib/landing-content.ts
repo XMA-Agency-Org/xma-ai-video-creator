@@ -1,54 +1,68 @@
 import {
-  FileText,
+  Phone,
+  Search,
   Sparkles,
-  Eye,
   Send,
+  Palette,
+  Camera,
+  SlidersHorizontal,
+  BookOpen,
+  Users,
 } from "lucide-react";
 import type {
   ProcessStep,
   PortfolioItem,
   Testimonial,
-  PricingPlan,
   FaqItem,
+  ComparisonFeature,
+  ChecklistItem,
+  ClientLogo,
 } from "@/app/(landing)/_types/landing-types";
 
 export const HERO_CONTENT = {
-  headline: "AI-Powered Video Creation for Modern Brands",
+  headline: "A Full Creative Team Powered by AI",
   subheadline:
-    "Get stunning, conversion-ready videos crafted with cutting-edge AI technology. From concept to final cut — delivered in days, not weeks.",
-  primaryCta: "View Pricing",
-  primaryCtaHref: "#pricing",
-  secondaryCta: "Watch Showreel",
+    "Not just another AI video tool. Get a dedicated team of strategists, copywriters, and editors who use cutting-edge AI to deliver scroll-stopping videos — in days, not weeks.",
+  primaryCta: "Book a Free Consultation",
+  primaryCtaHref: "#book",
+  secondaryCta: "See Our Work",
   secondaryCtaHref: "#portfolio",
 };
+
+export const STATS = [
+  { value: "10x", label: "Faster Than DIY", accent: false },
+  { value: "9+", label: "Creative Experts on Your Team", accent: true },
+  { value: "50%", label: "Time Saved vs Traditional", accent: false },
+  { value: "50+", label: "Videos Delivered", accent: true },
+];
 
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     stepNumber: 1,
-    title: "Share Your Brief",
+    title: "Strategy Call",
     description:
-      "Tell us about your brand, target audience, and vision. We handle the rest.",
-    icon: FileText,
+      "We learn about your brand, goals, target audience, and creative direction on a dedicated call.",
+    icon: Phone,
   },
   {
     stepNumber: 2,
-    title: "AI Creates Your Video",
+    title: "Research & Scripting",
     description:
-      "Our AI engine generates high-quality video content tailored to your brand identity.",
-    icon: Sparkles,
+      "Our copywriting team researches your market, studies your competitors, and writes scripts tailored to your audience.",
+    icon: Search,
   },
   {
     stepNumber: 3,
-    title: "Review & Refine",
+    title: "AI Production & Editing",
     description:
-      "Preview your video and request any adjustments until it matches your vision perfectly.",
-    icon: Eye,
+      "Our AI engine generates high-quality content while our editors polish every frame with sound design and effects.",
+    icon: Sparkles,
   },
   {
     stepNumber: 4,
-    title: "Receive & Deploy",
+    title: "Review & Deliver",
     description:
-      "Get your polished final video ready for social media, ads, or any platform.",
+      "You review the videos, request any refinements, and receive final files ready for social media or ads.",
     icon: Send,
   },
 ];
@@ -96,15 +110,15 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "testimonial-1",
     quote:
-      "The AI videos XMA created for our skincare launch outperformed all our previous content. The quality is indistinguishable from traditional production.",
+      "What impressed us most was the team behind the AI. They took the time to understand our brand voice and delivered videos that felt completely on-brand from the very first draft.",
     clientName: "Sarah Chen",
     clientRole: "Marketing Director",
-    company: "Lumière Beauty",
+    company: "Lumiere Beauty",
   },
   {
     id: "testimonial-2",
     quote:
-      "We went from concept to finished video in 3 days. What used to take us weeks and cost five times more. Absolutely game-changing for our brand.",
+      "We went from concept to finished video in 3 days. The strategy call and scripting process made all the difference — it felt like working with a full agency, not a software tool.",
     clientName: "Omar Al-Rashid",
     clientRole: "Founder & CEO",
     company: "Oud & Essence",
@@ -112,110 +126,133 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "testimonial-3",
     quote:
-      "The ROI speaks for itself — our conversion rate on social ads jumped 40% after switching to XMA's AI-generated video content.",
+      "Having a dedicated team handle everything from research to final edits saved us countless hours. The quality of the scripts and sound design blew us away.",
     clientName: "Priya Mehta",
     clientRole: "Head of Growth",
     company: "Drift Commerce",
   },
 ];
 
-export const PRICING_PLANS: PricingPlan[] = [
+export const COMPARISON_FEATURES: ComparisonFeature[] = [
+  { feature: "Dedicated Strategy Call", xma: true, diy: false },
+  { feature: "Market & Competitor Research", xma: true, diy: false },
+  { feature: "Professional Scriptwriting", xma: true, diy: false },
+  { feature: "AI Video Generation", xma: true, diy: true },
+  { feature: "Professional Editing & Sound Design", xma: true, diy: false },
+  { feature: "Paid Media Strategy", xma: true, diy: false },
+  { feature: "Multi-format Delivery", xma: true, diy: "Limited" },
+  { feature: "Dedicated Account Manager", xma: true, diy: false },
+  { feature: "Revision Rounds Included", xma: true, diy: false },
+];
+
+export const CHECKLIST_ITEMS: ChecklistItem[] = [
   {
-    id: "starter",
-    name: "Starter",
-    price: 499,
-    description: "Perfect for testing AI video for your brand",
-    features: [
-      "1 AI-generated video",
-      "Up to 30 seconds",
-      "1 revision round",
-      "HD quality (1080p)",
-      "Delivered in 5 business days",
-      "Social media optimized",
-    ],
-    highlighted: false,
-    stripePriceId: "price_starter_placeholder",
+    id: "brand-assets",
+    title: "Brand Assets",
+    description: "Your logo, brand colors, and any existing visual identity files.",
+    iconName: "Palette",
   },
   {
-    id: "pro",
-    name: "Pro",
-    price: 999,
-    description: "Best value for growing brands",
-    features: [
-      "3 AI-generated videos",
-      "Up to 60 seconds each",
-      "2 revision rounds",
-      "4K quality",
-      "Delivered in 7 business days",
-      "Multi-platform formats",
-      "Brand kit integration",
-      "Priority support",
-    ],
-    highlighted: true,
-    stripePriceId: "price_pro_placeholder",
+    id: "product-photos",
+    title: "Product Photos",
+    description: "High-quality images of your products from multiple angles. No photos yet? We can shoot them for you.",
+    iconName: "Camera",
   },
   {
-    id: "enterprise",
-    name: "Enterprise",
-    price: 2499,
-    description: "Full-scale content production",
-    features: [
-      "10 AI-generated videos",
-      "Up to 90 seconds each",
-      "Unlimited revisions",
-      "4K quality",
-      "Delivered in 14 business days",
-      "All platform formats",
-      "Custom brand kit",
-      "Dedicated account manager",
-      "Usage analytics dashboard",
-    ],
-    highlighted: false,
-    stripePriceId: "price_enterprise_placeholder",
+    id: "style-preferences",
+    title: "Style Preferences",
+    description: "Reference videos, mood boards, or examples of styles you love.",
+    iconName: "SlidersHorizontal",
+  },
+  {
+    id: "brand-guidelines",
+    title: "Brand Guidelines",
+    description: "Tone of voice, messaging do's and don'ts, fonts, and any brand book you have.",
+    iconName: "BookOpen",
+  },
+  {
+    id: "target-audience",
+    title: "Target Audience",
+    description: "Who are your customers? Their age, interests, platforms, and what makes them buy.",
+    iconName: "Users",
   },
 ];
+
+export const CHECKLIST_ICON_MAP: Record<string, typeof Palette> = {
+  Palette,
+  Camera,
+  SlidersHorizontal,
+  BookOpen,
+  Users,
+};
+
+export const CLIENT_LOGOS: ClientLogo[] = [
+  { id: "baggagetaxi", name: "BaggageTaxi", src: "/logos/baggagetaxi.webp" },
+  { id: "packman", name: "Packman", src: "/logos/packman_Logo.png" },
+  { id: "nbf", name: "NBF", src: "/logos/nbf-logo.png" },
+  { id: "dxtreme", name: "DXtreme", src: "/logos/DXtreme.png" },
+  { id: "dreamdrives", name: "Dream Drives", src: "/logos/dreamdrives-logo.svg" },
+  { id: "rossovivo", name: "Rosso Vivo", src: "/logos/rossovivo.png" },
+  { id: "pixishoot", name: "Pixishoot", src: "/logos/pixishoot.avif" },
+  { id: "tick", name: "Tick", src: "/logos/Tick.webp" },
+  { id: "4matic", name: "4MAtic", src: "/logos/4MAticlogo.png" },
+  { id: "asus", name: "ASUS", src: "/logos/ASUS-logo.png" },
+];
+
+export const CTA_BANNER_CONTENT = {
+  headline: "Ready to Scale Your Video Content?",
+  description: "Book a free strategy call and see how our team can transform your content pipeline.",
+  ctaLabel: "Book Your Free Strategy Call",
+  ctaHref: "#book",
+};
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "faq-1",
     question: "What kind of videos can you create with AI?",
     answer:
-      "We create product showcases, brand stories, social media ads, promotional reels, explainer videos, and lifestyle content. Our AI can adapt to virtually any style — from cinematic to minimalist, editorial to UGC-style.",
+      "We create product showcases, brand stories, social media content, promotional reels, explainer videos, and lifestyle content. Our AI can adapt to virtually any style — from cinematic to minimalist, editorial to UGC-style.",
   },
   {
     id: "faq-2",
     question: "How does the AI video creation process work?",
     answer:
-      "You start by sharing a brief about your brand, goals, and style preferences. Our AI engine then generates video content based on your requirements. You review the output, request refinements if needed, and receive the final polished video ready for deployment.",
+      "It starts with a strategy call where we learn about your brand, goals, and audience. Our copywriting team then researches your market and writes scripts. From there, our AI engine generates video content while our editors polish every frame with professional sound design and effects. You review, we refine, and deliver.",
   },
   {
     id: "faq-3",
-    question: "How long does it take to get my video?",
+    question: "How long does it take to get my videos?",
     answer:
-      "Turnaround depends on your package: Starter videos are delivered in 5 business days, Pro in 7 business days, and Enterprise projects in 14 business days. Rush delivery is available upon request.",
+      "Most projects are delivered within 5 to 10 business days, depending on scope and complexity. We'll give you a clear timeline during your strategy call. Rush delivery is available upon request.",
   },
   {
     id: "faq-4",
     question: "Can I request revisions?",
     answer:
-      "Absolutely. Starter includes 1 revision round, Pro includes 2 rounds, and Enterprise comes with unlimited revisions. We work with you until the video perfectly matches your vision.",
+      "Absolutely. Every project includes revision rounds. We work with you until the videos perfectly match your vision — no extra charges for reasonable refinements.",
   },
   {
     id: "faq-5",
     question: "What formats do I receive?",
     answer:
-      "All videos are delivered in high-quality MP4 format. Pro and Enterprise packages include multi-platform formatting — optimized for Instagram Reels, TikTok, YouTube Shorts, Facebook Ads, and standard 16:9 landscape.",
+      "All videos are delivered in high-quality MP4 format with multi-platform formatting — optimized for Instagram Reels, TikTok, YouTube Shorts, Facebook Ads, and standard 16:9 landscape.",
   },
   {
     id: "faq-6",
-    question: "Do you need product photos or footage from me?",
+    question: "What do I need to provide to get started?",
     answer:
-      "Not necessarily. Our AI can generate visuals from scratch. However, sharing product photos, brand assets, or existing footage helps us create more accurate and on-brand content.",
+      "We'll need your brand assets (logo, colors), product photos, style preferences or references, brand guidelines, and some details about your target audience. Don't have product photos? Our content team can shoot them for you at an additional charge.",
   },
   {
     id: "faq-7",
     question: "Is the content unique to my brand?",
     answer:
       "Yes, 100%. Every video is created exclusively for your brand and will not be reused or resold. You receive full commercial usage rights for all delivered content.",
+  },
+  {
+    id: "faq-8",
+    question: "How do I get started?",
+    answer:
+      "Book a free strategy call with our team. We'll discuss your goals, walk you through our process, and put together a plan tailored to your brand. No commitment required.",
   },
 ];

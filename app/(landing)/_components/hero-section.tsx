@@ -12,9 +12,9 @@ const FALLBACK_VIDEOS = [
 ];
 
 const FALLBACK_BADGES = [
-  { iconName: "Zap", text: "3X FASTER", style: "default" },
-  { iconName: "TrendingUp", text: "40% MORE ENGAGEMENT", style: "default" },
-  { iconName: "Clock", text: "DAYS, NOT WEEKS", style: "accent" },
+  { iconName: "Zap", text: "10X FASTER THAN DIY", style: "default" },
+  { iconName: "Users", text: "9+ EXPERTS ON YOUR TEAM", style: "default" },
+  { iconName: "Clock", text: "50% TIME SAVED", style: "accent" },
 ];
 
 export async function HeroSection() {
@@ -43,8 +43,8 @@ export async function HeroSection() {
 
             <div className="mt-10">
               <a
-                href={primaryCta.href ?? "#pricing"}
-                className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 text-xs md:text-base font-bold text-background transition-all duration-200 hover:bg-primary-600 hover:text-white"
+                href={primaryCta.href ?? "#book"}
+                className="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-xs md:text-base font-bold text-white transition-all duration-200 hover:bg-primary-600"
               >
                 {primaryCta.label}
                 <span className="ml-1">&rarr;</span>

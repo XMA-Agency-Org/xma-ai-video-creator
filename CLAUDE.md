@@ -1,8 +1,8 @@
 # Project: XMA AI Video Creator
 
 ## Overview
-- **Type**: Next.js landing page with Stripe checkout
-- **Stack**: Next.js 16.2.2, React 19, Tailwind CSS v4, TypeScript, Stripe
+- **Type**: Next.js landing page with sales call funnel
+- **Stack**: Next.js 16.2.2, React 19, Tailwind CSS v4, TypeScript
 - **Package Manager**: bun
 - **Started**: 2026-04-08
 
@@ -10,7 +10,7 @@
 - **Route groups**: `(landing)` route group for the main landing page with co-located components, types, and content
 - **Locality of behavior**: Feature-specific code lives in `_components`, `_lib`, `_types` within each route
 - **Content separation**: All placeholder text in `(landing)/_lib/landing-content.ts` for easy replacement or CMS migration
-- **Stripe checkout**: Server-side session creation via API route, client-side redirect. One-time payment mode.
+- **Sales call funnel**: No self-checkout. All CTAs point to booking a consultation call. Pricing revealed on call.
 - **No dark mode**: Light-only warm cream background
 
 ## Preferences & Rules
@@ -47,24 +47,23 @@
 - class-variance-authority: Component variant system
 - clsx + tailwind-merge: Class merging via cn()
 - axios: HTTP client
-- stripe + @stripe/stripe-js: Payment processing
 - lucide-react: Icons
 
 ## Component Registry
 - **Primitives**: Button, Link, Input, Badge, Card, SectionContainer
 - **Layout**: NavigationHeader (pill-shaped purple), SiteFooter (dark)
-- **Sections**: HeroSection, StatsSection, HowItWorksSection, PortfolioSection, MarqueeSection, TestimonialsSection, PricingSection, FaqSection, CtaBannerSection
-- **Helpers**: ProcessStepCard (removed), PortfolioItemCard, TestimonialCard, PricingCard, PricingCheckoutButton, FaqAccordionItem
+- **Sections**: HeroSection, LogoStripSection, StatsSection, HowItWorksSection, WhyXmaSection, PortfolioSection, MarqueeSection, WhatWeNeedSection, TestimonialsSection, FaqSection, CtaBannerSection
+- **Helpers**: StepCard, PortfolioItemCard, TestimonialCard, FaqAccordionItem, FloatingBadges, HeroVideoGrid, ColoredHeadline, SectionHeader
 
 ## API & Data Layer
-- `POST /api/checkout` — Creates Stripe checkout session, returns `{ url }`
-- `POST /api/webhooks/stripe` — Webhook stub for payment events
-- Env vars: `STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`, `NEXT_PUBLIC_BASE_URL`
+- `GET/PATCH /api/categorize` — Video manifest management
+- Env vars: `NEXT_PUBLIC_BASE_URL`
 
 ## Current State
-- Landing page fully redesigned with Creative Milkshake-inspired aesthetic
-- 9 sections: Hero, Stats, How It Works, Portfolio, Marquee, Testimonials, Pricing, FAQ, CTA Banner
-- Placeholder content for testimonials, portfolio, and pricing
-- Stripe checkout wired up (needs real price IDs)
-- Webhook route stubbed
+- Landing page repositioned from SaaS self-checkout to full-service agency with sales call funnel
+- 11 sections: Hero, Logo Strip, Stats, How It Works, Why XMA, Portfolio, Marquee, What We Need, Testimonials, FAQ, CTA Banner
+- All CTAs point to booking a consultation call (placeholder #book anchor — needs real booking URL)
+- Logo strip uses placeholder text names (needs real logo assets in /public/logos/)
+- Pricing removed entirely — revealed during sales call
+- Stripe checkout and webhook routes removed
 - Video showreel placeholder in hero (needs real video/images)
