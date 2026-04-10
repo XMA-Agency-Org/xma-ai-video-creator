@@ -17,6 +17,13 @@ import {
   BookOpen,
   Check,
   X,
+  Target,
+  Megaphone,
+  Smartphone,
+  Paintbrush,
+  Monitor,
+  Settings,
+  SearchCheck,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -39,6 +46,13 @@ const ICON_MAP: Record<string, LucideIcon> = {
   BookOpen,
   Check,
   X,
+  Target,
+  Megaphone,
+  Smartphone,
+  Paintbrush,
+  Monitor,
+  Settings,
+  SearchCheck,
 };
 
 export function getIcon(name: string): LucideIcon {

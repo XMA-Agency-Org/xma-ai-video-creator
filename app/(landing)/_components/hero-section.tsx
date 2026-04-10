@@ -13,9 +13,9 @@ const FALLBACK_VIDEOS = [
 ];
 
 const FALLBACK_BADGES = [
-  { iconName: "Zap", text: "10X FASTER THAN DIY", style: "default" },
+  { iconName: "Clock", text: "50% FASTER TURNAROUND", style: "accent" },
   { iconName: "Users", text: "9+ EXPERTS ON YOUR TEAM", style: "default" },
-  { iconName: "Clock", text: "50% TIME SAVED", style: "accent" },
+  { iconName: "Zap", text: "50% TIME SAVED VS TRADITIONAL", style: "default" },
 ];
 
 export async function HeroSection() {

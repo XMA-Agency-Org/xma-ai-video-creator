@@ -8,6 +8,7 @@ import {
   SlidersHorizontal,
   BookOpen,
   Users,
+  Target,
 } from "lucide-react";
 import type {
   ProcessStep,
@@ -18,12 +19,13 @@ import type {
   ChecklistItem,
   ClientLogo,
   PricingPlan,
+  AgencyService,
 } from "@/app/(landing)/_types/landing-types";
 
 export const HERO_CONTENT = {
   headline: "A Full Creative Team Powered by AI",
   subheadline:
-    "Not just another AI video tool. Get a dedicated team of strategists, copywriters, and editors who use cutting-edge AI to deliver scroll-stopping videos — in days, not weeks.",
+    "Great video ads shouldn't require a three-week timeline and a five-figure production budget. We combine a dedicated creative team with AI to give your brand the same quality but faster, leaner, and built around your actual goals.",
   primaryCta: "Book a Free Consultation",
   primaryCtaHref: "#book",
   secondaryCta: "See Our Work",
@@ -177,6 +179,12 @@ export const CHECKLIST_ITEMS: ChecklistItem[] = [
     description: "Who are your customers? Their age, interests, platforms, and what makes them buy.",
     iconName: "Users",
   },
+  {
+    id: "campaign-goals",
+    title: "Campaign Goals",
+    description: "What does success look like for you? Whether it's driving sales, generating leads, or building brand awareness. Your goal shapes every creative decision we make.",
+    iconName: "Target",
+  },
 ];
 
 export const CHECKLIST_ICON_MAP: Record<string, typeof Palette> = {
@@ -185,6 +193,7 @@ export const CHECKLIST_ICON_MAP: Record<string, typeof Palette> = {
   SlidersHorizontal,
   BookOpen,
   Users,
+  Target,
 };
 
 export const CLIENT_LOGOS: ClientLogo[] = [
@@ -255,6 +264,63 @@ export const FAQ_ITEMS: FaqItem[] = [
     question: "How do I get started?",
     answer:
       "Book a free strategy call with our team. We'll discuss your goals, walk you through our process, and put together a plan tailored to your brand. No commitment required.",
+  },
+];
+
+export const AGENCY_SERVICES_CONTENT = {
+  subtitle: "SERVICES",
+  headline: "The Ad Is Just the Beginning.",
+  subheadline:
+    "A great video in front of the wrong audience, on a weak landing page, with no follow-up system won't convert. Before we brief a single frame, we look at your whole picture.",
+  body: "XMA is a full-service digital agency. We built this AI video service because our clients needed faster, smarter creatives. But we've always done more and if your brand needs it, we're here to help.",
+  closingLine:
+    "Most clients come to us for video. They stay because we can handle everything the video depends on.",
+  ctaLabel: "Explore Full Agency Services",
+  ctaHref: "https://xma.ae",
+};
+
+export const AGENCY_SERVICES: AgencyService[] = [
+  {
+    id: "paid-advertising",
+    title: "Paid Advertising",
+    description:
+      "Meta, TikTok, Google — we build and manage campaigns that put your videos in front of the right people and turn views into revenue.",
+    iconName: "Megaphone",
+  },
+  {
+    id: "social-media-management",
+    title: "Social Media Management",
+    description:
+      "Strategy, content, and scheduling. Your brand stays active and consistent without you lifting a finger.",
+    iconName: "Smartphone",
+  },
+  {
+    id: "branding-identity",
+    title: "Branding & Identity",
+    description:
+      "Logo, visual identity, tone of voice, and brand guidelines for the foundation that makes every ad land harder.",
+    iconName: "Paintbrush",
+  },
+  {
+    id: "web-development",
+    title: "Web Development",
+    description:
+      "High-converting landing pages and full websites. Because traffic without a destination is wasted budget.",
+    iconName: "Monitor",
+  },
+  {
+    id: "crm-lead-generation",
+    title: "CRM & Lead Generation",
+    description:
+      "Pipelines, automations, and workflows that turn your ad clicks into customers, and your customers into repeat buyers.",
+    iconName: "Settings",
+  },
+  {
+    id: "brand-funnel-audit",
+    title: "Brand & Funnel Audit",
+    description:
+      "We review your current brand, audience targeting, presence and conversion funnel before anything goes live. No guesswork, just a clear and honest solution.",
+    iconName: "SearchCheck",
   },
 ];
 

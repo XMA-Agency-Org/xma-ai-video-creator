@@ -2,7 +2,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { HOW_IT_WORKS_QUERY } from "@/sanity/lib/queries";
 import { PROCESS_STEPS } from "@/app/(landing)/_lib/landing-content";
 import { SectionHeader } from "./section-header";
-import { StepCard } from "./step-card";
+import { getIcon } from "@/app/(landing)/_lib/icon-map";
 
 export async function HowItWorksSection() {
   const { data } = await sanityFetch({ query: HOW_IT_WORKS_QUERY });
@@ -30,10 +30,78 @@ export async function HowItWorksSection() {
           description={header.description}
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step: { stepNumber: number; title: string; description: string; iconName?: string; highlighted?: boolean }) => (
-            <StepCard key={step.stepNumber} step={step} />
-          ))}
+        <div className="relative mt-14">
+          <div className="absolute left-6 top-0 bottom-0 hidden w-px bg-border md:left-1/2 md:block" />
+
+          <div className="space-y-12 md:space-y-16">
+            {steps.map((step: { stepNumber: number; title: string; description: string; iconName?: string; highlighted?: boolean }, i: number) => {
+              const Icon = getIcon(step.iconName ?? "FileText");
+              const isEven = i % 2 === 0;
+
+              return (
+                <div
+                  key={step.stepNumber}
+                  className="relative grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-16"
+                >
+                  <div
+                    className={`absolute left-6 top-0 z-10 hidden h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full md:left-1/2 md:flex ${
+                      step.highlighted
+                        ? "bg-primary-500 text-white"
+                        : "bg-background text-primary-500 border-2 border-border"
+                    }`}
+                  >
+                    <Icon size={20} />
+                  </div>
+
+                  <div
+                    className={`${
+                      isEven ? "md:text-right md:pr-16" : "md:col-start-2 md:pl-16"
+                    }`}
+                  >
+                    <div className="flex items-center gap-4 md:hidden">
+                      <div
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
+                          step.highlighted
+                            ? "bg-primary-500 text-white"
+                            : "bg-primary-50 text-primary-500"
+                        }`}
+                      >
+                        <Icon size={18} />
+                      </div>
+                      <span className="font-heading text-5xl font-black text-neutral-200">
+                        0{step.stepNumber}
+                      </span>
+                    </div>
+
+                    <span
+                      className={`hidden font-heading text-7xl font-black text-neutral-200 md:block ${
+                        isEven ? "md:text-right" : ""
+                      }`}
+                    >
+                      0{step.stepNumber}
+                    </span>
+
+                    <h3
+                      className={`mt-3 font-heading text-xl font-bold text-foreground ${
+                        isEven ? "md:text-right" : ""
+                      }`}
+                    >
+                      {step.title}
+                    </h3>
+                    <p
+                      className={`mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground ${
+                        isEven ? "md:ml-auto md:text-right" : ""
+                      }`}
+                    >
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {isEven && <div className="hidden md:block" />}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

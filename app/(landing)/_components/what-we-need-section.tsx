@@ -14,22 +14,24 @@ export function WhatWeNeedSection() {
           description="Share these with us and we'll handle the rest."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item) => {
+        <div className="mt-14 divide-y divide-border">
+          {items.map((item, i) => {
             const Icon = CHECKLIST_ICON_MAP[item.iconName] ?? Camera;
 
             return (
               <div
                 key={item.id}
-                className="rounded-[var(--radius-2xl)] border-2 border-foreground/10 p-7 transition-all duration-300 hover:border-primary-300 hover:shadow-md"
+                className="group grid grid-cols-1 gap-4 py-8 transition-colors duration-300 first:pt-0 last:pb-0 md:grid-cols-[3rem_14rem_1fr] md:items-center md:gap-8"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors duration-300 group-hover:bg-primary-500 group-hover:text-white">
                   <Icon size={22} />
                 </div>
-                <h3 className="mt-5 font-heading text-lg font-bold text-foreground">
+
+                <h3 className="font-heading text-lg font-bold text-foreground">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+
+                <p className="text-sm leading-relaxed text-muted-foreground md:max-w-md">
                   {item.description}
                 </p>
               </div>
@@ -37,7 +39,7 @@ export function WhatWeNeedSection() {
           })}
         </div>
 
-        <div className="mt-8 rounded-[var(--radius-2xl)] bg-primary-500 p-8 text-center md:p-10">
+        <div className="mt-12 rounded-[var(--radius-2xl)] bg-primary-500 p-8 text-center md:p-10">
           <p className="text-lg font-bold text-white">
             Don't have product photos?
           </p>

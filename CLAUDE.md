@@ -52,8 +52,8 @@
 ## Component Registry
 - **Primitives**: Button, Link, Input, Badge, Card, SectionContainer
 - **Layout**: NavigationHeader (pill-shaped purple), SiteFooter (dark)
-- **Sections**: HeroSection, LogoStripSection, StatsSection, HowItWorksSection, WhyXmaSection, PortfolioSection, MarqueeSection, WhatWeNeedSection, TestimonialsSection, FaqSection, CtaBannerSection
-- **Helpers**: StepCard, PortfolioItemCard, TestimonialCard, FaqAccordionItem, FloatingBadges, HeroVideoGrid, ColoredHeadline, SectionHeader
+- **Sections**: HeroSection, LogoStripSection, StatsSection, HowItWorksSection, WhyXmaSection, PortfolioSection, MarqueeSection, LocationStripSection, WhatWeNeedSection, TestimonialsSection, AgencyServicesSection, FaqSection, CtaBannerSection
+- **Helpers**: PortfolioItemCard, FaqAccordionItem, FloatingBadges, HeroVideoGrid, ColoredHeadline, SectionHeader
 
 ## API & Data Layer
 - `GET/PATCH /api/categorize` — Video manifest management
@@ -61,7 +61,7 @@
 
 ## Current State
 - Landing page repositioned from SaaS self-checkout to full-service agency with sales call funnel
-- 11 sections: Hero, Logo Strip, Stats, How It Works, Why XMA, Portfolio, Marquee, What We Need, Testimonials, FAQ, CTA Banner
+- 13 sections: Hero, Logo Strip, Stats, How It Works, Portfolio, Marquee, Location Strip, Why XMA, What We Need (6 cards), Testimonials, Agency Services (BEYOND THE VIDEO), FAQ, CTA Banner
 - All CTAs point to booking a consultation call (placeholder #book anchor — needs real booking URL)
 - Logo strip uses placeholder text names (needs real logo assets in /public/logos/)
 - Pricing removed entirely — revealed during sales call

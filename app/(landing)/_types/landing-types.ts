@@ -56,3 +56,10 @@ export type ClientLogo = {
   name: string;
   src: string;
 };
+
+export type AgencyService = {
+  id: string;
+  title: string;
+  description: string;
+  iconName: string;
+};
