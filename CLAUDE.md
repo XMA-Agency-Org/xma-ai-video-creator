@@ -48,6 +48,9 @@
 - clsx + tailwind-merge: Class merging via cn()
 - axios: HTTP client
 - lucide-react: Icons
+- @operationnation/sanity-plugin-schema-markup: Schema.org JSON-LD structured data for Sanity documents
+- schema-dts: TypeScript types for Schema.org structured data
+- @portabletext/react: Portable Text renderer for blog post body content
 
 ## Component Registry
 - **Primitives**: Button, Link, Input, Badge, Card, SectionContainer
@@ -58,6 +61,23 @@
 ## API & Data Layer
 - `GET/PATCH /api/categorize` — Video manifest management
 - Env vars: `NEXT_PUBLIC_BASE_URL`
+
+## Sanity Schema Registry
+- **Objects**: cta, sectionHeader, statItem, processStep, footerLinkGroup, seo
+- **Documents**: portfolioItem, testimonial, pricingPlan, faqItem, blogPost, author, category
+- **Singletons**: siteSettings, heroSection, statsSection, howItWorksSection, portfolioSection, marqueeSection, testimonialsSection, pricingSection, faqSection, ctaBannerSection, footerContent, workPage
+- **Blog post** has SEO object fields + schemaMarkup (from plugin) in "SEO & Schema Markup" tab group
+- **Studio structure**: Blog nested under its own group (Posts, Authors, Categories)
+
+## Blog Architecture
+- **Route**: `/blog` (listing) and `/blog/[slug]` (post detail)
+- **Layout**: `app/blog/layout.tsx` — NavigationHeader + SiteFooter
+- **Components**: `app/blog/_components/` — BlogCard, PostHeader, PostBody, BlogSchemaScript, CategoryFilter
+- **Queries**: BLOG_POSTS_QUERY, FEATURED_POSTS_QUERY, BLOG_POST_QUERY, BLOG_CATEGORIES_QUERY, RELATED_POSTS_QUERY
+- **SEO**: generateMetadata with coalesce fallbacks from seo object, Open Graph images, noIndex support
+- **Schema Markup**: NextSchemaScript from plugin renders JSON-LD on post pages
+- **Features**: Category filtering via URL params, featured post hero card, related posts section, author bio card, tag display
+- **Navigation**: "Blog" link added to NAV_LINKS in navigation-header.tsx
 
 ## Current State
 - Landing page repositioned from SaaS self-checkout to full-service agency with sales call funnel

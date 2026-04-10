@@ -5,11 +5,15 @@ import { sectionHeader } from "./objects/section-header";
 import { statItem } from "./objects/stat-item";
 import { processStep } from "./objects/process-step";
 import { footerLinkGroup } from "./objects/footer-link-group";
+import { seo } from "./objects/seo";
 
 import { portfolioItem } from "./documents/portfolio-item";
 import { testimonial } from "./documents/testimonial";
 import { pricingPlan } from "./documents/pricing-plan";
 import { faqItem } from "./documents/faq-item";
+import { blogPost } from "./documents/blog-post";
+import { author } from "./documents/author";
+import { category } from "./documents/category";
 
 import { siteSettings } from "./singletons/site-settings";
 import { heroSection } from "./singletons/hero-section";
@@ -31,11 +35,15 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     statItem,
     processStep,
     footerLinkGroup,
+    seo,
 
     portfolioItem,
     testimonial,
     pricingPlan,
     faqItem,
+    blogPost,
+    author,
+    category,
 
     siteSettings,
     heroSection,

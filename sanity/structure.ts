@@ -1,5 +1,6 @@
 import type { StructureResolver } from "sanity/structure";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
+import { DocumentTextIcon, UserIcon, TagIcon } from "@sanity/icons";
 import { SINGLETON_TYPES } from "./schemas";
 
 export const structure: StructureResolver = (S, context) =>
@@ -11,6 +12,34 @@ export const structure: StructureResolver = (S, context) =>
         .id("siteSettings")
         .child(
           S.document().schemaType("siteSettings").documentId("siteSettings")
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Blog")
+        .icon(DocumentTextIcon)
+        .child(
+          S.list()
+            .title("Blog")
+            .items([
+              S.listItem()
+                .title("Posts")
+                .icon(DocumentTextIcon)
+                .child(
+                  S.documentTypeList("blogPost").title("Blog Posts")
+                ),
+              S.listItem()
+                .title("Authors")
+                .icon(UserIcon)
+                .child(
+                  S.documentTypeList("author").title("Authors")
+                ),
+              S.listItem()
+                .title("Categories")
+                .icon(TagIcon)
+                .child(
+                  S.documentTypeList("category").title("Categories")
+                ),
+            ])
         ),
       S.divider(),
       S.listItem()

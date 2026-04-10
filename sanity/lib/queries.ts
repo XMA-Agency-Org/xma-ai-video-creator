@@ -116,3 +116,77 @@ export const WORK_PAGE_QUERY = defineQuery(`
     backLinkText
   }
 `);
+
+export const BLOG_POSTS_QUERY = defineQuery(`
+  *[_type == "blogPost"] | order(publishedAt desc){
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    coverImage{ asset, alt },
+    publishedAt,
+    featured,
+    author->{ name, "slug": slug.current, avatar },
+    categories[]->{ title, "slug": slug.current },
+    tags
+  }
+`);
+
+export const FEATURED_POSTS_QUERY = defineQuery(`
+  *[_type == "blogPost" && featured == true] | order(publishedAt desc)[0...3]{
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    coverImage{ asset, alt },
+    publishedAt,
+    author->{ name, avatar },
+    categories[]->{ title, "slug": slug.current }
+  }
+`);
+
+export const BLOG_POST_QUERY = defineQuery(`
+  *[_type == "blogPost" && slug.current == $slug][0]{
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    coverImage{ asset, alt },
+    body,
+    publishedAt,
+    _updatedAt,
+    featured,
+    author->{ name, "slug": slug.current, avatar, role, bio, socialLinks },
+    categories[]->{ title, "slug": slug.current },
+    tags,
+    seo {
+      title,
+      description,
+      image{ asset },
+      noIndex
+    },
+    schemaMarkup
+  }
+`);
+
+export const BLOG_CATEGORIES_QUERY = defineQuery(`
+  *[_type == "category"] | order(title asc){
+    _id,
+    title,
+    "slug": slug.current,
+    "postCount": count(*[_type == "blogPost" && references(^._id)])
+  }
+`);
+
+export const RELATED_POSTS_QUERY = defineQuery(`
+  *[_type == "blogPost" && slug.current != $currentSlug && count(categories[]->slug.current[@ in $categorySlugs]) > 0] | order(publishedAt desc)[0...3]{
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    coverImage{ asset, alt },
+    publishedAt,
+    author->{ name, avatar },
+    categories[]->{ title, "slug": slug.current }
+  }
+`);
