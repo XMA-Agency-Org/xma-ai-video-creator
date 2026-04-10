@@ -14,7 +14,7 @@ import { PricingSection } from "./_components/pricing-section";
 import { FaqSection } from "./_components/faq-section";
 import { CtaBannerSection } from "./_components/cta-banner-section";
 import { LocationStripSection } from "./_components/location-strip-section";
-import { AgencyServicesSection } from "./_components/agency-services-section";
+
 import { AbVariantProvider, AbPricingGate } from "./_components/ab-pricing-gate";
 
 export default function LandingPage() {
@@ -42,7 +42,6 @@ export default function LandingPage() {
       <Suspense>
         <TestimonialsSection />
       </Suspense>
-      <AgencyServicesSection />
       <AbPricingGate>
         <PricingSection />
       </AbPricingGate>
