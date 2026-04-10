@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import type { FaqItem } from "@/app/(landing)/_types/landing-types";
+import { posthog } from "@/app/_lib/posthog-client";
 
 type FaqAccordionItemProps = {
   item: FaqItem;
@@ -11,11 +12,21 @@ type FaqAccordionItemProps = {
 export function FaqAccordionItem({ item }: FaqAccordionItemProps) {
   const [open, setOpen] = useState(false);
 
+  function handleToggle() {
+    const nextOpen = !open;
+    setOpen(nextOpen);
+    if (nextOpen) {
+      posthog.capture("faq_item_expanded", {
+        question: item.question,
+      });
+    }
+  }
+
   return (
     <div className="border-b border-border">
       <button
         className="flex w-full items-center justify-between py-6 text-left cursor-pointer"
-        onClick={() => setOpen(!open)}
+        onClick={handleToggle}
         aria-expanded={open}
       >
         <span className="pr-4 font-heading text-base font-bold text-foreground">

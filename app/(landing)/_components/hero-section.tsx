@@ -4,6 +4,7 @@ import { HERO_CONTENT } from "@/app/(landing)/_lib/landing-content";
 import { ColoredHeadline } from "./colored-headline";
 import { HeroVideoGrid } from "./hero-video-grid";
 import { FloatingBadges } from "./floating-badges";
+import { HeroCta } from "./hero-cta";
 
 const FALLBACK_VIDEOS = [
   "https://ruyastudio.my.canva.site/_assets/video/efb606b771979083cbc1006435ccd03f.mp4",
@@ -42,13 +43,10 @@ export async function HeroSection() {
             </p>
 
             <div className="mt-10">
-              <a
-                href={primaryCta.href ?? "#book"}
-                className="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-xs md:text-base font-bold text-white transition-all duration-200 hover:bg-primary-600"
-              >
-                {primaryCta.label}
-                <span className="ml-1">&rarr;</span>
-              </a>
+              <HeroCta
+                defaultLabel={primaryCta.label ?? HERO_CONTENT.primaryCta}
+                defaultHref={primaryCta.href ?? "#book"}
+              />
             </div>
           </div>
 

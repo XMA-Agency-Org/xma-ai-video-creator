@@ -45,3 +45,4 @@ public/videos/*.mp4
 
 # sanity generated types
 sanity.types.ts
+.env.local

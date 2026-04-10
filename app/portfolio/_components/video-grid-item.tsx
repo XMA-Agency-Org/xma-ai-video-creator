@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { VideoLightbox } from "./video-lightbox";
+import { posthog } from "@/app/_lib/posthog-client";
 
 type VideoGridItemProps = {
   videoUrl: string;
@@ -26,6 +27,10 @@ export function VideoGridItem({ videoUrl, title, category }: VideoGridItemProps)
 
   function handleClick() {
     setLightboxOpen(true);
+    posthog.capture("portfolio_video_lightbox_opened", {
+      title,
+      category,
+    });
   }
 
   function handleCloseLightbox() {

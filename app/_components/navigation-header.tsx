@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/app/_lib/class-merge";
+import { posthog } from "@/app/_lib/posthog-client";
 import { Logo } from "./logo";
 import { MenuToggle } from "./menu-toggle";
 import { MobileMenu } from "./mobile-menu";
@@ -43,6 +44,7 @@ export function NavigationHeader() {
 
           <a
             href="#book"
+            onClick={() => posthog.capture("nav_book_call_clicked", { location: "header" })}
             className="hidden rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary-600 transition-all duration-200 hover:bg-lime-300 hover:text-primary-800 md:inline-flex"
           >
             BOOK A CALL

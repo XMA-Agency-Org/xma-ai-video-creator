@@ -1,5 +1,6 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { CTA_BANNER_QUERY } from "@/sanity/lib/queries";
+import { CtaBannerCta } from "./cta-banner-cta";
 
 export async function CtaBannerSection() {
   const { data } = await sanityFetch({ query: CTA_BANNER_QUERY });
@@ -23,12 +24,10 @@ export async function CtaBannerSection() {
               {description}
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <a
-                href={cta.href ?? "#book"}
-                className="inline-flex items-center gap-2 rounded-full bg-lime-300 px-8 py-4 text-base font-black text-foreground transition-all hover:bg-lime-400"
-              >
-                {cta.label} &rarr;
-              </a>
+              <CtaBannerCta
+                defaultLabel={cta.label ?? "Book Your Free Strategy Call"}
+                defaultHref={cta.href ?? "#book"}
+              />
             </div>
           </div>
         </div>

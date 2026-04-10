@@ -17,6 +17,7 @@ import type {
   ComparisonFeature,
   ChecklistItem,
   ClientLogo,
+  PricingPlan,
 } from "@/app/(landing)/_types/landing-types";
 
 export const HERO_CONTENT = {
@@ -254,5 +255,61 @@ export const FAQ_ITEMS: FaqItem[] = [
     question: "How do I get started?",
     answer:
       "Book a free strategy call with our team. We'll discuss your goals, walk you through our process, and put together a plan tailored to your brand. No commitment required.",
+  },
+];
+
+export const PRICING_PLANS: PricingPlan[] = [
+  {
+    id: "starter",
+    name: "Starter",
+    price: 499,
+    description: "Perfect for testing AI video for your brand",
+    features: [
+      "1 AI-generated video",
+      "Up to 30 seconds",
+      "1 revision round",
+      "HD quality (1080p)",
+      "Delivered in 5 business days",
+      "Social media optimized",
+    ],
+    highlighted: false,
+    stripePriceId: "price_starter_placeholder",
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    price: 999,
+    description: "Best value for growing brands",
+    features: [
+      "3 AI-generated videos",
+      "Up to 60 seconds each",
+      "2 revision rounds",
+      "4K quality",
+      "Delivered in 7 business days",
+      "Multi-platform formats",
+      "Brand kit integration",
+      "Priority support",
+    ],
+    highlighted: true,
+    stripePriceId: "price_pro_placeholder",
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    price: 2499,
+    description: "Full-scale content production",
+    features: [
+      "10 AI-generated videos",
+      "Up to 90 seconds each",
+      "Unlimited revisions",
+      "4K quality",
+      "Delivered in 14 business days",
+      "All platform formats",
+      "Custom brand kit",
+      "Dedicated account manager",
+      "Usage analytics dashboard",
+    ],
+    highlighted: false,
+    stripePriceId: "price_enterprise_placeholder",
   },
 ];

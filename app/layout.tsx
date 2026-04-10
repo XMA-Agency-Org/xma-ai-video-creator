@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Manrope, DM_Sans } from "next/font/google";
 import { projectId } from "@/sanity/env";
 import { SanityLive } from "@/sanity/lib/live";
+import { PostHogProvider } from "@/app/_components/posthog-provider";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -41,7 +43,11 @@ export default function RootLayout({
       className={`${manrope.variable} ${dmSans.variable} antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+        <Suspense>
+          <PostHogProvider>
+            {children}
+          </PostHogProvider>
+        </Suspense>
         {projectId && <SanityLive />}
       </body>
     </html>
