@@ -41,7 +41,7 @@ export const STATS = [
   { value: "10x", label: "Faster Than DIY", accent: false },
   { value: "9+", label: "Creative Experts on Your Team", accent: true },
   { value: "30%", label: "Lower Cost Than Agencies", accent: false },
-  { value: "50+", label: "Videos Delivered", accent: true },
+  { value: "500+", label: "Videos Delivered", accent: true },
 ];
 
 export const PROCESS_STEPS: ProcessStep[] = [
