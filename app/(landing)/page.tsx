@@ -28,9 +28,6 @@ export default function LandingPage() {
         <StatsSection />
       </Suspense>
       <Suspense>
-        <HowItWorksSection />
-      </Suspense>
-      <Suspense>
         <PortfolioSection />
       </Suspense>
       <Suspense>
@@ -38,6 +35,9 @@ export default function LandingPage() {
       </Suspense>
       <LocationStripSection />
       <WhyXmaSection />
+      <Suspense>
+        <HowItWorksSection />
+      </Suspense>
       <WhatWeNeedSection />
       <Suspense>
         <TestimonialsSection />

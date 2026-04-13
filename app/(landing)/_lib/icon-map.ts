@@ -24,6 +24,10 @@ import {
   Monitor,
   Settings,
   SearchCheck,
+  Rocket,
+  PenLine,
+  Clapperboard,
+  CheckCircle,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -53,6 +57,10 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Monitor,
   Settings,
   SearchCheck,
+  Rocket,
+  PenLine,
+  Clapperboard,
+  CheckCircle,
 };
 
 export function getIcon(name: string): LucideIcon {

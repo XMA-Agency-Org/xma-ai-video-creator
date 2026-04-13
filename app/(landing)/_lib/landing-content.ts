@@ -9,6 +9,11 @@ import {
   BookOpen,
   Users,
   Target,
+  PenLine,
+  Clapperboard,
+  Video,
+  CheckCircle,
+  Rocket,
 } from "lucide-react";
 import type {
   ProcessStep,
@@ -49,24 +54,45 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     stepNumber: 2,
-    title: "Research & Scripting",
+    title: "Brand Research",
     description:
-      "Our copywriting team researches your market, studies your competitors, and writes scripts tailored to your audience.",
+      "Our team researches your market, studies competitors, and maps out what makes your brand stand out.",
     icon: Search,
   },
   {
     stepNumber: 3,
-    title: "AI Production & Editing",
+    title: "Scriptwriting",
     description:
-      "Our AI engine generates high-quality content while our editors polish every frame with sound design and effects.",
-    icon: Sparkles,
+      "Our copywriters craft scripts tailored to your audience, message, and platform.",
+    icon: PenLine,
   },
   {
     stepNumber: 4,
-    title: "Review & Deliver",
+    title: "AI Production",
     description:
-      "You review the videos, request any refinements, and receive final files ready for social media or ads.",
-    icon: Send,
+      "Our AI engine generates high-quality video content matched to your brand style and direction.",
+    icon: Clapperboard,
+  },
+  {
+    stepNumber: 5,
+    title: "Editing and Polish",
+    description:
+      "Our editors refine every frame with professional sound design, effects, and color grading.",
+    icon: Video,
+  },
+  {
+    stepNumber: 6,
+    title: "Review and Refine",
+    description:
+      "You review the videos, request any refinements, and we polish until it's perfect.",
+    icon: CheckCircle,
+  },
+  {
+    stepNumber: 7,
+    title: "Campaign Launch",
+    description:
+      "Receive final files optimized for every platform, ready to launch and drive results.",
+    icon: Rocket,
   },
 ];
 
@@ -197,16 +223,16 @@ export const CHECKLIST_ICON_MAP: Record<string, typeof Palette> = {
 };
 
 export const CLIENT_LOGOS: ClientLogo[] = [
-  { id: "baggagetaxi", name: "BaggageTaxi", src: "/logos/baggagetaxi.webp" },
-  { id: "packman", name: "Packman", src: "/logos/packman_Logo.png" },
-  { id: "nbf", name: "NBF", src: "/logos/nbf-logo.png" },
-  { id: "dxtreme", name: "DXtreme", src: "/logos/DXtreme.png" },
-  { id: "dreamdrives", name: "Dream Drives", src: "/logos/dreamdrives-logo.svg" },
-  { id: "rossovivo", name: "Rosso Vivo", src: "/logos/rossovivo.png" },
-  { id: "pixishoot", name: "Pixishoot", src: "/logos/pixishoot.avif" },
-  { id: "tick", name: "Tick", src: "/logos/Tick.webp" },
-  { id: "4matic", name: "4MAtic", src: "/logos/4MAticlogo.png" },
-  { id: "asus", name: "ASUS", src: "/logos/ASUS-logo.png" },
+  { id: "baggagetaxi", name: "BaggageTaxi", src: "/logos/white/baggagetaxi.png" },
+  { id: "packman", name: "Packman", src: "/logos/white/packman_Logo.png" },
+  { id: "nbf", name: "NBF", src: "/logos/white/nbf-logo.png" },
+  { id: "dxtreme", name: "DXtreme", src: "/logos/white/DXtreme.png" },
+  { id: "dreamdrives", name: "Dream Drives", src: "/logos/white/dreamdrives-logo.svg" },
+  { id: "rossovivo", name: "Rosso Vivo", src: "/logos/white/rossovivo.png" },
+  { id: "pixishoot", name: "Pixishoot", src: "/logos/white/pixishoot.png" },
+  { id: "tick", name: "Tick", src: "/logos/white/Tick.png" },
+  { id: "4matic", name: "4MAtic", src: "/logos/white/4MAticlogo.png" },
+  { id: "asus", name: "ASUS", src: "/logos/white/ASUS-logo.png" },
 ];
 
 export const CTA_BANNER_CONTENT = {

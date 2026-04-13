@@ -25,15 +25,15 @@ export default function LandingPageB() {
         <StatsSection />
       </Suspense>
       <Suspense>
-        <HowItWorksSection />
-      </Suspense>
-      <Suspense>
         <PortfolioSection />
       </Suspense>
       <Suspense>
         <MarqueeSection />
       </Suspense>
       <WhyXmaSection />
+      <Suspense>
+        <HowItWorksSection />
+      </Suspense>
       <WhatWeNeedSection />
       <Suspense>
         <TestimonialsSection />
