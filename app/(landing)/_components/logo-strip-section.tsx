@@ -16,16 +16,18 @@ export function LogoStripSection() {
           {logos.map((logo) => (
             <div
               key={logo.id}
-              className={`shrink-0 h-8${
-                logo.id === "pixishoot" ? " invert" : ""
+              className={`shrink-0${
+                logo.id === "novo-skin" ? " h-14" : " h-8"
+              }${
+                ["pixishoot", "orgaplus"].includes(logo.id) ? " invert" : ""
               }`}
             >
               <Image
                 src={logo.src}
                 alt={logo.name}
-                height={32}
+                height={logo.id === "novo-skin" ? 56 : 32}
                 width={120}
-                className="h-8 w-auto object-contain opacity-70"
+                className={`${logo.id === "novo-skin" ? "h-14" : "h-8"} w-auto object-contain opacity-70`}
               />
             </div>
           ))}

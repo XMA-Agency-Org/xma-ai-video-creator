@@ -233,6 +233,9 @@ export const CLIENT_LOGOS: ClientLogo[] = [
   { id: "tick", name: "Tick", src: "/logos/Tick.webp" },
   { id: "4matic", name: "4MAtic", src: "/logos/4MAticlogo.png" },
   { id: "asus", name: "ASUS", src: "/logos/ASUS-logo.png" },
+  { id: "richie", name: "Richie", src: "/logos/Richie-logo.webp" },
+  { id: "novo-skin", name: "Novo Skin", src: "/logos/NOVO_SKIN_LOGOS-1-removebg-preview.png" },
+  { id: "orgaplus", name: "Orga+", src: "/logos/oragaplus.png" },
 ];
 
 export const CTA_BANNER_CONTENT = {
