@@ -1,3 +1,5 @@
+"use client";
+
 import { NextSchemaScript } from "@operationnation/sanity-plugin-schema-markup";
 import { projectId, dataset } from "@/sanity/env";
 
