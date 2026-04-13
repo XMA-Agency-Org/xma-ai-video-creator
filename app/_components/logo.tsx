@@ -15,7 +15,7 @@ export function Logo({ size = 32, className }: LogoProps) {
       width={size}
       height={size}
       className={cn("rounded-lg", className)}
-      style={{ width: size, height: "auto" }}
+      style={{ width: "auto", height: "auto" }}
     />
   );
 }
