@@ -16,7 +16,9 @@ export function LogoStripSection() {
           {logos.map((logo) => (
             <div
               key={logo.id}
-              className="shrink-0 h-8"
+              className={`shrink-0 h-8${
+                logo.id === "pixishoot" ? " invert" : ""
+              }`}
             >
               <Image
                 src={logo.src}

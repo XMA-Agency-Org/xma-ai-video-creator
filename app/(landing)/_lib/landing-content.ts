@@ -223,16 +223,16 @@ export const CHECKLIST_ICON_MAP: Record<string, typeof Palette> = {
 };
 
 export const CLIENT_LOGOS: ClientLogo[] = [
-  { id: "baggagetaxi", name: "BaggageTaxi", src: "/logos/white/baggagetaxi.png" },
-  { id: "packman", name: "Packman", src: "/logos/white/packman_Logo.png" },
-  { id: "nbf", name: "NBF", src: "/logos/white/nbf-logo.png" },
-  { id: "dxtreme", name: "DXtreme", src: "/logos/white/DXtreme.png" },
-  { id: "dreamdrives", name: "Dream Drives", src: "/logos/white/dreamdrives-logo.svg" },
-  { id: "rossovivo", name: "Rosso Vivo", src: "/logos/white/rossovivo.png" },
-  { id: "pixishoot", name: "Pixishoot", src: "/logos/white/pixishoot.png" },
-  { id: "tick", name: "Tick", src: "/logos/white/Tick.png" },
-  { id: "4matic", name: "4MAtic", src: "/logos/white/4MAticlogo.png" },
-  { id: "asus", name: "ASUS", src: "/logos/white/ASUS-logo.png" },
+  { id: "baggagetaxi", name: "BaggageTaxi", src: "/logos/baggagetaxi.webp" },
+  { id: "packman", name: "Packman", src: "/logos/packman_Logo.png" },
+  { id: "nbf", name: "NBF", src: "/logos/nbf-logo.png" },
+  { id: "dxtreme", name: "DXtreme", src: "/logos/DXtreme.png" },
+  { id: "dreamdrives", name: "Dream Drives", src: "/logos/dreamdrives-logo.svg" },
+  { id: "rossovivo", name: "Rosso Vivo", src: "/logos/rossovivo.png" },
+  { id: "pixishoot", name: "Pixishoot", src: "/logos/pixishoot.avif" },
+  { id: "tick", name: "Tick", src: "/logos/Tick.webp" },
+  { id: "4matic", name: "4MAtic", src: "/logos/4MAticlogo.png" },
+  { id: "asus", name: "ASUS", src: "/logos/ASUS-logo.png" },
 ];
 
 export const CTA_BANNER_CONTENT = {
