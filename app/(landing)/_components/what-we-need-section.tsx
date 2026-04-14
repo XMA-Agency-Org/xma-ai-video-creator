@@ -22,16 +22,18 @@ export function WhatWeNeedSection() {
 
             return (
               <StaggerItem key={item.id} y={20}>
-                <div className="group grid grid-cols-1 gap-4 py-8 transition-colors duration-300 first:pt-0 last:pb-0 md:grid-cols-[3rem_14rem_1fr] md:items-center md:gap-8">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors duration-300 group-hover:bg-primary-500 group-hover:text-white">
-                    <Icon size={22} />
+                <div className="group py-8 transition-colors duration-300 md:grid md:grid-cols-[3rem_14rem_1fr] md:items-center md:gap-8">
+                  <div className="flex items-center gap-4 md:contents">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors duration-300 group-hover:bg-primary-500 group-hover:text-white">
+                      <Icon size={22} />
+                    </div>
+
+                    <h3 className="font-heading text-lg font-bold text-foreground">
+                      {item.title}
+                    </h3>
                   </div>
 
-                  <h3 className="font-heading text-lg font-bold text-foreground">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm leading-relaxed text-muted-foreground md:max-w-md">
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:mt-0 md:max-w-md">
                     {item.description}
                   </p>
                 </div>

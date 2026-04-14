@@ -9,7 +9,7 @@ type MenuToggleProps = {
 
 const topLine = {
   closed: { rotate: 0, y: 0 },
-  open: { rotate: 45, y: 6 },
+  open: { rotate: 45, y: 7 },
 };
 
 const middleLine = {
@@ -19,7 +19,7 @@ const middleLine = {
 
 const bottomLine = {
   closed: { rotate: 0, y: 0 },
-  open: { rotate: -45, y: -6 },
+  open: { rotate: -45, y: -7 },
 };
 
 const spring = { type: "spring" as const, stiffness: 260, damping: 20 };
