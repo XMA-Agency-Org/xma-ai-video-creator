@@ -28,8 +28,6 @@ export const portfolioItem = defineType({
       options: {
         list: [
           "Beauty",
-          "Skincare",
-          "Haircare",
           "Fragrance",
           "Fashion & Lifestyle",
           "Food & Beverage",
@@ -38,15 +36,16 @@ export const portfolioItem = defineType({
           "CGI & 3D",
           "UGC",
           "Product Ads",
+          "Service Business",
         ],
       },
     }),
     defineField({
       name: "videoUrl",
       title: "Video URL",
-      type: "url",
+      type: "string",
       validation: (rule) => rule.required(),
-      description: "Direct URL to video file (.mp4)",
+      description: "Direct URL or relative path to video file (.mp4)",
     }),
     defineField({
       name: "orderRank",

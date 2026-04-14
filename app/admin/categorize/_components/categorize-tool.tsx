@@ -11,26 +11,21 @@ type VideoEntry = {
 };
 
 const CATEGORIES = [
+  "Beauty",
+  "Fragrance",
   "Fashion & Lifestyle",
+  "Food & Beverage",
+  "Real Estate",
+  "E-Commerce",
   "CGI & 3D",
   "UGC",
   "Product Ads",
-  "Skincare",
-  "Haircare",
-  "Fragrance",
-  "Food & Beverage",
+  "Service Business",
 ];
 
-const CATEGORY_KEYS: Record<string, string> = {
-  "1": "Fashion & Lifestyle",
-  "2": "CGI & 3D",
-  "3": "UGC",
-  "4": "Product Ads",
-  "5": "Skincare",
-  "6": "Haircare",
-  "7": "Fragrance",
-  "8": "Food & Beverage",
-};
+const CATEGORY_KEYS: Record<string, string> = Object.fromEntries(
+  CATEGORIES.map((cat, i) => [String(i + 1), cat])
+);
 
 export function CategorizeTool() {
   const [entries, setEntries] = useState<VideoEntry[]>([]);
@@ -39,6 +34,7 @@ export function CategorizeTool() {
   const [editingTitle, setEditingTitle] = useState(false);
   const [titleDraft, setTitleDraft] = useState("");
   const [filter, setFilter] = useState<"all" | "uncategorized">("all");
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const titleInputRef = useRef<HTMLInputElement>(null);
 
@@ -59,6 +55,7 @@ export function CategorizeTool() {
       videoRef.current.load();
       videoRef.current.play().catch(() => {});
     }
+    setConfirmingDelete(false);
   }, [current?.id]);
 
   const saveCategory = useCallback(async (category: string) => {
@@ -77,6 +74,21 @@ export function CategorizeTool() {
 
     if (currentIndex < filtered.length - 1) {
       setCurrentIndex((i) => i + 1);
+    }
+  }, [current, saving, currentIndex, filtered.length]);
+
+  const deleteVideo = useCallback(async () => {
+    if (!current || saving) return;
+    setSaving(true);
+
+    await axios.delete("/api/categorize", { data: { id: current.id } });
+
+    setEntries((prev) => prev.filter((e) => e.id !== current.id));
+    setConfirmingDelete(false);
+    setSaving(false);
+
+    if (currentIndex >= filtered.length - 2) {
+      setCurrentIndex((i) => Math.max(i - 1, 0));
     }
   }, [current, saving, currentIndex, filtered.length]);
 
@@ -205,6 +217,33 @@ export function CategorizeTool() {
                 <span className="text-xs text-neutral-500 group-hover:text-neutral-300">
                   click or press T to rename
                 </span>
+              </button>
+            )}
+          </div>
+
+          <div className="mt-3">
+            {confirmingDelete ? (
+              <div className="flex gap-2">
+                <button
+                  onClick={deleteVideo}
+                  disabled={saving}
+                  className="flex-1 rounded-xl bg-red-600 py-3 text-sm font-bold transition-colors hover:bg-red-700 disabled:opacity-50"
+                >
+                  Confirm Delete
+                </button>
+                <button
+                  onClick={() => setConfirmingDelete(false)}
+                  className="flex-1 rounded-xl bg-white/10 py-3 text-sm font-bold transition-colors hover:bg-white/20"
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => setConfirmingDelete(true)}
+                className="w-full rounded-xl bg-red-500/10 py-3 text-sm font-bold text-red-400 transition-colors hover:bg-red-500/20"
+              >
+                Delete Video
               </button>
             )}
           </div>
