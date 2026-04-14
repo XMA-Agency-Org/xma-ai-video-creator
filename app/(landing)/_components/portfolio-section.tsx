@@ -10,6 +10,7 @@ const FALLBACK_CATEGORIES = ["Haircare", "Food & Beverage", "Product Ads", "UGC"
 
 export async function PortfolioSection() {
   const { data } = await sanityFetch({ query: PORTFOLIO_SECTION_QUERY });
+console.log(data)
 
   const header = data?.header ?? {
     subtitle: "OUR WORK",
