@@ -34,7 +34,7 @@ export async function TestimonialsSection() {
         />
 
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-[1.4fr_1fr]">
-          <div className="flex flex-col justify-center rounded-[var(--radius-2xl)] bg-white p-8 md:p-12">
+          <div className="flex flex-col justify-center rounded-[var(--radius-2xl)] bg-white p-5 sm:p-8 md:p-12">
             <svg
               className="mb-6 h-10 w-10 text-primary-200"
               viewBox="0 0 24 24"

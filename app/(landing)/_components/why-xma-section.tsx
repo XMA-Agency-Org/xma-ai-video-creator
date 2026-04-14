@@ -15,14 +15,14 @@ export function WhyXmaSection() {
         />
 
         <div className="mt-14 overflow-clip rounded-[var(--radius-2xl)] border-2 border-border shadow-sm">
-          <div className="grid grid-cols-[1fr_auto_auto] items-center border-b border-border bg-muted px-6 py-5 md:px-10">
-            <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
+          <div className="grid grid-cols-[1fr_auto_auto] items-center border-b border-border bg-muted px-4 py-4 sm:px-6 sm:py-5 md:px-10">
+            <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground sm:text-sm">
               Feature
             </span>
-            <span className="w-24 text-center text-sm font-bold uppercase tracking-widest text-primary-500 md:w-32">
+            <span className="w-16 text-center text-xs font-bold uppercase tracking-widest text-primary-500 sm:w-24 md:w-32 sm:text-sm">
               XMA
             </span>
-            <span className="w-24 text-center text-sm font-bold uppercase tracking-widest text-muted-foreground md:w-32">
+            <span className="w-16 text-center text-xs font-bold uppercase tracking-widest text-muted-foreground sm:w-24 md:w-32 sm:text-sm">
               DIY Tools
             </span>
           </div>
@@ -30,25 +30,25 @@ export function WhyXmaSection() {
           {features.map((item, i) => (
             <div
               key={item.feature}
-              className={`grid grid-cols-[1fr_auto_auto] items-center px-6 py-4 md:px-10 ${
+              className={`grid grid-cols-[1fr_auto_auto] items-center px-4 py-3 sm:px-6 sm:py-4 md:px-10 ${
                 i < features.length - 1 ? "border-b border-border" : ""
               }`}
             >
-              <span className="text-sm font-medium text-foreground md:text-base">
+              <span className="text-xs font-medium text-foreground sm:text-sm md:text-base">
                 {item.feature}
               </span>
 
-              <div className="flex w-24 items-center justify-center md:w-32">
+              <div className="flex w-16 items-center justify-center sm:w-24 md:w-32">
                 {item.xma === true ? (
                   <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-50">
                     <Check size={16} className="text-primary-500" />
                   </div>
                 ) : (
-                  <span className="text-sm text-muted-foreground">{String(item.xma)}</span>
+                  <span className="text-xs text-muted-foreground sm:text-sm">{String(item.xma)}</span>
                 )}
               </div>
 
-              <div className="flex w-24 items-center justify-center md:w-32">
+              <div className="flex w-16 items-center justify-center sm:w-24 md:w-32">
                 {item.diy === true ? (
                   <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-50">
                     <Check size={16} className="text-primary-500" />

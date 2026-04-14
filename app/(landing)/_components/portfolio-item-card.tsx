@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import type { PortfolioItem } from "@/app/(landing)/_types/landing-types";
 
 type PortfolioItemCardProps = {
@@ -9,6 +9,30 @@ type PortfolioItemCardProps = {
 
 export function PortfolioItemCard({ item }: PortfolioItemCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    const video = videoRef.current;
+    if (!card || !video) return;
+
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    if (!isTouchDevice) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.6 },
+    );
+
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, []);
 
   function handleMouseEnter() {
     videoRef.current?.play();
@@ -20,6 +44,7 @@ export function PortfolioItemCard({ item }: PortfolioItemCardProps) {
 
   return (
     <div
+      ref={cardRef}
       className="group relative overflow-clip rounded-[var(--radius-2xl)] border-2 border-foreground/10 bg-foreground/[0.03] shadow-sm transition-all duration-300 hover:border-primary-300 hover:shadow-xl"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

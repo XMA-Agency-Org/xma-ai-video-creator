@@ -8,7 +8,7 @@ export async function HowItWorksSection() {
   const { data } = await sanityFetch({ query: HOW_IT_WORKS_QUERY });
 
   const header = data?.header ?? {
-    subtitle: "YOUR DEDICATED TEAM",
+    subtitle: "ROADMAP",
     heading: "From Brief to Launch in 7 Days",
     description:
       "Your project gets a full creative team, not just an AI tool:",
@@ -33,8 +33,59 @@ export async function HowItWorksSection() {
           description={header.description}
         />
 
-        <div className="mt-14 overflow-x-auto pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <div className="relative mx-auto min-w-[720px]">
+        {/* Mobile: vertical timeline */}
+        <div className="mt-10 md:hidden">
+          <div className="relative md:ml-8">
+            <div
+              className="absolute left-[2.4rem] top-0 bottom-0 w-1 rounded-full bg-primary-500"
+              aria-hidden="true"
+            />
+
+            <div className="space-y-6">
+              {steps.map(
+                (
+                  step: {
+                    stepNumber: number;
+                    title: string;
+                    description: string;
+                    iconName?: string;
+                    highlighted?: boolean;
+                  },
+                ) => {
+                  const Icon = getIcon(step.iconName ?? "FileText");
+                  const isLast = step.stepNumber === 7;
+
+                  return (
+                    <div key={step.stepNumber} className="relative flex items-center gap-4">
+                      <div className="relative z-10 shrink-0">
+                        <div
+                          className={`flex size-20 md:size-12 items-center justify-center rounded-full border-4 font-heading md:text-[10px] font-black uppercase ${
+                            isLast
+                              ? "border-lime-300 bg-lime-300 text-foreground shadow-[0_0_0_4px_oklch(0.85_0.18_120/0.3)]"
+                              : "border-primary-700 bg-primary-500 text-white shadow-[0_0_0_4px_oklch(0.49_0.27_290/0.2)]"
+                          }`}
+                        >
+                          Day {step.stepNumber}
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <Icon size={20} className="text-primary-700" strokeWidth={2.5} />
+                          <p className="md:text-sm text-base font-bold text-foreground">{step.title}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                },
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: horizontal timeline */}
+        <div className="mt-14 hidden md:block">
+          <div className="relative mx-auto">
             <div className="grid grid-cols-7">
               {steps.map(
                 (

@@ -15,42 +15,40 @@ import { FaqSection } from "./_components/faq-section";
 import { CtaBannerSection } from "./_components/cta-banner-section";
 import { LocationStripSection } from "./_components/location-strip-section";
 
-import { AbVariantProvider, AbPricingGate } from "./_components/ab-pricing-gate";
+import {
+  AbVariantProvider,
+  AbPricingGate,
+} from "./_components/ab-pricing-gate";
 
 export default function LandingPage() {
   return (
     <AbVariantProvider>
-      <Suspense>
-        <HeroSection />
-      </Suspense>
+      <HeroSection />
+
       <LogoStripSection />
-      <Suspense>
-        <StatsSection />
-      </Suspense>
-      <Suspense>
-        <PortfolioSection />
-      </Suspense>
-      <Suspense>
-        <MarqueeSection />
-      </Suspense>
+
+      <StatsSection />
+
+      <PortfolioSection />
+
+      <MarqueeSection />
+
       <LocationStripSection />
       <WhyXmaSection />
-      <Suspense>
-        <HowItWorksSection />
-      </Suspense>
+
+      <HowItWorksSection />
+
       <WhatWeNeedSection />
-      <Suspense>
-        <TestimonialsSection />
-      </Suspense>
+
+      <TestimonialsSection />
+
       <AbPricingGate>
         <PricingSection />
       </AbPricingGate>
-      <Suspense>
-        <FaqSection />
-      </Suspense>
-      <Suspense>
-        <CtaBannerSection />
-      </Suspense>
+
+      <FaqSection />
+
+      <CtaBannerSection />
     </AbVariantProvider>
   );
 }

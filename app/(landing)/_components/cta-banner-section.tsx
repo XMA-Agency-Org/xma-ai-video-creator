@@ -12,7 +12,7 @@ export async function CtaBannerSection() {
   return (
     <section className="py-[var(--section-padding-y)]">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
-        <div className="relative overflow-clip rounded-[2rem] bg-foreground px-8 py-20 text-center md:px-16">
+        <div className="relative overflow-clip rounded-[2rem] bg-foreground px-6 py-12 text-center sm:px-8 md:px-16 md:py-20">
           <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-primary-500/20" />
           <div className="absolute -right-16 -bottom-16 h-48 w-48 rounded-full bg-lime-300/20" />
 

@@ -14,7 +14,7 @@
   --font-heading: var(--font-manrope);
   --font-body: var(--font-dm-sans);
 
-  --section-padding-y: 4rem;
+  --section-padding-y: 2.5rem;
   --container-max-width: 1280px;
   --radius-base: 0.5rem;
   --radius-lg: 0.75rem;
@@ -131,6 +131,12 @@ body {
 
 .animate-marquee {
   animation: marquee 12s linear infinite;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-padding-y: 4rem;
+  }
 }
 
 @media (max-width: 768px) {

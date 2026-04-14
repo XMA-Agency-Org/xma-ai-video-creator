@@ -32,7 +32,7 @@ export function FloatingBadges({ badges }: FloatingBadgesProps) {
         return (
           <div
             key={i}
-            className={`absolute ${POSITIONS[i] ?? ""} ${ANIMATION_CLASSES[i] ?? ""} z-10`}
+            className={`absolute hidden lg:block ${POSITIONS[i] ?? ""} ${ANIMATION_CLASSES[i] ?? ""} z-10`}
           >
             <div
               className={`flex items-center gap-2 rounded-full px-4 py-2.5 shadow-lg ${

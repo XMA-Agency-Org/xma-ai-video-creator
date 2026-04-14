@@ -96,11 +96,12 @@ export function PortfolioCarousel({ items }: PortfolioCarouselProps) {
                 goTo(i);
                 resetAutoplay();
               }}
-              className={`h-1.5 cursor-pointer rounded-full transition-all duration-300 ${
+              className={`h-2 cursor-pointer rounded-full transition-all duration-300 ${
                 i === activeIndex
                   ? "w-8 bg-primary-500"
                   : "w-4 bg-foreground/15 hover:bg-foreground/25"
               }`}
+              style={{ touchAction: "manipulation" }}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
@@ -112,7 +113,7 @@ export function PortfolioCarousel({ items }: PortfolioCarouselProps) {
               goPrev();
               resetAutoplay();
             }}
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-foreground/10 text-foreground transition-colors hover:bg-foreground hover:text-background"
+            className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-foreground/10 text-foreground transition-colors hover:bg-foreground hover:text-background"
             aria-label="Previous video"
           >
             <ChevronLeft size={18} />
@@ -122,7 +123,7 @@ export function PortfolioCarousel({ items }: PortfolioCarouselProps) {
               goNext();
               resetAutoplay();
             }}
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-foreground/10 text-foreground transition-colors hover:bg-foreground hover:text-background"
+            className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-foreground/10 text-foreground transition-colors hover:bg-foreground hover:text-background"
             aria-label="Next video"
           >
             <ChevronRight size={18} />

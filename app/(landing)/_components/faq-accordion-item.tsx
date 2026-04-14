@@ -32,7 +32,7 @@ export function FaqAccordionItem({ item }: FaqAccordionItemProps) {
         <span className="pr-4 font-heading text-base font-bold text-foreground">
           {item.question}
         </span>
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-500 transition-colors">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-500 transition-colors">
           {open ? <Minus size={16} /> : <Plus size={16} />}
         </span>
       </button>
