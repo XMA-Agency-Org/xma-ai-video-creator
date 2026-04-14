@@ -1,6 +1,7 @@
 import { PRICING_PLANS } from "@/app/(landing)/_lib/landing-content";
 import { SectionHeader } from "./section-header";
 import { PricingCard } from "./pricing-card";
+import { StaggerGroup, StaggerItem } from "./stagger-group";
 
 export function PricingSection() {
   return (
@@ -13,11 +14,13 @@ export function PricingSection() {
           align="center"
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3 items-start">
+        <StaggerGroup className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3 items-start" stagger={0.12}>
           {PRICING_PLANS.map((plan) => (
-            <PricingCard key={plan.id} plan={plan} />
+            <StaggerItem key={plan.id} y={30} scale={0.97}>
+              <PricingCard plan={plan} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

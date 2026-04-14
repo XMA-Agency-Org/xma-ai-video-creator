@@ -3,6 +3,8 @@ import { FAQ_SECTION_QUERY } from "@/sanity/lib/queries";
 import { FAQ_ITEMS } from "@/app/(landing)/_lib/landing-content";
 import { SectionHeader } from "./section-header";
 import { FaqAccordionItem } from "./faq-accordion-item";
+import { AnimateIn } from "./animate-in";
+import { StaggerGroup, StaggerItem } from "./stagger-group";
 
 export async function FaqSection() {
   const { data } = await sanityFetch({ query: FAQ_SECTION_QUERY });
@@ -31,19 +33,23 @@ export async function FaqSection() {
               heading={header.heading}
               description={header.description}
             />
-            <a
-              href={`mailto:${contactEmail}`}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-sm font-bold text-white transition-colors hover:bg-primary-600"
-            >
-              {contactText} &rarr;
-            </a>
+            <AnimateIn y={15} delay={0.3}>
+              <a
+                href={`mailto:${contactEmail}`}
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-sm font-bold text-white transition-colors hover:bg-primary-600"
+              >
+                {contactText} &rarr;
+              </a>
+            </AnimateIn>
           </div>
 
-          <div className="border-t border-border lg:border-t-0">
+          <StaggerGroup className="border-t border-border lg:border-t-0" stagger={0.06}>
             {items.map((item: { id: string; question: string; answer: string }) => (
-              <FaqAccordionItem key={item.id} item={item} />
+              <StaggerItem key={item.id} y={15}>
+                <FaqAccordionItem item={item} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
     </section>

@@ -43,9 +43,20 @@
 - `bg-white` cards on warm cream background are invisible — use dark/purple backgrounds or strong borders with shadow
 - `scroll-behavior: smooth` on html can interfere with programmatic scroll and anchor navigation
 
+## Animation System
+- **Library**: Motion (Framer Motion) v12 — `motion/react` imports
+- **Primitives**: `AnimateIn` (scroll-triggered fade+slide), `StaggerGroup` + `StaggerItem` (staggered group animations)
+- **Location**: `app/(landing)/_components/animate-in.tsx` and `stagger-group.tsx`
+- **Easing**: `[0.16, 1, 0.3, 1]` (smooth deceleration) used consistently
+- **Accessibility**: All animation components respect `useReducedMotion()` — render static fallback when reduced motion preferred
+- **Pattern**: Server components wrap content in client animation components; never convert server components to client just for animation
+- **SectionHeader**: Now a client component with built-in staggered reveal animation
+- **Existing**: ScrollVelocityRow (logo strip), AnimatedStats (counter), PortfolioGrid (InView), CSS marquee/float keyframes in globals.css
+
 ## Dependencies & Tooling
 - class-variance-authority: Component variant system
 - clsx + tailwind-merge: Class merging via cn()
+- motion: Animation library (Framer Motion) v12
 - axios: HTTP client
 - lucide-react: Icons
 - @operationnation/sanity-plugin-schema-markup: Schema.org JSON-LD structured data for Sanity documents
@@ -57,6 +68,8 @@
 - **Layout**: NavigationHeader (pill-shaped purple), SiteFooter (dark)
 - **Sections**: HeroSection, LogoStripSection, StatsSection, HowItWorksSection, WhyXmaSection, PortfolioSection, MarqueeSection, LocationStripSection, WhatWeNeedSection, TestimonialsSection, AgencyServicesSection, FaqSection, CtaBannerSection
 - **Helpers**: PortfolioItemCard, FaqAccordionItem, FloatingBadges, HeroVideoGrid, ColoredHeadline, SectionHeader
+- **Animation**: AnimateIn, StaggerGroup, StaggerItem
+- **Legal**: LegalPageShell (shared layout for privacy/terms pages)
 
 ## API & Data Layer
 - `GET/PATCH /api/categorize` — Video manifest management
@@ -78,6 +91,15 @@
 - **Schema Markup**: NextSchemaScript from plugin renders JSON-LD on post pages
 - **Features**: Category filtering via URL params, featured post hero card, related posts section, author bio card, tag display
 - **Navigation**: "Blog" link added to NAV_LINKS in navigation-header.tsx
+
+## Legal Pages
+- **Route group**: `(legal)` with shared layout (NavigationHeader + SiteFooter)
+- **Routes**: `/privacy` (Privacy Policy), `/terms` (Terms of Service)
+- **Components**: `app/(legal)/_components/legal-page-shell.tsx` — shared wrapper with TOC + prose sections
+- **Content**: `app/(legal)/_lib/legal-content.tsx` — typed React content with inline links
+- **Entity**: XLUXIVE DIGITAL MARKETING LLC (trading as XMA Agency)
+- **Jurisdiction**: UAE PDPL, Dubai courts
+- **Footer**: Privacy Policy and Terms of Service links added to FALLBACK_LINKS
 
 ## Current State
 - Landing page repositioned from SaaS self-checkout to full-service agency with sales call funnel

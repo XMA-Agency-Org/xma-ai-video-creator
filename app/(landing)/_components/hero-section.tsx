@@ -5,6 +5,7 @@ import { ColoredHeadline } from "./colored-headline";
 import { HeroVideoGrid } from "./hero-video-grid";
 import { FloatingBadges } from "./floating-badges";
 import { HeroCta } from "./hero-cta";
+import { AnimateIn } from "./animate-in";
 
 const FALLBACK_VIDEOS = [
   "https://ruyastudio.my.canva.site/_assets/video/efb606b771979083cbc1006435ccd03f.mp4",
@@ -32,28 +33,38 @@ export async function HeroSection() {
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-widest text-primary-500">
-              AI-POWERED VIDEO CREATION
-            </p>
+            <AnimateIn y={20} duration={0.5}>
+              <p className="mb-4 text-sm font-bold uppercase tracking-widest text-primary-500">
+                AI-POWERED VIDEO CREATION
+              </p>
+            </AnimateIn>
 
-            <ColoredHeadline text={headline} />
+            <AnimateIn y={30} delay={0.1} duration={0.6}>
+              <ColoredHeadline text={headline} />
+            </AnimateIn>
 
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-              {subheadline}
-            </p>
+            <AnimateIn y={20} delay={0.2} duration={0.5}>
+              <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
+                {subheadline}
+              </p>
+            </AnimateIn>
 
-            <div className="mt-10">
-              <HeroCta
-                defaultLabel={primaryCta.label ?? HERO_CONTENT.primaryCta}
-                defaultHref={primaryCta.href ?? "#book"}
-              />
+            <AnimateIn y={20} delay={0.35} duration={0.5}>
+              <div className="mt-10">
+                <HeroCta
+                  defaultLabel={primaryCta.label ?? HERO_CONTENT.primaryCta}
+                  defaultHref={primaryCta.href ?? "#book"}
+                />
+              </div>
+            </AnimateIn>
+          </div>
+
+          <AnimateIn y={40} x={20} delay={0.2} duration={0.8}>
+            <div className="relative">
+              <HeroVideoGrid videos={videos} />
+              <FloatingBadges badges={badges} />
             </div>
-          </div>
-
-          <div className="relative">
-            <HeroVideoGrid videos={videos} />
-            <FloatingBadges badges={badges} />
-          </div>
+          </AnimateIn>
         </div>
       </div>
     </section>
