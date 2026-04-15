@@ -30,6 +30,11 @@
 - **Accent**: Lime/yellow-green (`oklch(0.85 0.18 120)`) for highlights and badges
 - **Style**: Bold uppercase headings, pill-shaped nav, floating stat badges, bento-grid cards, marquee text ribbons, asymmetric hero layout
 - **Cards on cream bg**: Use `bg-foreground` (dark) or `bg-primary-500` for high contrast — never `bg-white` on cream
+- **Fluid typography tokens**: `--text-display` (hero), `--text-title-lg` (section headings), `--text-title`, `--text-body-lg` — all using `clamp()`
+- **Easing tokens**: `--ease-out-expo`, `--ease-out-quart`, `--ease-out-circ`, `--ease-in-out-quint` in globals.css
+- **Duration tokens**: `--duration-fast` (200ms), `--duration-normal` (400ms), `--duration-slow` (700ms)
+- **Section rhythm**: Varied padding per section (breathing vs. tight), alternating backgrounds (dark stats, purple-tint WhatWeNeed, gradient testimonials)
+- **Marquee**: Viewport-filling text with outline/filled alternation on dark bg, scroll-velocity-responsive via ScrollVelocityRow
 
 ## Patterns & Conventions
 - Primitive components: `app/_components/primitives/` with barrel export
@@ -42,21 +47,26 @@
 - `h-full` on `<html>` element prevents page scrolling — body overflow is clipped to viewport height
 - `bg-white` cards on warm cream background are invisible — use dark/purple backgrounds or strong borders with shadow
 - `scroll-behavior: smooth` on html can interfere with programmatic scroll and anchor navigation
+- Fluid `clamp()` hero typography: `8vw` is too aggressive for 2-col layouts. Cap hero at `clamp(2.75rem, 4vw + 1rem, 5.5rem)`. Reserve `12vw` only for full-width marquees
+- Don't duplicate CTA moments: if a CTA banner section exists before the footer, don't add another statement headline inside the footer
 
 ## Animation System
 - **Library**: Motion (Framer Motion) v12 — `motion/react` imports
-- **Primitives**: `AnimateIn` (scroll-triggered fade+slide), `StaggerGroup` + `StaggerItem` (staggered group animations)
-- **Location**: `app/(landing)/_components/animate-in.tsx` and `stagger-group.tsx`
-- **Easing**: `[0.16, 1, 0.3, 1]` (smooth deceleration) used consistently
+- **Primitives**: `AnimateIn` (scroll-triggered fade+slide), `StaggerGroup` + `StaggerItem` (staggered group animations), `TextReveal` (word-by-word reveal), `HeroChoreography` (page load orchestration)
+- **Location**: `app/(landing)/_components/animate-in.tsx`, `stagger-group.tsx`, `text-reveal.tsx`, `hero-choreography.tsx`
+- **Easing**: Centralized in `app/_lib/motion-config.ts` — `EASE_OUT_EXPO`, `EASE_OUT_QUART`, `EASE_IN_OUT_QUINT`
+- **Smooth scroll**: Lenis via `app/_components/smooth-scroll-provider.tsx`, respects prefers-reduced-motion
 - **Accessibility**: All animation components respect `useReducedMotion()` — render static fallback when reduced motion preferred
 - **Pattern**: Server components wrap content in client animation components; never convert server components to client just for animation
-- **SectionHeader**: Now a client component with built-in staggered reveal animation
-- **Existing**: ScrollVelocityRow (logo strip), AnimatedStats (counter), PortfolioGrid (InView), CSS marquee/float keyframes in globals.css
+- **SectionHeader**: Client component with built-in staggered reveal, fluid `--text-title-lg` sizing
+- **Existing**: ScrollVelocityRow (logo strip, marquee, location strip), AnimatedStats (counter), PortfolioGrid (InView), CSS float keyframes in globals.css
+- **Micro-interactions**: MagneticButton (`app/_components/magnetic-button.tsx`), `.link-underline` CSS class for hover underlines
 
 ## Dependencies & Tooling
 - class-variance-authority: Component variant system
 - clsx + tailwind-merge: Class merging via cn()
 - motion: Animation library (Framer Motion) v12
+- lenis: Smooth scroll library
 - axios: HTTP client
 - lucide-react: Icons
 - @operationnation/sanity-plugin-schema-markup: Schema.org JSON-LD structured data for Sanity documents
@@ -67,8 +77,9 @@
 - **Primitives**: Button, Link, Input, Badge, Card, SectionContainer
 - **Layout**: NavigationHeader (pill-shaped purple), SiteFooter (dark)
 - **Sections**: HeroSection, LogoStripSection, StatsSection, HowItWorksSection, WhyXmaSection, PortfolioSection, MarqueeSection, LocationStripSection, WhatWeNeedSection, TestimonialsSection, AgencyServicesSection, FaqSection, CtaBannerSection
-- **Helpers**: PortfolioItemCard, FaqAccordionItem, FloatingBadges, HeroVideoGrid, ColoredHeadline, SectionHeader
-- **Animation**: AnimateIn, StaggerGroup, StaggerItem
+- **Helpers**: PortfolioItemCard, FaqAccordionItem, FloatingBadges, HeroVideoGrid, ColoredHeadline, SectionHeader, CtaBannerReveal
+- **Animation**: AnimateIn, StaggerGroup, StaggerItem, TextReveal, HeroChoreography
+- **Interaction**: MagneticButton, SmoothScrollProvider
 - **Legal**: LegalPageShell (shared layout for privacy/terms pages)
 
 ## API & Data Layer

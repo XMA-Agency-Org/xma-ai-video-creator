@@ -4,6 +4,7 @@ import { PROCESS_STEPS } from "@/app/(landing)/_lib/landing-content";
 import { SectionHeader } from "./section-header";
 import { getIcon } from "@/app/(landing)/_lib/icon-map";
 import { StaggerGroup, StaggerItem } from "./stagger-group";
+import { GrowingLine } from "./growing-line";
 
 export async function HowItWorksSection() {
   const { data } = await sanityFetch({ query: HOW_IT_WORKS_QUERY });
@@ -26,7 +27,7 @@ export async function HowItWorksSection() {
     }));
 
   return (
-    <section id="how-it-works" className="py-[var(--section-padding-y)]">
+    <section id="how-it-works" className="py-14 md:py-20">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <SectionHeader
           subtitle={header.subtitle}
@@ -38,11 +39,11 @@ export async function HowItWorksSection() {
         <StaggerGroup className="mt-10 md:hidden" stagger={0.1}>
           <div className="relative md:ml-8">
             <div
-              className="absolute left-[2.4rem] top-0 bottom-0 w-1 rounded-full bg-primary-500"
+              className="absolute left-[2.4rem] top-0 bottom-0 w-1 rounded-full bg-primary-500 z-0"
               aria-hidden="true"
             />
 
-            <div className="space-y-6">
+            <div className="space-y-6 z-10">
               {steps.map(
                 (
                   step: {
@@ -139,9 +140,10 @@ export async function HowItWorksSection() {
               )}
             </StaggerGroup>
 
-            <div
+            <GrowingLine
               className="pointer-events-none absolute bottom-[2.25rem] left-[calc(100%/14)] right-[calc(100%/14)] z-0 h-1.5 rounded-full bg-primary-500 sm:bottom-10"
-              aria-hidden="true"
+              delay={0.3}
+              duration={0.8}
             />
           </div>
         </div>

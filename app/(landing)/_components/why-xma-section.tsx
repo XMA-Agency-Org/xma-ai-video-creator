@@ -8,7 +8,7 @@ export function WhyXmaSection() {
   const features = COMPARISON_FEATURES;
 
   return (
-    <section id="why-xma" className="py-[var(--section-padding-y)]">
+    <section id="why-xma" className="py-14 md:py-20">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <SectionHeader
           subtitle="WHY XMA"

@@ -3,6 +3,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { FOOTER_QUERY } from "@/sanity/lib/queries";
 import { Logo } from "./logo";
 import XmaWordmark from "@/public/XMA.png";
+import { StaggerGroup, StaggerItem } from "@/app/(landing)/_components/stagger-group";
 
 const FALLBACK_LINKS = [
   {
@@ -30,67 +31,73 @@ export async function SiteFooter() {
   const copyrightText = data?.copyrightText ?? "XMA Agency · © All Rights Reserved";
 
   return (
-    <footer className="border-t border-border bg-foreground text-neutral-300">
-      <div className="mx-auto max-w-[var(--container-max-width)] px-6 py-16">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <span className="flex items-center gap-2 font-heading text-xl font-bold text-white">
-              <Logo size={32} />
-              <Image
-                src={XmaWordmark}
-                alt={brandName}
-                className="h-5 w-auto"
-              />
-            </span>
-            <p className="mt-4 text-sm leading-relaxed text-neutral-400">
-              {tagline}
-            </p>
+    <footer className="bg-foreground text-white">
+      <div className="mx-auto max-w-[var(--container-max-width)] px-6 py-16 md:py-20">
+        <StaggerGroup stagger={0.1}>
+          <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
+            <StaggerItem y={20}>
+              <div>
+                <span className="flex items-center gap-2">
+                  <Logo size={32} />
+                  <Image
+                    src={XmaWordmark}
+                    alt={brandName}
+                    className="h-5 w-auto"
+                  />
+                </span>
+                <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/50">
+                  {tagline}
+                </p>
+                <div className="mt-8 space-y-3 text-sm text-white/50">
+                  <a href={`mailto:${email}`} className="link-underline block transition-colors hover:text-white">
+                    {email}
+                  </a>
+                  <a href={`tel:${phone?.replace(/\s/g, "")}`} className="link-underline block transition-colors hover:text-white">
+                    {phone}
+                  </a>
+                </div>
+              </div>
+            </StaggerItem>
+
+            {linkGroups.map((group: { groupTitle: string; links?: { label: string; href?: string }[] }) => (
+              <StaggerItem key={group.groupTitle} y={20}>
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-white/30">
+                    {group.groupTitle}
+                  </h3>
+                  <ul className="mt-6 space-y-4">
+                    {group.links?.map((link: { label: string; href?: string }) => (
+                      <li key={link.label}>
+                        <a
+                          href={link.href ?? "#"}
+                          className="link-underline text-sm text-white/50 transition-colors hover:text-white"
+                          {...(link.href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </StaggerItem>
+            ))}
+
+            <StaggerItem y={20}>
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-white/30">
+                  Studio
+                </h3>
+                <div className="mt-6 space-y-3 text-sm text-white/50">
+                  {address?.split("\n").map((line: string, i: number) => (
+                    <p key={i}>{line}</p>
+                  ))}
+                </div>
+              </div>
+            </StaggerItem>
           </div>
+        </StaggerGroup>
 
-          {linkGroups.map((group) => (
-            <div key={group.groupTitle}>
-              <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-neutral-400">
-                {group.groupTitle}
-              </h3>
-              <ul className="space-y-3">
-                {group.links?.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href ?? "#"}
-                      className="text-sm text-neutral-400 transition-colors hover:text-white"
-                      {...(link.href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <div>
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-neutral-400">
-              Contact
-            </h3>
-            <ul className="space-y-3 text-sm text-neutral-400">
-              <li>
-                <a href={`mailto:${email}`} className="transition-colors hover:text-white">
-                  {email}
-                </a>
-              </li>
-              <li>
-                <a href={`tel:${phone?.replace(/\s/g, "")}`} className="transition-colors hover:text-white">
-                  {phone}
-                </a>
-              </li>
-              {address?.split("\n").map((line, i) => (
-                <li key={i}>{line}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-neutral-500">
+        <div className="mt-16 border-t border-white/10 pt-8 text-xs text-white/30">
           {copyrightText}
         </div>
       </div>

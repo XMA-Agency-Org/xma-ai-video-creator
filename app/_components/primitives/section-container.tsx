@@ -22,7 +22,7 @@ export function SectionContainer({
   return (
     <Element
       className={cn(
-        "py-[var(--section-padding-y)]",
+        "py-14 md:py-20",
         backgroundClasses[background],
         className
       )}

@@ -26,7 +26,7 @@ export async function TestimonialsSection() {
   const sidebar = items.slice(1);
 
   return (
-    <section className="py-[var(--section-padding-y)] bg-primary-500">
+    <section className="bg-gradient-to-br from-primary-500 to-primary-700 py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <SectionHeader
           subtitle={header.subtitle}
@@ -46,7 +46,7 @@ export async function TestimonialsSection() {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z" />
               </svg>
 
-              <blockquote className="font-heading text-xl leading-relaxed text-foreground md:text-2xl">
+              <blockquote className="font-heading text-xl leading-relaxed text-foreground md:text-2xl lg:text-3xl">
                 {featured.quote}
               </blockquote>
 

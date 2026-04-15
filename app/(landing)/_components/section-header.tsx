@@ -2,6 +2,7 @@
 
 import { cn } from "@/app/_lib/class-merge";
 import { motion, useReducedMotion } from "motion/react";
+import { EASE_OUT_EXPO } from "@/app/_lib/motion-config";
 
 type SectionHeaderProps = {
   subtitle: string;
@@ -29,7 +30,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
+      ease: EASE_OUT_EXPO,
     },
   },
 };
@@ -51,7 +52,7 @@ export function SectionHeader({
         <p className={cn("text-sm font-bold uppercase tracking-widest text-primary-500", subtitleClassName)}>
           {subtitle}
         </p>
-        <h2 className={cn("mt-3 font-heading text-4xl font-black tracking-tight text-foreground uppercase sm:text-5xl", headingClassName)}>
+        <h2 className={cn("mt-3 font-heading text-[length:var(--text-title-lg)] font-black tracking-[-0.03em] text-foreground uppercase", headingClassName)}>
           {heading}
         </h2>
         {description && (
@@ -82,7 +83,7 @@ export function SectionHeader({
       </motion.p>
       <motion.h2
         className={cn(
-          "mt-3 font-heading text-4xl font-black tracking-tight text-foreground uppercase sm:text-5xl",
+          "mt-3 font-heading text-[length:var(--text-title-lg)] font-black tracking-[-0.03em] text-foreground uppercase",
           headingClassName
         )}
         variants={itemVariants}

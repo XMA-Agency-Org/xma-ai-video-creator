@@ -8,7 +8,7 @@ export function WhatWeNeedSection() {
   const items = CHECKLIST_ITEMS;
 
   return (
-    <section className="py-[var(--section-padding-y)]">
+    <section className="bg-primary-50/30 py-14 md:py-20">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <SectionHeader
           subtitle="GETTING STARTED"

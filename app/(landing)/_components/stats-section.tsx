@@ -10,9 +10,9 @@ export async function StatsSection() {
   const stats = data?.stats ?? FALLBACK_STATS;
 
   return (
-    <section className="py-8 md:py-14">
+    <section className="bg-foreground py-12 md:py-20">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
-        <AnimatedStats stats={stats} />
+        <AnimatedStats stats={stats} isDark />
       </div>
     </section>
   );

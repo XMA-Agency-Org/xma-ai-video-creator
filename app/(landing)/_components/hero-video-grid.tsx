@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { EASE_OUT_EXPO } from "@/app/_lib/motion-config";
 
 type HeroVideoGridProps = {
   videos: string[];
@@ -23,7 +24,7 @@ const cellVariants = {
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
+      ease: EASE_OUT_EXPO,
     },
   },
 };

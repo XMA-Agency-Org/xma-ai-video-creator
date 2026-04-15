@@ -5,7 +5,7 @@ import { StaggerGroup, StaggerItem } from "./stagger-group";
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="py-[var(--section-padding-y)]">
+    <section id="pricing" className="py-14 md:py-20">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <SectionHeader
           subtitle="SIMPLE PRICING"

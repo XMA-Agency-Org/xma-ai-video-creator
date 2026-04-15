@@ -27,7 +27,7 @@ console.log(data)
   })) ?? PORTFOLIO_ITEMS;
 
   return (
-    <section id="portfolio" className="py-[var(--section-padding-y)]">
+    <section id="portfolio" className="py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <SectionHeader

@@ -24,7 +24,7 @@ export async function FaqSection() {
   })) ?? FAQ_ITEMS;
 
   return (
-    <section id="faq" className="py-[var(--section-padding-y)] bg-white">
+    <section id="faq" className="py-14 md:py-20 bg-background">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div>

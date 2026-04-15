@@ -5,7 +5,7 @@ import { ColoredHeadline } from "./colored-headline";
 import { HeroVideoGrid } from "./hero-video-grid";
 import { FloatingBadges } from "./floating-badges";
 import { HeroCta } from "./hero-cta";
-import { AnimateIn } from "./animate-in";
+import { HeroChoreography } from "./hero-choreography";
 
 const FALLBACK_VIDEOS = [
   "https://ruyastudio.my.canva.site/_assets/video/efb606b771979083cbc1006435ccd03f.mp4",
@@ -29,42 +29,44 @@ export async function HeroSection() {
   const badges = data?.floatingBadges ?? FALLBACK_BADGES;
 
   return (
-    <section className="relative py-12 md:py-20">
+    <section className="relative py-12 md:py-16 lg:py-20">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
         <div className="grid grid-cols-1 items-center gap-4 lg:grid-cols-2 lg:gap-12">
           <div>
-            <AnimateIn y={20} duration={0.5}>
-              <p className="mb-4 text-sm font-bold uppercase tracking-widest text-primary-500">
-                AI-POWERED VIDEO CREATION
-              </p>
-            </AnimateIn>
+            <HeroChoreography element="eyebrow">
+              <span className="inline-flex rounded-full text-xs font-bold uppercase tracking-widest text-primary-600">
+                AI-Powered Video Creation
+              </span>
+            </HeroChoreography>
 
-            <AnimateIn y={30} delay={0.1} duration={0.6}>
-              <ColoredHeadline text={headline} />
-            </AnimateIn>
+            <HeroChoreography element="headline">
+              <div className="mt-6">
+                <ColoredHeadline text={headline} />
+              </div>
+            </HeroChoreography>
 
-            <AnimateIn y={20} delay={0.2} duration={0.5}>
-              <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
+            <HeroChoreography element="subheadline">
+              <p className="mt-8 max-w-lg text-[length:var(--text-body-lg)] leading-relaxed text-foreground/60">
                 {subheadline}
               </p>
-            </AnimateIn>
+            </HeroChoreography>
 
-            <AnimateIn y={20} delay={0.35} duration={0.5}>
-              <div className="mt-10">
+            <HeroChoreography element="cta">
+              <div className="mt-12">
                 <HeroCta
                   defaultLabel={primaryCta.label ?? HERO_CONTENT.primaryCta}
                   defaultHref={primaryCta.href ?? "#book"}
                 />
               </div>
-            </AnimateIn>
+            </HeroChoreography>
           </div>
 
-          <AnimateIn y={40} x={20} delay={0.2} duration={0.8}>
+          <HeroChoreography element="media">
             <div className="relative">
               <HeroVideoGrid videos={videos} />
               <FloatingBadges badges={badges} />
             </div>
-          </AnimateIn>
+          </HeroChoreography>
         </div>
       </div>
     </section>

@@ -9,6 +9,7 @@ import {
   animate,
   useReducedMotion,
 } from "motion/react";
+import { EASE_OUT_EXPO } from "@/app/_lib/motion-config";
 
 type Stat = {
   value: string;
@@ -18,6 +19,7 @@ type Stat = {
 
 type AnimatedStatsProps = {
   stats: Stat[];
+  isDark?: boolean;
 };
 
 function parseStatValue(value: string): { number: number; suffix: string } {
@@ -53,7 +55,7 @@ function AnimatedNumber({
 
     const controls = animate(motionVal, number, {
       duration: 1.8,
-      ease: [0.16, 1, 0.3, 1],
+      ease: EASE_OUT_EXPO,
     });
 
     const unsub = rounded.on("change", (v) => setDisplay(String(v)));
@@ -72,7 +74,7 @@ function AnimatedNumber({
   );
 }
 
-export function AnimatedStats({ stats }: AnimatedStatsProps) {
+export function AnimatedStats({ stats, isDark = false }: AnimatedStatsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: true, margin: "-40px" });
   const reduced = useReducedMotion();
@@ -94,13 +96,13 @@ export function AnimatedStats({ stats }: AnimatedStatsProps) {
             transition={{
               duration: 0.5,
               delay: getDelay(i),
-              ease: [0.16, 1, 0.3, 1],
+              ease: EASE_OUT_EXPO,
             }}
-            className="rounded-2xl bg-[oklch(0.88_0.03_80)] px-5 py-6"
+            className={`rounded-2xl px-5 py-6 ${isDark ? "bg-white/5" : "bg-[oklch(0.88_0.03_80)]"}`}
           >
             <span
-              className={`block font-heading text-4xl font-black tracking-tighter ${
-                stat.accent ? "text-primary-500" : "text-foreground"
+              className={`block font-heading text-4xl font-black tracking-[-0.04em] tabular-nums ${
+                stat.accent ? "text-lime-300" : isDark ? "text-white" : "text-foreground"
               }`}
             >
               <AnimatedNumber
@@ -109,7 +111,7 @@ export function AnimatedStats({ stats }: AnimatedStatsProps) {
                 reduced={reduced}
               />
             </span>
-            <span className="mt-1 block text-xs font-medium leading-snug text-foreground/50">
+            <span className={`mt-1 block text-xs font-medium leading-snug ${isDark ? "text-white/40" : "text-foreground/50"}`}>
               {stat.label}
             </span>
           </motion.div>
@@ -127,9 +129,9 @@ export function AnimatedStats({ stats }: AnimatedStatsProps) {
                 transition={{
                   duration: 0.5,
                   delay: getDelay(i) + 0.2,
-                  ease: [0.16, 1, 0.3, 1],
+                  ease: EASE_OUT_EXPO,
                 }}
-                className="mr-10 h-16 w-px origin-top bg-border lg:mr-14"
+                className={`mr-10 h-16 w-px origin-top lg:mr-14 ${isDark ? "bg-white/10" : "bg-border"}`}
               />
             )}
 
@@ -139,13 +141,13 @@ export function AnimatedStats({ stats }: AnimatedStatsProps) {
               transition={{
                 duration: 0.7,
                 delay: getDelay(i),
-                ease: [0.16, 1, 0.3, 1],
+                ease: EASE_OUT_EXPO,
               }}
               className="flex items-center gap-5"
             >
               <span
-                className={`font-heading text-5xl font-black tracking-tighter lg:text-6xl ${
-                  stat.accent ? "text-primary-500" : "text-foreground"
+                className={`font-heading text-5xl font-black tracking-[-0.03em] tabular-nums leading-none lg:text-6xl ${
+                  stat.accent ? "text-lime-300" : isDark ? "text-white" : "text-foreground"
                 }`}
               >
                 <AnimatedNumber
@@ -154,7 +156,7 @@ export function AnimatedStats({ stats }: AnimatedStatsProps) {
                   reduced={reduced}
                 />
               </span>
-              <span className="max-w-[8rem] text-sm font-medium leading-snug text-muted-foreground">
+              <span className={`max-w-[8rem] text-sm font-medium leading-snug ${isDark ? "text-white/50" : "text-muted-foreground"}`}>
                 {stat.label}
               </span>
             </motion.div>

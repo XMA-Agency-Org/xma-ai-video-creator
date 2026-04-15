@@ -2,6 +2,7 @@
 
 import { type ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import { EASE_OUT_EXPO } from "@/app/_lib/motion-config";
 
 type StaggerGroupProps = {
   children: ReactNode;
@@ -63,7 +64,7 @@ const itemVariants = (y: number, x: number, scale: number) => ({
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
+      ease: EASE_OUT_EXPO,
     },
   },
 });

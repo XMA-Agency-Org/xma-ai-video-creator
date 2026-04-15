@@ -1,6 +1,5 @@
 export const dynamic = "force-dynamic";
 
-import { Suspense } from "react";
 import { HeroSection } from "./_components/hero-section";
 import { LogoStripSection } from "./_components/logo-strip-section";
 import { StatsSection } from "./_components/stats-section";

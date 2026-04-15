@@ -2,6 +2,7 @@
 
 import { type ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import { EASE_OUT_EXPO } from "@/app/_lib/motion-config";
 
 type AnimateInProps = {
   children: ReactNode;
@@ -41,7 +42,7 @@ export function AnimateIn({
       transition={{
         duration,
         delay,
-        ease: [0.16, 1, 0.3, 1],
+        ease: EASE_OUT_EXPO,
       }}
     >
       {children}
