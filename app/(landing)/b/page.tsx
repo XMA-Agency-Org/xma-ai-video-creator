@@ -10,7 +10,6 @@ import { MarqueeSection } from "../_components/marquee-section";
 import { WhyXmaSection } from "../_components/why-xma-section";
 import { WhatWeNeedSection } from "../_components/what-we-need-section";
 import { TestimonialsSection } from "../_components/testimonials-section";
-import { PricingSection } from "../_components/pricing-section";
 import { FaqSection } from "../_components/faq-section";
 import { CtaBannerSection } from "../_components/cta-banner-section";
 
@@ -38,7 +37,6 @@ export default function LandingPageB() {
       <Suspense>
         <TestimonialsSection />
       </Suspense>
-      <PricingSection />
       <Suspense>
         <FaqSection />
       </Suspense>

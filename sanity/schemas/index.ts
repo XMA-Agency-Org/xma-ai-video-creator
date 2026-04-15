@@ -9,7 +9,6 @@ import { seo } from "./objects/seo";
 
 import { portfolioItem } from "./documents/portfolio-item";
 import { testimonial } from "./documents/testimonial";
-import { pricingPlan } from "./documents/pricing-plan";
 import { faqItem } from "./documents/faq-item";
 import { blogPost } from "./documents/blog-post";
 import { author } from "./documents/author";
@@ -22,7 +21,6 @@ import { howItWorksSection } from "./singletons/how-it-works-section";
 import { portfolioSection } from "./singletons/portfolio-section";
 import { marqueeSection } from "./singletons/marquee-section";
 import { testimonialsSection } from "./singletons/testimonials-section";
-import { pricingSection } from "./singletons/pricing-section";
 import { faqSection } from "./singletons/faq-section";
 import { ctaBannerSection } from "./singletons/cta-banner-section";
 import { footerContent } from "./singletons/footer-content";
@@ -39,7 +37,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 
     portfolioItem,
     testimonial,
-    pricingPlan,
     faqItem,
     blogPost,
     author,
@@ -52,7 +49,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     portfolioSection,
     marqueeSection,
     testimonialsSection,
-    pricingSection,
     faqSection,
     ctaBannerSection,
     footerContent,
@@ -68,7 +64,6 @@ export const SINGLETON_TYPES = new Set([
   "portfolioSection",
   "marqueeSection",
   "testimonialsSection",
-  "pricingSection",
   "faqSection",
   "ctaBannerSection",
   "footerContent",

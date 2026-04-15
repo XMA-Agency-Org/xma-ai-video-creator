@@ -87,14 +87,6 @@ export const structure: StructureResolver = (S, context) =>
             .documentId("testimonialsSection")
         ),
       S.listItem()
-        .title("Pricing Section")
-        .id("pricingSection")
-        .child(
-          S.document()
-            .schemaType("pricingSection")
-            .documentId("pricingSection")
-        ),
-      S.listItem()
         .title("FAQ Section")
         .id("faqSection")
         .child(
@@ -132,12 +124,6 @@ export const structure: StructureResolver = (S, context) =>
       orderableDocumentListDeskItem({
         type: "testimonial",
         title: "Testimonials",
-        S,
-        context,
-      }),
-      orderableDocumentListDeskItem({
-        type: "pricingPlan",
-        title: "Pricing Plans",
         S,
         context,
       }),

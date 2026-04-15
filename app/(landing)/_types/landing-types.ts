@@ -28,16 +28,6 @@ export type FaqItem = {
   answer: string;
 };
 
-export type PricingPlan = {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  features: string[];
-  highlighted: boolean;
-  stripePriceId: string;
-};
-
 export type ComparisonFeature = {
   feature: string;
   xma: string | boolean;

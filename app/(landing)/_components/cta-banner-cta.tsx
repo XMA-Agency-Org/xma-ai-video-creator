@@ -1,26 +1,16 @@
 "use client";
 
-import { useAbVariant } from "./ab-pricing-gate";
 import { posthog } from "@/app/_lib/posthog-client";
 import { MagneticButton } from "@/app/_components/magnetic-button";
 
 type CtaBannerCtaProps = {
-  defaultLabel: string;
-  defaultHref: string;
+  label: string;
+  href: string;
 };
 
-export function CtaBannerCta({ defaultLabel, defaultHref }: CtaBannerCtaProps) {
-  const variant = useAbVariant();
-
-  const label = variant === "test" ? "View Pricing" : defaultLabel;
-  const href = variant === "test" ? "#pricing" : defaultHref;
-
+export function CtaBannerCta({ label, href }: CtaBannerCtaProps) {
   function handleClick() {
-    posthog.capture("cta_banner_clicked", {
-      label,
-      href,
-      ab_variant: variant,
-    });
+    posthog.capture("cta_banner_clicked", { label, href });
   }
 
   return (

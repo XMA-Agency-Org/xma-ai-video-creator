@@ -1,26 +1,16 @@
 "use client";
 
-import { useAbVariant } from "./ab-pricing-gate";
 import { posthog } from "@/app/_lib/posthog-client";
 import { MagneticButton } from "@/app/_components/magnetic-button";
 
 type HeroCtaProps = {
-  defaultLabel: string;
-  defaultHref: string;
+  label: string;
+  href: string;
 };
 
-export function HeroCta({ defaultLabel, defaultHref }: HeroCtaProps) {
-  const variant = useAbVariant();
-
-  const label = variant === "test" ? "View Pricing" : defaultLabel;
-  const href = variant === "test" ? "#pricing" : defaultHref;
-
+export function HeroCta({ label, href }: HeroCtaProps) {
   function handleClick() {
-    posthog.capture("hero_cta_clicked", {
-      label,
-      href,
-      ab_variant: variant,
-    });
+    posthog.capture("hero_cta_clicked", { label, href });
   }
 
   return (

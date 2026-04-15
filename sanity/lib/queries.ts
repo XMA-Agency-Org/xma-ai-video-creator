@@ -55,22 +55,6 @@ export const TESTIMONIALS_SECTION_QUERY = defineQuery(`
   }
 `);
 
-export const PRICING_SECTION_QUERY = defineQuery(`
-  *[_id == "pricingSection"][0]{
-    header { subtitle, heading, description },
-    displayedPlans[]->{
-      _id,
-      name,
-      "slug": slug.current,
-      price,
-      description,
-      features,
-      highlighted,
-      stripePriceId
-    }
-  }
-`);
-
 export const FAQ_SECTION_QUERY = defineQuery(`
   *[_id == "faqSection"][0]{
     header { subtitle, heading, description },

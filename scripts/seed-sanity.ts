@@ -92,78 +92,6 @@ async function seedTestimonials() {
   console.log("Testimonials seeded.");
 }
 
-async function seedPricingPlans() {
-  const plans = [
-    {
-      _id: "plan-starter",
-      name: "Starter",
-      slug: { _type: "slug", current: "starter" },
-      price: 499,
-      description: "Perfect for testing AI video for your brand",
-      features: [
-        "1 AI-generated video",
-        "Up to 30 seconds",
-        "1 revision round",
-        "HD quality (1080p)",
-        "Delivered in 5 business days",
-        "Social media optimized",
-      ],
-      highlighted: false,
-      stripePriceId: "price_starter_placeholder",
-      orderRank: "000001",
-    },
-    {
-      _id: "plan-pro",
-      name: "Pro",
-      slug: { _type: "slug", current: "pro" },
-      price: 999,
-      description: "Best value for growing brands",
-      features: [
-        "3 AI-generated videos",
-        "Up to 60 seconds each",
-        "2 revision rounds",
-        "4K quality",
-        "Delivered in 7 business days",
-        "Multi-platform formats",
-        "Brand kit integration",
-        "Priority support",
-      ],
-      highlighted: true,
-      stripePriceId: "price_pro_placeholder",
-      orderRank: "000002",
-    },
-    {
-      _id: "plan-enterprise",
-      name: "Enterprise",
-      slug: { _type: "slug", current: "enterprise" },
-      price: 2499,
-      description: "Full-scale content production",
-      features: [
-        "10 AI-generated videos",
-        "Up to 90 seconds each",
-        "Unlimited revisions",
-        "4K quality",
-        "Delivered in 14 business days",
-        "All platform formats",
-        "Custom brand kit",
-        "Dedicated account manager",
-        "Usage analytics dashboard",
-      ],
-      highlighted: false,
-      stripePriceId: "price_enterprise_placeholder",
-      orderRank: "000003",
-    },
-  ];
-
-  console.log("Seeding pricing plans...");
-  const transaction = client.transaction();
-  for (const p of plans) {
-    transaction.createOrReplace({ ...p, _type: "pricingPlan" });
-  }
-  await transaction.commit();
-  console.log("Pricing plans seeded.");
-}
-
 async function seedFaqItems() {
   const faqs = [
     { question: "What kind of videos can you create with AI?", answer: "We create product showcases, brand stories, social media ads, promotional reels, explainer videos, and lifestyle content. Our AI can adapt to virtually any style — from cinematic to minimalist, editorial to UGC-style." },
@@ -194,7 +122,6 @@ async function main() {
   console.log(`Seeding Sanity dataset: ${projectId}/${dataset}\n`);
   await seedPortfolioItems();
   await seedTestimonials();
-  await seedPricingPlans();
   await seedFaqItems();
   console.log("\nAll content seeded!");
 }
