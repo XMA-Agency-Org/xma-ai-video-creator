@@ -1,6 +1,6 @@
 export type VideoEntry = {
   id: string;
-  video: string;
+  videoUrl: string;
   category: string;
   title: string;
 };

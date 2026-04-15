@@ -18,9 +18,9 @@ function getFallbackVideos(): VideoEntry[] {
     const manifestPath = join(process.cwd(), "public/videos/manifest-final.json");
     const raw = readFileSync(manifestPath, "utf-8");
     const entries: VideoEntry[] = JSON.parse(raw);
-    return entries.map((e) => ({
+    return entries.map((e: { id: string; video: string; category: string; title: string }) => ({
       id: e.id,
-      video: e.video,
+      videoUrl: e.video,
       category: e.category,
       title: e.title,
     }));
@@ -45,7 +45,7 @@ export default async function WorkPage() {
   const videos = portfolioData?.length
     ? portfolioData.map((item) => ({
         id: item._id,
-        video: item.videoUrl ?? "",
+        videoUrl: item.videoUrl ?? "",
         category: item.category ?? "",
         title: item.title ?? "",
       }))

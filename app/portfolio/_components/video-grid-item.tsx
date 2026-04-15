@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Volume2, VolumeOff } from "lucide-react";
 import { VideoLightbox } from "./video-lightbox";
 import { posthog } from "@/app/_lib/posthog-client";
 
@@ -13,6 +14,7 @@ type VideoGridItemProps = {
 export function VideoGridItem({ videoUrl, title, category }: VideoGridItemProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   function handleMouseEnter() {
@@ -36,6 +38,15 @@ export function VideoGridItem({ videoUrl, title, category }: VideoGridItemProps)
   function handleCloseLightbox() {
     setLightboxOpen(false);
   }
+
+  function handleToggleMute(e: React.MouseEvent) {
+    e.stopPropagation();
+    const next = !muted;
+    setMuted(next);
+    if (videoRef.current) videoRef.current.muted = next;
+  }
+
+  if (!videoUrl) return null;
 
   return (
     <>
@@ -72,15 +83,26 @@ export function VideoGridItem({ videoUrl, title, category }: VideoGridItemProps)
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-foreground/80 to-transparent p-4 pt-10">
-          <p className="font-heading text-sm font-bold text-white leading-tight">
-            {title}
-          </p>
-          {playing && (
-            <span className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-bold text-white/70">
-              <span className="h-1.5 w-1.5 rounded-full bg-lime-300 animate-pulse" />
-              Playing
-            </span>
-          )}
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="font-heading text-sm font-bold text-white leading-tight">
+                {title}
+              </p>
+              {playing && (
+                <span className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-bold text-white/70">
+                  <span className="h-1.5 w-1.5 rounded-full bg-lime-300 animate-pulse" />
+                  Playing
+                </span>
+              )}
+            </div>
+            <button
+              onClick={handleToggleMute}
+              className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-foreground/50 text-white backdrop-blur-sm transition-colors hover:bg-foreground/70"
+              aria-label={muted ? "Unmute video" : "Mute video"}
+            >
+              {muted ? <VolumeOff className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
+            </button>
+          </div>
         </div>
       </div>
 

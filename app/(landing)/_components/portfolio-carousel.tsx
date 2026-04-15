@@ -9,7 +9,7 @@ type PortfolioCarouselProps = {
 };
 
 export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
-  const items = allItems.slice(0, 6);
+  const items = allItems.filter((i) => i.videoSrc).slice(0, 6);
   const [activeIndex, setActiveIndex] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -52,6 +52,8 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(goNext, 8000);
   }
+
+  if (items.length === 0) return null;
 
   return (
     <div className="relative flex items-center gap-3">

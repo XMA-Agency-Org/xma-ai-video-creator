@@ -21,7 +21,7 @@ export async function GET() {
     id: item._id,
     title: item.title ?? "",
     category: item.category ?? "Uncategorized",
-    video: item.videoUrl ?? "",
+    videoUrl: item.videoUrl ?? "",
   }));
 
   return NextResponse.json(entries);

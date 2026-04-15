@@ -1,4 +1,5 @@
 import { defineType, defineField } from "sanity";
+import { defineVideoField } from "sanity/media-library";
 import { PlayIcon } from "@sanity/icons";
 
 export const portfolioItem = defineType({
@@ -40,15 +41,9 @@ export const portfolioItem = defineType({
         ],
       },
     }),
-    defineField({
+    defineVideoField({
       name: "video",
       title: "Video",
-      type: "file",
-      options: {
-        accept: "video/*",
-      },
-      validation: (rule) => rule.required(),
-      description: "Upload an MP4 or other video file",
     }),
     defineField({
       name: "orderRank",

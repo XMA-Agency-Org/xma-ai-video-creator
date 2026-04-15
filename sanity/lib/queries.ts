@@ -38,7 +38,7 @@ export const PORTFOLIO_SECTION_QUERY = defineQuery(`
     header { subtitle, heading, description },
     viewAllLinkText,
     categoryPills,
-    featuredItems[]->{ _id, title, category, "videoUrl": video.asset->url, "slug": slug.current }
+    featuredItems[]->{ _id, title, category, "slug": slug.current, "videoUrl": video.asset->url }
   }
 `);
 

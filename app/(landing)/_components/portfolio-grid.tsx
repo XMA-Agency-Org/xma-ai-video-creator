@@ -19,6 +19,8 @@ function PortfolioGridCard({
   const isInView = useInView(cardRef, { once: true, margin: "-50px" });
   const isOffset = index % 2 === 1;
 
+  if (!item.videoSrc) return null;
+
   return (
     <div
       ref={cardRef}

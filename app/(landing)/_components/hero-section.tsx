@@ -8,7 +8,7 @@ import { HeroCta } from "./hero-cta";
 import { HeroChoreography } from "./hero-choreography";
 
 const FALLBACK_VIDEOS = [
-  "https://ruyastudio.my.canva.site/_assets/video/efb606b771979083cbc1006435ccd03f.mp4",
+  "https://cdn.sanity.io/files/fv5mbe60/production/fd3a8a746d9891d2fa6eca06d1f62afdc0ccc7a5.mp4",
   "https://ruyastudio.my.canva.site/_assets/video/51b859cec4fd8a490986949e826d81a6.mp4",
   "https://ruyastudio.my.canva.site/_assets/video/35f816e914fb41dbab06f7c157ec2df5.mp4",
 ];

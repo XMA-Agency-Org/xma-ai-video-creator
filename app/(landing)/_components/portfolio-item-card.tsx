@@ -42,6 +42,8 @@ export function PortfolioItemCard({ item }: PortfolioItemCardProps) {
     videoRef.current?.pause();
   }
 
+  if (!item.videoSrc) return null;
+
   return (
     <div
       ref={cardRef}

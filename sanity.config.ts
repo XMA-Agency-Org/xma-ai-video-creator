@@ -14,6 +14,12 @@ export default defineConfig({
   projectId,
   dataset,
   schema,
+  mediaLibrary: {
+    enabled: true,
+  },
+  auth: {
+    loginMethod: "token",
+  },
   plugins: [
     structureTool({ structure }),
     presentationTool({

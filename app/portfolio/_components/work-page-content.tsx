@@ -1,9 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { VideoGridItem } from "./video-grid-item";
 import { VideoFilterBar } from "./video-filter-bar";
+import { Button } from "@/app/_components/primitives";
 import type { VideoEntry } from "@/app/portfolio/_types/portfolio-types";
+
+const PAGE_SIZE = 15;
 
 type WorkPageContentProps = {
   videos: VideoEntry[];
@@ -12,6 +15,11 @@ type WorkPageContentProps = {
 export function WorkPageContent({ videos }: WorkPageContentProps) {
   const [view, setView] = useState<"grid" | "large">("grid");
   const [activeCategory, setActiveCategory] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [activeCategory]);
 
   const categories = useMemo(() => {
     const cats = [...new Set(videos.map((v) => v.category))];
@@ -22,6 +30,9 @@ export function WorkPageContent({ videos }: WorkPageContentProps) {
     if (activeCategory === "All") return videos;
     return videos.filter((v) => v.category === activeCategory);
   }, [videos, activeCategory]);
+
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
 
   const gridClass =
     view === "grid"
@@ -41,15 +52,27 @@ export function WorkPageContent({ videos }: WorkPageContentProps) {
       />
 
       <div className={`mt-8 grid gap-4 ${gridClass}`}>
-        {filtered.map((entry) => (
+        {visible.map((entry) => (
           <VideoGridItem
             key={entry.id}
-            videoUrl={entry.video}
+            videoUrl={entry.videoUrl}
             title={entry.title}
             category={entry.category}
           />
         ))}
       </div>
+
+      {hasMore && (
+        <div className="mt-12 flex justify-center">
+          <Button
+            intent="outline"
+            size="lg"
+            onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+          >
+            Load More ({filtered.length - visibleCount} remaining)
+          </Button>
+        </div>
+      )}
 
       {filtered.length === 0 && (
         <div className="mt-20 text-center">

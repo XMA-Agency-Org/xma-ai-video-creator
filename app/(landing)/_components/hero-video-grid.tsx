@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { EASE_OUT_EXPO } from "@/app/_lib/motion-config";
+import { HeroVideoCell } from "./hero-video-cell";
 
 type HeroVideoGridProps = {
   videos: string[];
@@ -37,17 +38,17 @@ export function HeroVideoGrid({ videos }: HeroVideoGridProps) {
       <div className="grid grid-cols-5 grid-rows-6 gap-3 h-[520px] lg:h-[580px]">
         {videos[0] && (
           <div className="col-span-3 row-span-6 rounded-2xl overflow-clip shadow-2xl border-2 border-primary-200/40">
-            <video className="h-full w-full object-cover" autoPlay muted loop playsInline suppressHydrationWarning src={videos[0]} />
+            <HeroVideoCell src={videos[0]} />
           </div>
         )}
         {videos[1] && (
           <div className="col-span-2 row-span-3 rounded-2xl overflow-clip shadow-xl border-2 border-primary-200/40">
-            <video className="h-full w-full object-cover" autoPlay muted loop playsInline suppressHydrationWarning src={videos[1]} />
+            <HeroVideoCell src={videos[1]} />
           </div>
         )}
         {videos[2] && (
           <div className="col-span-2 row-span-3 rounded-2xl overflow-clip shadow-xl border-2 border-primary-200/40">
-            <video className="h-full w-full object-cover" autoPlay muted loop playsInline suppressHydrationWarning src={videos[2]} />
+            <HeroVideoCell src={videos[2]} />
           </div>
         )}
       </div>
@@ -66,12 +67,7 @@ export function HeroVideoGrid({ videos }: HeroVideoGridProps) {
           className="col-span-3 row-span-6 rounded-2xl overflow-clip shadow-2xl border-2 border-primary-200/40"
           variants={cellVariants}
         >
-          <video
-            className="h-full w-full object-cover"
-            autoPlay muted loop playsInline
-            suppressHydrationWarning
-            src={videos[0]}
-          />
+          <HeroVideoCell src={videos[0]} />
         </motion.div>
       )}
 
@@ -80,12 +76,7 @@ export function HeroVideoGrid({ videos }: HeroVideoGridProps) {
           className="col-span-2 row-span-3 rounded-2xl overflow-clip shadow-xl border-2 border-primary-200/40"
           variants={cellVariants}
         >
-          <video
-            className="h-full w-full object-cover"
-            autoPlay muted loop playsInline
-            suppressHydrationWarning
-            src={videos[1]}
-          />
+          <HeroVideoCell src={videos[1]} />
         </motion.div>
       )}
 
@@ -94,12 +85,7 @@ export function HeroVideoGrid({ videos }: HeroVideoGridProps) {
           className="col-span-2 row-span-3 rounded-2xl overflow-clip shadow-xl border-2 border-primary-200/40"
           variants={cellVariants}
         >
-          <video
-            className="h-full w-full object-cover"
-            autoPlay muted loop playsInline
-            suppressHydrationWarning
-            src={videos[2]}
-          />
+          <HeroVideoCell src={videos[2]} />
         </motion.div>
       )}
     </motion.div>
