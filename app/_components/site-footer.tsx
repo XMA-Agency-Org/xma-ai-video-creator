@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { FOOTER_QUERY } from "@/sanity/lib/queries";
 import { Logo } from "./logo";
+import XmaWordmark from "@/public/XMA.png";
 
 const FALLBACK_LINKS = [
   {
@@ -34,7 +36,11 @@ export async function SiteFooter() {
           <div className="sm:col-span-2 lg:col-span-1">
             <span className="flex items-center gap-2 font-heading text-xl font-bold text-white">
               <Logo size={32} />
-              {brandName}
+              <Image
+                src={XmaWordmark}
+                alt={brandName}
+                className="h-5 w-auto"
+              />
             </span>
             <p className="mt-4 text-sm leading-relaxed text-neutral-400">
               {tagline}

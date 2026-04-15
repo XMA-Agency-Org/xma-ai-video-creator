@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/app/_lib/class-merge";
-import LogoImg from "@/public/Logo Light.png"
+import LogoImg from "@/public/XMA-Purple.png"
 
 type LogoProps = {
   size?: number;

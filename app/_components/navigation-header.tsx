@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { cn } from "@/app/_lib/class-merge";
 import { posthog } from "@/app/_lib/posthog-client";
+import XmaWordmark from "@/public/XMA.png";
 import { Logo } from "./logo";
 import { MenuToggle } from "./menu-toggle";
 import { MobileMenu } from "./mobile-menu";
@@ -27,7 +29,11 @@ export function NavigationHeader() {
             className="flex items-center gap-2 pl-4 font-heading text-lg font-bold tracking-tight text-white"
           >
             <Logo size={32} />
-            XMA
+            <Image
+              src={XmaWordmark}
+              alt="XMA"
+              className="h-5 w-auto"
+            />
           </a>
 
           <ul className="hidden items-center gap-1 md:flex">
