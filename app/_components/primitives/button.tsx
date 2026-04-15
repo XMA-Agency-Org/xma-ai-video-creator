@@ -15,12 +15,15 @@ const buttonVariants = cva(
           "bg-transparent text-neutral-700 hover:bg-neutral-100 active:bg-neutral-200",
         outline:
           "border border-border bg-transparent text-neutral-700 hover:bg-neutral-50 active:bg-neutral-100",
+        accent:
+          "bg-lime-300 font-black text-foreground hover:bg-lime-400 active:bg-lime-500",
       },
       size: {
         sm: "h-8 px-3 text-sm rounded-[var(--radius-base)] gap-1.5",
         md: "h-10 px-5 text-sm rounded-[var(--radius-lg)] gap-2",
         lg: "h-12 px-7 text-base rounded-[var(--radius-lg)] gap-2.5",
         xl: "h-14 px-9 text-lg rounded-[var(--radius-xl)] gap-3",
+        full: "h-14 px-9 text-lg rounded-full gap-3",
       },
       fullWidth: {
         true: "w-full",
