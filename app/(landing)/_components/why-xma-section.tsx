@@ -13,7 +13,7 @@ export function WhyXmaSection() {
         <SectionHeader
           subtitle="WHY XMA"
           heading="More Than Just AI Software"
-          description="You'll never get this with Higgsfield or any other DIY tool."
+          description="You'll never get this with any DIY tool."
         />
 
         <AnimateIn y={30} delay={0.1} className="mt-14">
