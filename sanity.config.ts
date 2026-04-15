@@ -10,6 +10,7 @@ import { structure } from "./sanity/structure";
 export default defineConfig({
   name: "xma-ai-video",
   title: "XMA AI Video Creator",
+  basePath: "/studio",
   projectId,
   dataset,
   schema,
