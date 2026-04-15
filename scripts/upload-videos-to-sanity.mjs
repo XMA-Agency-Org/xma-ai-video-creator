@@ -38,13 +38,13 @@ function uploadAsset(filePath, filename) {
 
   const parsed = JSON.parse(result);
   if (parsed.error) throw new Error(parsed.error.description || parsed.error);
-  return `https://cdn.sanity.io/${parsed.document.path}`;
+  return parsed.document._id;
 }
 
-function patchDocument(docId, cdnUrl) {
+function patchDocument(docId, assetId) {
   const url = `https://${PROJECT_ID}.api.sanity.io/v${API_VERSION}/data/mutate/${DATASET}`;
   const body = JSON.stringify({
-    mutations: [{ patch: { id: docId, set: { videoUrl: cdnUrl } } }],
+    mutations: [{ patch: { id: docId, set: { video: { _type: "file", asset: { _type: "reference", _ref: assetId } } } } }],
   });
 
   const result = execSync(
@@ -61,12 +61,12 @@ for (const entry of VIDEO_MAP) {
   const filePath = `${VIDEO_DIR}/${entry.file}`;
   try {
     process.stdout.write(`Uploading: ${entry.file}... `);
-    const cdnUrl = uploadAsset(filePath, basename(entry.file));
+    const assetId = uploadAsset(filePath, basename(entry.file));
     console.log(`OK`);
-    console.log(`  CDN: ${cdnUrl}`);
+    console.log(`  Asset: ${assetId}`);
 
     process.stdout.write(`  Patching ${entry.docId}... `);
-    patchDocument(entry.docId, cdnUrl);
+    patchDocument(entry.docId, assetId);
     console.log(`OK\n`);
   } catch (err) {
     console.log(`FAILED: ${err.message}\n`);

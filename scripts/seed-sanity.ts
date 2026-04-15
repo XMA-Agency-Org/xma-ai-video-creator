@@ -44,7 +44,6 @@ async function seedPortfolioItems() {
       title: entry.title,
       slug: { _type: "slug", current: entry.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "") },
       category: entry.category,
-      videoUrl: entry.video,
       orderRank: String(i).padStart(6, "0"),
     });
 

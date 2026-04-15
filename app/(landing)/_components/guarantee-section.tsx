@@ -10,16 +10,16 @@ export function GuaranteeSection() {
   const pillars = GUARANTEE_PILLARS;
 
   return (
-    <section id="guarantee" className="py-20 md:py-28 lg:py-36">
+    <section id="guarantee" className="bg-primary-600 py-20 md:py-28 lg:py-36">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6 text-center">
         <AnimateIn y={20}>
-          <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-primary-50 md:h-20 md:w-20">
-            <ShieldCheck className="h-8 w-8 text-primary-500 md:h-10 md:w-10" />
+          <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-white/15 md:h-20 md:w-20">
+            <ShieldCheck className="h-8 w-8 text-white md:h-10 md:w-10" />
           </div>
         </AnimateIn>
 
         <AnimateIn y={20} delay={0.1}>
-          <p className="text-sm font-bold uppercase tracking-widest text-primary-500">
+          <p className="text-sm font-bold uppercase tracking-widest text-primary-200">
             Our Promise
           </p>
         </AnimateIn>
@@ -29,13 +29,13 @@ export function GuaranteeSection() {
         </div>
 
         <AnimateIn y={20} delay={0.3}>
-          <h2 className="mt-2 font-heading text-[length:var(--text-title-lg)] font-black uppercase tracking-[-0.03em] text-foreground">
+          <h2 className="mt-2 font-heading text-[length:var(--text-title-lg)] font-black uppercase tracking-[-0.03em] text-white">
             Satisfaction Guarantee
           </h2>
         </AnimateIn>
 
         <AnimateIn y={15} delay={0.4}>
-          <p className="mx-auto mt-5 max-w-lg text-lg text-muted-foreground">
+          <p className="mx-auto mt-5 max-w-lg text-lg text-primary-100">
             Your satisfaction is non-negotiable. We stand behind every frame we
             deliver — no asterisks, no fine print.
           </p>
@@ -51,14 +51,14 @@ export function GuaranteeSection() {
             return (
               <StaggerItem key={pillar.title} y={20}>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-50">
-                    <Icon className="h-5 w-5 text-primary-500" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15">
+                    <Icon className="h-5 w-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <h3 className="font-heading text-sm font-bold text-foreground">
+                    <h3 className="font-heading text-sm font-bold text-white">
                       {pillar.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs text-primary-200">
                       {pillar.description}
                     </p>
                   </div>
@@ -69,7 +69,7 @@ export function GuaranteeSection() {
         </StaggerGroup>
 
         <AnimateIn y={15} delay={0.2} className="mt-12">
-          <Button href="https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B" intent="primary" size="xl">
+          <Button href="https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B" intent="secondary" size="xl">
             Book Your Free Strategy Call
           </Button>
         </AnimateIn>

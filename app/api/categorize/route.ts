@@ -7,7 +7,7 @@ const ALL_ITEMS_QUERY = `*[_type == "portfolioItem"] | order(orderRank asc){
   title,
   "slug": slug.current,
   category,
-  videoUrl
+  "videoUrl": video.asset->url
 }`;
 
 export async function GET() {

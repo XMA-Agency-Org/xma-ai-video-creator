@@ -41,11 +41,14 @@ export const portfolioItem = defineType({
       },
     }),
     defineField({
-      name: "videoUrl",
-      title: "Video URL",
-      type: "string",
+      name: "video",
+      title: "Video",
+      type: "file",
+      options: {
+        accept: "video/*",
+      },
       validation: (rule) => rule.required(),
-      description: "Direct URL or relative path to video file (.mp4)",
+      description: "Upload an MP4 or other video file",
     }),
     defineField({
       name: "orderRank",

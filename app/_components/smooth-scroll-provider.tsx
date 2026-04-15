@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
+const DISABLED_PATHS = ["/studio"];
+
 export function SmoothScrollProvider() {
+  const pathname = usePathname();
+
   useEffect(() => {
+    if (DISABLED_PATHS.some((path) => pathname.startsWith(path))) return;
+
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) return;
 
@@ -23,7 +30,7 @@ export function SmoothScrollProvider() {
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

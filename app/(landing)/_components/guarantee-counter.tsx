@@ -37,10 +37,10 @@ export function GuaranteeCounter() {
   if (reduced) {
     return (
       <div ref={ref} className="flex items-baseline justify-center gap-1">
-        <span className="font-heading text-[length:var(--text-display)] font-black leading-none tracking-[-0.04em] text-foreground">
+        <span className="font-heading text-[length:var(--text-display)] font-black leading-none tracking-[-0.04em] text-white">
           100
         </span>
-        <span className="font-heading text-[length:var(--text-title-lg)] font-black leading-none text-primary-500">
+        <span className="font-heading text-[length:var(--text-title-lg)] font-black leading-none text-primary-200">
           %
         </span>
       </div>
@@ -55,11 +55,11 @@ export function GuaranteeCounter() {
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.7, ease: EASE_OUT_EXPO }}
     >
-      <motion.span className="font-heading text-[length:var(--text-display)] font-black leading-none tracking-[-0.04em] text-foreground">
+      <motion.span className="font-heading text-[length:var(--text-display)] font-black leading-none tracking-[-0.04em] text-white">
         {rounded}
       </motion.span>
       <motion.span
-        className="font-heading text-[length:var(--text-title-lg)] font-black leading-none text-primary-500"
+        className="font-heading text-[length:var(--text-title-lg)] font-black leading-none text-primary-200"
         initial={{ opacity: 0, x: -10 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.8, ease: EASE_OUT_EXPO }}
