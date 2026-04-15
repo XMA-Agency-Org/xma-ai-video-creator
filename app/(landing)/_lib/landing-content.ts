@@ -25,12 +25,13 @@ import type {
   ClientLogo,
   PricingPlan,
   AgencyService,
+  GuaranteePillar,
 } from "@/app/(landing)/_types/landing-types";
 
 export const HERO_CONTENT = {
   headline: "Your creatives, the way you imagined it.",
   subheadline:
-    "We combine AI-driven speed with a skilled team of 10 to deliver direct response creatives with total creative freedom — exactly how you envisioned them.",
+    "We combine AI-driven speed with a skilled creative team to deliver direct response creatives with total creative freedom — exactly how you envisioned them.",
   primaryCta: "Book a Free Consultation",
   primaryCtaHref: "#book",
   secondaryCta: "See Our Work",
@@ -38,7 +39,7 @@ export const HERO_CONTENT = {
 
 export const STATS = [
   { value: "10x", label: "Faster Than DIY", accent: false },
-  { value: "9+", label: "Creative Experts on Your Team", accent: true },
+  { value: "24/7", label: "Dedicated Creative Support", accent: true },
   { value: "30%", label: "Lower Cost Than Agencies", accent: false },
   { value: "500+", label: "Videos Delivered", accent: true },
 ];
@@ -405,5 +406,23 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     highlighted: false,
     stripePriceId: "price_enterprise_placeholder",
+  },
+];
+
+export const GUARANTEE_PILLARS: GuaranteePillar[] = [
+  {
+    iconName: "RefreshCw",
+    title: "Unlimited Revisions",
+    description: "We iterate until you love it. No cap on rounds, no extra charges.",
+  },
+  {
+    iconName: "BadgeDollarSign",
+    title: "Money-Back Promise",
+    description: "If we can't deliver what was agreed, you get a full refund. Period.",
+  },
+  {
+    iconName: "Headset",
+    title: "Dedicated Support",
+    description: "A real creative team on your side — not a chatbot, not a ticket queue.",
   },
 ];

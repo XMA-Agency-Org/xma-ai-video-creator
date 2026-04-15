@@ -15,7 +15,7 @@ const FALLBACK_VIDEOS = [
 
 const FALLBACK_BADGES = [
   { iconName: "Clock", text: "50% FASTER TURNAROUND", style: "accent" },
-  { iconName: "Users", text: "9+ EXPERTS ON YOUR TEAM", style: "default" },
+  { iconName: "Users", text: "DEDICATED EXPERT TEAM", style: "default" },
   { iconName: "Zap", text: "50% TIME SAVED VS TRADITIONAL", style: "default" },
 ];
 

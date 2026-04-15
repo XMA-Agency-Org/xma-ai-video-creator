@@ -63,3 +63,9 @@ export type AgencyService = {
   description: string;
   iconName: string;
 };
+
+export type GuaranteePillar = {
+  iconName: string;
+  title: string;
+  description: string;
+};
