@@ -12,6 +12,7 @@ import { TestimonialsSection } from "./_components/testimonials-section";
 import { PricingSection } from "./_components/pricing-section";
 import { FaqSection } from "./_components/faq-section";
 import { CtaBannerSection } from "./_components/cta-banner-section";
+import { GuaranteeSection } from "./_components/guarantee-section";
 import { LocationStripSection } from "./_components/location-strip-section";
 
 import {
@@ -30,6 +31,7 @@ export default function LandingPage() {
       <LocationStripSection />
       <HowItWorksSection />
       <WhyXmaSection />
+      <GuaranteeSection />
       <WhatWeNeedSection />
       <TestimonialsSection />
       <AbPricingGate>

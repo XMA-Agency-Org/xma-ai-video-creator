@@ -411,9 +411,9 @@ export const PRICING_PLANS: PricingPlan[] = [
 
 export const GUARANTEE_PILLARS: GuaranteePillar[] = [
   {
-    iconName: "RefreshCw",
-    title: "Unlimited Revisions",
-    description: "We iterate until you love it. No cap on rounds, no extra charges.",
+    iconName: "Clock",
+    title: "On-Time Delivery",
+    description: "Every project ships on the agreed deadline — no delays, no excuses.",
   },
   {
     iconName: "BadgeDollarSign",

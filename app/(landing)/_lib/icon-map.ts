@@ -28,6 +28,9 @@ import {
   PenLine,
   Clapperboard,
   CheckCircle,
+  RefreshCw,
+  BadgeDollarSign,
+  Headset,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -61,6 +64,9 @@ const ICON_MAP: Record<string, LucideIcon> = {
   PenLine,
   Clapperboard,
   CheckCircle,
+  RefreshCw,
+  BadgeDollarSign,
+  Headset,
 };
 
 export function getIcon(name: string): LucideIcon {

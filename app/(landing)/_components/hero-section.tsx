@@ -3,7 +3,7 @@ import { HERO_QUERY } from "@/sanity/lib/queries";
 import { HERO_CONTENT } from "@/app/(landing)/_lib/landing-content";
 import { ColoredHeadline } from "./colored-headline";
 import { HeroVideoGrid } from "./hero-video-grid";
-import { FloatingBadges } from "./floating-badges";
+
 import { HeroCta } from "./hero-cta";
 import { HeroChoreography } from "./hero-choreography";
 
@@ -13,11 +13,6 @@ const FALLBACK_VIDEOS = [
   "https://ruyastudio.my.canva.site/_assets/video/35f816e914fb41dbab06f7c157ec2df5.mp4",
 ];
 
-const FALLBACK_BADGES = [
-  { iconName: "Clock", text: "50% FASTER TURNAROUND", style: "accent" },
-  { iconName: "Users", text: "DEDICATED EXPERT TEAM", style: "default" },
-  { iconName: "Zap", text: "50% TIME SAVED VS TRADITIONAL", style: "default" },
-];
 
 export async function HeroSection() {
   const { data } = await sanityFetch({ query: HERO_QUERY });
@@ -26,7 +21,7 @@ export async function HeroSection() {
   const subheadline = data?.subheadline ?? HERO_CONTENT.subheadline;
   const primaryCta = data?.primaryCta ?? { label: HERO_CONTENT.primaryCta, href: HERO_CONTENT.primaryCtaHref, style: "primary" };
   const videos = data?.heroVideos?.map((v: { videoUrl: string }) => v.videoUrl) ?? FALLBACK_VIDEOS;
-  const badges = data?.floatingBadges ?? FALLBACK_BADGES;
+
 
   return (
     <section className="relative py-12 md:py-16 lg:py-20">
@@ -64,7 +59,7 @@ export async function HeroSection() {
           <HeroChoreography element="media">
             <div className="relative">
               <HeroVideoGrid videos={videos} />
-              <FloatingBadges badges={badges} />
+
             </div>
           </HeroChoreography>
         </div>
