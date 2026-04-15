@@ -90,7 +90,13 @@ export async function HowItWorksSection() {
         {/* Desktop: horizontal timeline */}
         <div className="mt-14 hidden md:block">
           <div className="relative mx-auto">
-            <StaggerGroup className="grid grid-cols-7" stagger={0.08}>
+            <GrowingLine
+              className="pointer-events-none absolute bottom-[2.25rem] left-[calc(100%/14)] right-[calc(100%/14)] h-1.5 rounded-full bg-primary-500 sm:bottom-10"
+              delay={0.3}
+              duration={0.8}
+            />
+
+            <StaggerGroup className="relative z-10 grid grid-cols-7" stagger={0.08}>
               {steps.map(
                 (
                   step: {
@@ -122,7 +128,7 @@ export async function HowItWorksSection() {
                           </p>
                         </div>
 
-                        <div className="relative z-10">
+                        <div>
                           <div
                             className={`flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full border-[5px] font-heading text-xs font-black uppercase sm:h-20 sm:w-20 sm:text-sm ${
                               isLast
@@ -139,12 +145,6 @@ export async function HowItWorksSection() {
                 },
               )}
             </StaggerGroup>
-
-            <GrowingLine
-              className="pointer-events-none absolute bottom-[2.25rem] left-[calc(100%/14)] right-[calc(100%/14)] z-0 h-1.5 rounded-full bg-primary-500 sm:bottom-10"
-              delay={0.3}
-              duration={0.8}
-            />
           </div>
         </div>
       </div>
