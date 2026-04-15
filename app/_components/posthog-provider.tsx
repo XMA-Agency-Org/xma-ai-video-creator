@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { posthog } from "@/app/_lib/posthog-client";
+import { trackMetaEvent } from "@/app/_lib/meta-pixel-client";
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -17,6 +18,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       : url;
 
     posthog.capture("$pageview", { $current_url: fullUrl });
+    trackMetaEvent("PageView");
   }, [pathname, searchParams]);
 
   return <>{children}</>;
