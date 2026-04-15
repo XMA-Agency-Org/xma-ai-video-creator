@@ -2,6 +2,7 @@
 
 import { useAbVariant } from "./ab-pricing-gate";
 import { posthog } from "@/app/_lib/posthog-client";
+import { MagneticButton } from "@/app/_components/magnetic-button";
 
 type CtaBannerCtaProps = {
   defaultLabel: string;
@@ -23,12 +24,14 @@ export function CtaBannerCta({ defaultLabel, defaultHref }: CtaBannerCtaProps) {
   }
 
   return (
-    <a
-      href={href}
-      onClick={handleClick}
-      className="inline-flex items-center gap-2 rounded-full bg-lime-300 px-8 py-4 text-base font-black text-foreground transition-all hover:bg-lime-400"
-    >
-      {label} &rarr;
-    </a>
+    <MagneticButton>
+      <a
+        href={href}
+        onClick={handleClick}
+        className="inline-flex items-center gap-2 rounded-full bg-lime-300 px-8 py-4 text-base font-black text-foreground transition-all hover:bg-lime-400"
+      >
+        {label} &rarr;
+      </a>
+    </MagneticButton>
   );
 }

@@ -3,6 +3,7 @@ import { CHECKLIST_ITEMS, CHECKLIST_ICON_MAP } from "@/app/(landing)/_lib/landin
 import { SectionHeader } from "./section-header";
 import { StaggerGroup, StaggerItem } from "./stagger-group";
 import { AnimateIn } from "./animate-in";
+import { MagneticButton } from "@/app/_components/magnetic-button";
 
 export function WhatWeNeedSection() {
   const items = CHECKLIST_ITEMS;
@@ -50,12 +51,14 @@ export function WhatWeNeedSection() {
             <p className="mt-2 text-white/70">
               Our content team can shoot them for you in our studio — just ask during your strategy call.
             </p>
-            <a
-              href="#book"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-lime-300 px-8 py-3 text-sm font-bold text-foreground transition-all hover:bg-lime-400"
-            >
-              Book Your Strategy Call &rarr;
-            </a>
+            <MagneticButton className="mt-6 inline-block">
+              <a
+                href="#book"
+                className="inline-flex items-center gap-2 rounded-full bg-lime-300 px-8 py-3 text-sm font-bold text-foreground transition-all hover:bg-lime-400"
+              >
+                Book Your Strategy Call &rarr;
+              </a>
+            </MagneticButton>
           </div>
         </AnimateIn>
       </div>

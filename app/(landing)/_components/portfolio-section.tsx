@@ -5,6 +5,7 @@ import { SectionHeader } from "./section-header";
 import { CategoryPillsMarquee } from "./category-pills-marquee";
 import { PortfolioCarousel } from "./portfolio-carousel";
 import { PortfolioGrid } from "./portfolio-grid";
+import { MagneticButton } from "@/app/_components/magnetic-button";
 
 const FALLBACK_CATEGORIES = ["Haircare", "Food & Beverage", "Product Ads", "UGC", "CGI & 3D", "Skincare", "Fragrance", "Fashion & Lifestyle"];
 
@@ -34,12 +35,14 @@ console.log(data)
             subtitle={header.subtitle}
             heading={header.heading}
           />
-          <a
-            href="/portfolio"
-            className="inline-flex items-center gap-2 self-start rounded-full border-2 border-foreground px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-foreground hover:text-background md:self-auto"
-          >
-            {viewAllText}
-          </a>
+          <MagneticButton className="self-start md:self-auto">
+            <a
+              href="/portfolio"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-foreground px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-foreground hover:text-background"
+            >
+              {viewAllText}
+            </a>
+          </MagneticButton>
         </div>
       </div>
 

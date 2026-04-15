@@ -5,6 +5,7 @@ import { SectionHeader } from "./section-header";
 import { FaqAccordionItem } from "./faq-accordion-item";
 import { AnimateIn } from "./animate-in";
 import { StaggerGroup, StaggerItem } from "./stagger-group";
+import { MagneticButton } from "@/app/_components/magnetic-button";
 
 export async function FaqSection() {
   const { data } = await sanityFetch({ query: FAQ_SECTION_QUERY });
@@ -34,12 +35,14 @@ export async function FaqSection() {
               description={header.description}
             />
             <AnimateIn y={15} delay={0.3}>
-              <a
-                href={`mailto:${contactEmail}`}
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-sm font-bold text-white transition-colors hover:bg-primary-600"
-              >
-                {contactText} &rarr;
-              </a>
+              <MagneticButton className="mt-8 inline-block">
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-sm font-bold text-white transition-colors hover:bg-primary-600"
+                >
+                  {contactText} &rarr;
+                </a>
+              </MagneticButton>
             </AnimateIn>
           </div>
 
