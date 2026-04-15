@@ -24,30 +24,19 @@ export default function LandingPage() {
   return (
     <AbVariantProvider>
       <HeroSection />
-
       <LogoStripSection />
-
       <StatsSection />
-
       <PortfolioSection />
-
       <MarqueeSection />
-
       <LocationStripSection />
-      <WhyXmaSection />
-
       <HowItWorksSection />
-
+      <WhyXmaSection />
       <WhatWeNeedSection />
-
       <TestimonialsSection />
-
       <AbPricingGate>
         <PricingSection />
       </AbPricingGate>
-
       <FaqSection />
-
       <CtaBannerSection />
     </AbVariantProvider>
   );
