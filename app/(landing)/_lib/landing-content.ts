@@ -23,7 +23,6 @@ import type {
   ComparisonFeature,
   ChecklistItem,
   ClientLogo,
-  PricingPlan,
   AgencyService,
   GuaranteePillar,
 } from "@/app/(landing)/_types/landing-types";
@@ -33,7 +32,7 @@ export const HERO_CONTENT = {
   subheadline:
     "We combine AI-driven speed with a skilled creative team to deliver direct response creatives with total creative freedom — exactly how you envisioned them.",
   primaryCta: "Book a Free Consultation",
-  primaryCtaHref: "#book",
+  primaryCtaHref: "https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B",
   secondaryCta: "See Our Work",
 };
 
@@ -242,7 +241,7 @@ export const CTA_BANNER_CONTENT = {
   headline: "Ready to Scale Your Video Content?",
   description: "Book a free strategy call and see how our team can transform your content pipeline.",
   ctaLabel: "Book Your Free Strategy Call",
-  ctaHref: "#book",
+  ctaHref: "https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B",
 };
 
 export const FAQ_ITEMS: FaqItem[] = [
@@ -350,62 +349,6 @@ export const AGENCY_SERVICES: AgencyService[] = [
     description:
       "We review your current brand, audience targeting, presence and conversion funnel before anything goes live. No guesswork, just a clear and honest solution.",
     iconName: "SearchCheck",
-  },
-];
-
-export const PRICING_PLANS: PricingPlan[] = [
-  {
-    id: "starter",
-    name: "Starter",
-    price: 499,
-    description: "Perfect for testing AI video for your brand",
-    features: [
-      "1 AI-generated video",
-      "Up to 30 seconds",
-      "1 revision round",
-      "HD quality (1080p)",
-      "Delivered in 5 business days",
-      "Social media optimized",
-    ],
-    highlighted: false,
-    stripePriceId: "price_starter_placeholder",
-  },
-  {
-    id: "pro",
-    name: "Pro",
-    price: 999,
-    description: "Best value for growing brands",
-    features: [
-      "3 AI-generated videos",
-      "Up to 60 seconds each",
-      "2 revision rounds",
-      "4K quality",
-      "Delivered in 7 business days",
-      "Multi-platform formats",
-      "Brand kit integration",
-      "Priority support",
-    ],
-    highlighted: true,
-    stripePriceId: "price_pro_placeholder",
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    price: 2499,
-    description: "Full-scale content production",
-    features: [
-      "10 AI-generated videos",
-      "Up to 90 seconds each",
-      "Unlimited revisions",
-      "4K quality",
-      "Delivered in 14 business days",
-      "All platform formats",
-      "Custom brand kit",
-      "Dedicated account manager",
-      "Usage analytics dashboard",
-    ],
-    highlighted: false,
-    stripePriceId: "price_enterprise_placeholder",
   },
 ];
 

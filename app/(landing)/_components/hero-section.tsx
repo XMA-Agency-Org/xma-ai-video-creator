@@ -49,8 +49,8 @@ export async function HeroSection() {
             <HeroChoreography element="cta">
               <div className="mt-12">
                 <HeroCta
-                  defaultLabel={primaryCta.label ?? HERO_CONTENT.primaryCta}
-                  defaultHref={primaryCta.href ?? "#book"}
+                  label={primaryCta.label ?? HERO_CONTENT.primaryCta}
+                  href={primaryCta.href ?? "https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B"}
                 />
               </div>
             </HeroChoreography>

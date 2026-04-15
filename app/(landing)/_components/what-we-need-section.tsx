@@ -53,7 +53,7 @@ export function WhatWeNeedSection() {
             </p>
             <MagneticButton className="mt-6 inline-block">
               <a
-                href="#book"
+                href="https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B"
                 className="inline-flex items-center gap-2 rounded-full bg-lime-300 px-8 py-3 text-sm font-bold text-foreground transition-all hover:bg-lime-400"
               >
                 Book Your Strategy Call &rarr;

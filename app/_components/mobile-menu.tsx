@@ -149,7 +149,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
 
             <motion.div className="mt-10 px-4" variants={ctaVariants} initial="closed" animate="open" exit="exit">
               <a
-                href="#book"
+                href="https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B"
                 className="flex w-full items-center justify-center rounded-full bg-white px-8 py-5 font-heading text-lg font-bold text-primary-600 transition-colors hover:bg-accent-light hover:text-primary-800"
                 onClick={onClose}
               >

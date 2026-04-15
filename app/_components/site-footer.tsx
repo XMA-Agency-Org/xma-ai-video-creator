@@ -11,7 +11,7 @@ const FALLBACK_LINKS = [
     links: [
       { label: "About XMA", href: "https://xma.ae" },
       { label: "Portfolio", href: "/portfolio" },
-      { label: "Book a Call", href: "#book" },
+      { label: "Book a Call", href: "https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B" },
       { label: "Contact", href: "mailto:admin@xmaagency.com" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms of Service", href: "/terms" },

@@ -69,7 +69,7 @@ export function GuaranteeSection() {
         </StaggerGroup>
 
         <AnimateIn y={15} delay={0.2} className="mt-12">
-          <Button href="#book" intent="primary" size="xl">
+          <Button href="https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B" intent="primary" size="xl">
             Book Your Free Strategy Call
           </Button>
         </AnimateIn>

@@ -70,7 +70,7 @@ export function NavigationHeader() {
 
       <MagneticButton className="hidden md:inline-flex">
         <a
-          href="#book"
+          href="https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B"
           onClick={() => posthog.capture("nav_book_call_clicked", { location: "header" })}
           className="inline-flex rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary-600 transition-all duration-200 hover:bg-lime-300 hover:text-primary-800"
         >
