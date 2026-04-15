@@ -31,7 +31,7 @@ export async function HeroSection() {
   return (
     <section className="relative py-12 md:py-20">
       <div className="mx-auto max-w-[var(--container-max-width)] px-6">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
+        <div className="grid grid-cols-1 items-center gap-4 lg:grid-cols-2 lg:gap-12">
           <div>
             <AnimateIn y={20} duration={0.5}>
               <p className="mb-4 text-sm font-bold uppercase tracking-widest text-primary-500">

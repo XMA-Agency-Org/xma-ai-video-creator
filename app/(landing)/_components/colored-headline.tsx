@@ -10,7 +10,7 @@ export function ColoredHeadline({
   highlightedWords = HIGHLIGHTED_WORDS,
 }: ColoredHeadlineProps) {
   return (
-    <h1 className="font-heading text-5xl font-black leading-[1.05] tracking-tight text-foreground uppercase sm:text-6xl lg:text-7xl">
+    <h1 className="font-heading text-5xl font-black tracking-tight text-foreground uppercase sm:text-6xl lg:text-7xl/tight">
       {text.split(" ").map((word: string, i: number) => (
         <span
           key={i}

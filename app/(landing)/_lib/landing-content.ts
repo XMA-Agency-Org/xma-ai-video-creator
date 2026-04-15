@@ -28,13 +28,12 @@ import type {
 } from "@/app/(landing)/_types/landing-types";
 
 export const HERO_CONTENT = {
-  headline: "A Full Creative Team Powered by AI",
+  headline: "Your creatives, the way you imagined it.",
   subheadline:
-    "Great video ads shouldn't require a three-week timeline and a five-figure production budget. We combine a dedicated creative team with AI to give your brand the same quality but faster, leaner, and built around your actual goals.",
+    "We combine AI-driven speed with a skilled team of 10 to deliver direct response creatives with total creative freedom — exactly how you envisioned them.",
   primaryCta: "Book a Free Consultation",
   primaryCtaHref: "#book",
   secondaryCta: "See Our Work",
-  secondaryCtaHref: "#portfolio",
 };
 
 export const STATS = [
