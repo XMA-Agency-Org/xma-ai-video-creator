@@ -2,7 +2,6 @@ export const dynamic = "force-dynamic";
 
 import { HeroSection } from "./_components/hero-section";
 import { LogoStripSection } from "./_components/logo-strip-section";
-import { StatsSection } from "./_components/stats-section";
 import { HowItWorksSection } from "./_components/how-it-works-section";
 import { PortfolioSection } from "./_components/portfolio-section";
 import { MarqueeSection } from "./_components/marquee-section";
@@ -19,7 +18,6 @@ export default function LandingPage() {
     <>
       <HeroSection />
       <LogoStripSection />
-      <StatsSection />
       <PortfolioSection />
       <MarqueeSection />
       <LocationStripSection />

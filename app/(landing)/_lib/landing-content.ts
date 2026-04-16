@@ -39,7 +39,7 @@ export const HERO_CONTENT = {
 export const STATS = [
   { value: "10x", label: "Faster Than DIY", accent: false },
   { value: "24/7", label: "Dedicated Creative Support", accent: true },
-  { value: "30%", label: "Lower Cost Than Agencies", accent: false },
+  { value: "48hr", label: "Average Turnaround", accent: false },
   { value: "500+", label: "Videos Delivered", accent: true },
 ];
 

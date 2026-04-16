@@ -13,11 +13,11 @@ import { MobileMenu } from "./mobile-menu";
 import { MagneticButton } from "./magnetic-button";
 
 const NAV_LINKS = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Why XMA", href: "#why-xma" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Why XMA", href: "/#why-xma" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "#faq" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export function NavigationHeader() {

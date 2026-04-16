@@ -6,6 +6,7 @@ import { HeroVideoGrid } from "./hero-video-grid";
 
 import { HeroCta } from "./hero-cta";
 import { HeroChoreography } from "./hero-choreography";
+import { HeroFloatingBadges } from "./hero-floating-badges";
 
 const FALLBACK_VIDEOS = [
   "https://cdn.sanity.io/files/fv5mbe60/production/fd3a8a746d9891d2fa6eca06d1f62afdc0ccc7a5.mp4",
@@ -58,8 +59,8 @@ export async function HeroSection() {
 
           <HeroChoreography element="media">
             <div className="relative">
+              <HeroFloatingBadges />
               <HeroVideoGrid videos={videos} />
-
             </div>
           </HeroChoreography>
         </div>
