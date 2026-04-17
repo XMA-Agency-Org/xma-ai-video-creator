@@ -53,8 +53,8 @@ async function sendMetaEvent(params: MetaEventParams): Promise<void> {
     access_token: ACCESS_TOKEN,
   };
 
-  if (process.env.NODE_ENV !== "production") {
-    payload.test_event_code = "TEST_EVENT";
+  if (process.env.META_TEST_EVENT_CODE) {
+    payload.test_event_code = process.env.META_TEST_EVENT_CODE;
   }
 
   try {

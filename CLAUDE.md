@@ -31,9 +31,9 @@ app/
 ├── blog/              # /blog (listing), /blog/[slug] (detail)
 ├── portfolio/         # /portfolio — filterable grid
 ├── studio/[[...tool]] # Sanity Studio at /studio
-├── api/               # checkout (Stripe), categorize (Sanity write)
+├── api/               # meta-capi, categorize (Sanity write)
 ├── _components/       # Global: primitives/, posthog-provider, smooth-scroll-provider
-└── _lib/              # cn(), motion-config, api-client, posthog, stripe
+└── _lib/              # cn(), motion-config, api-client, posthog
 ```
 
 Feature code is co-located with routes via `_components`, `_lib`, `_types`. Only truly shared code lives in root-level `app/_components/` and `app/_lib/`.
@@ -64,7 +64,7 @@ All base components (`app/_components/primitives/`) use `class-variance-authorit
 - **Server utility**: `app/_lib/meta-capi.ts` — `sendMetaEvent()`, `generateEventId()`, `hashUserData()`
 - **Client helper**: `app/_lib/meta-pixel-client.ts` — `trackMetaEvent()` fires both pixel + CAPI with shared eventId for deduplication
 - **API route**: `app/api/meta-capi/route.ts` — receives client events, extracts IP/user-agent/cookies, forwards to CAPI
-- **Events tracked**: PageView (per-navigation via PostHogProvider), Lead (server-side on /thank-you), Purchase (client-side on checkout success)
+- **Events tracked**: PageView (per-navigation via PostHogProvider), Lead (server-side on /thank-you)
 - **Deduplication**: Client pixel and server CAPI share the same `eventId` so Meta deduplicates
 - **Test mode**: Sends `test_event_code: "TEST_EVENT"` in non-production environments
 
@@ -100,7 +100,6 @@ All base components (`app/_components/primitives/`) use `class-variance-authorit
 NEXT_PUBLIC_SANITY_PROJECT_ID, NEXT_PUBLIC_SANITY_DATASET
 SANITY_API_READ_TOKEN, SANITY_API_WRITE_TOKEN
 NEXT_PUBLIC_POSTHOG_KEY, NEXT_PUBLIC_POSTHOG_HOST
-STRIPE_SECRET_KEY, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 NEXT_PUBLIC_BASE_URL
 META_PIXEL_ID, META_CAPI_ACCESS_TOKEN, NEXT_PUBLIC_META_PIXEL_ID
 ```
