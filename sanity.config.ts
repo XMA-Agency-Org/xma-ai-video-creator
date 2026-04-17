@@ -14,9 +14,6 @@ export default defineConfig({
   projectId,
   dataset,
   schema,
-  mediaLibrary: {
-    enabled: true,
-  },
   auth: {
     loginMethod: "token",
   },
