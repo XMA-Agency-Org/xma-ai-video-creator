@@ -1,0 +1,378 @@
+[
+  {
+    "id": "we-make-ai-ads",
+    "title": "We Make AI Ads",
+    "category": "Service Business",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522213/xma-ai-video-creator/portfolio/we-make-ai-ads.mp4",
+    "featured": true,
+    "hero": true
+  },
+  {
+    "id": "xma-ai-ad-saas",
+    "title": "XMA AI Ad - SaaS",
+    "category": "Service Business",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522058/xma-ai-video-creator/portfolio/xma-ai-ad-saas.mp4",
+    "featured": true,
+    "hero": true
+  },
+  {
+    "id": "vip-motors-bugatti-reveal",
+    "title": "VIP Motors Bugatti Reveal",
+    "category": "Real Estate",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522233/xma-ai-video-creator/portfolio/vip-motors-bugatti-reveal.mp4",
+    "featured": true,
+    "hero": true
+  },
+  {
+    "id": "xma-ai-ad-big-guy-testimonial",
+    "title": "XMA AI Ad - Testimonial",
+    "category": "UGC",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522309/xma-ai-video-creator/portfolio/xma-ai-ad-big-guy-testimonial.mp4",
+    "featured": true,
+    "hero": false
+  },
+  {
+    "id": "mega-ai-video-1",
+    "title": "Mega AI Video 1",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522352/xma-ai-video-creator/portfolio/mega-ai-video-1.mp4",
+    "featured": true,
+    "hero": false
+  },
+  {
+    "id": "mega-ai-video-2",
+    "title": "Mega AI Video 2",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522363/xma-ai-video-creator/portfolio/mega-ai-video-2.mp4",
+    "featured": true,
+    "hero": false
+  },
+  {
+    "id": "mega-ai-video-3",
+    "title": "Mega AI Video 3",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522276/xma-ai-video-creator/portfolio/mega-ai-video-3.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "mega-ai-video-4",
+    "title": "Mega AI Video 4",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522077/xma-ai-video-creator/portfolio/mega-ai-video-4.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "mega-ai-video-5",
+    "title": "Mega AI Video 5",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522343/xma-ai-video-creator/portfolio/mega-ai-video-5.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "rosso-vivo-1",
+    "title": "Rosso Vivo",
+    "category": "Food & Beverage",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522071/xma-ai-video-creator/portfolio/rosso-vivo-1.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "leads-ai-ad",
+    "title": "Leads AI Ad",
+    "category": "Service Business",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522252/xma-ai-video-creator/portfolio/leads-ai-ad.mov",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "baggage-man-1",
+    "title": "Baggage Man",
+    "category": "Fashion & Lifestyle",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522335/xma-ai-video-creator/portfolio/baggage-man-1.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "15d0747cd01e85bf11581cb7ba703714",
+    "title": "Pink Drinkware",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522369/xma-ai-video-creator/landing/15d0747cd01e85bf11581cb7ba703714.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "932e344e91a9ecf30d7d8bfcb3d35a1f",
+    "title": "Store Product Showcase",
+    "category": "UGC",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522373/xma-ai-video-creator/landing/932e344e91a9ecf30d7d8bfcb3d35a1f.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "db1a94876e5ed903b58d5848c774d72f",
+    "title": "Kayali Perfume",
+    "category": "Fragrance",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522377/xma-ai-video-creator/landing/db1a94876e5ed903b58d5848c774d72f.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "fa8e67902c10c3a2caf799515bb777fd",
+    "title": "vantori vitamin C",
+    "category": "Food & Beverage",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522380/xma-ai-video-creator/landing/fa8e67902c10c3a2caf799515bb777fd.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "66cb8849cb34a43c0fda09c9db05565f",
+    "title": "Shampoo brand",
+    "category": "Haircare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522382/xma-ai-video-creator/landing/66cb8849cb34a43c0fda09c9db05565f.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "2b2ff8b53696b3600ca51162db3aa9f0",
+    "title": "Vitamin C",
+    "category": "Food & Beverage",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522389/xma-ai-video-creator/landing/2b2ff8b53696b3600ca51162db3aa9f0.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "eee1c465fa4b0ab43cf16b626392c7c5",
+    "title": "Shampoo product",
+    "category": "Haircare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522392/xma-ai-video-creator/landing/eee1c465fa4b0ab43cf16b626392c7c5.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "36996f557d12126b4c1bd003b62c278b",
+    "title": "Serum product",
+    "category": "Haircare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522395/xma-ai-video-creator/landing/36996f557d12126b4c1bd003b62c278b.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "c575974a8de5ce1f51ca43223b89f1f4",
+    "title": "Clothing Brand",
+    "category": "Fashion & Lifestyle",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522397/xma-ai-video-creator/landing/c575974a8de5ce1f51ca43223b89f1f4.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "35f816e914fb41dbab06f7c157ec2df5",
+    "title": "Lealeen Cream",
+    "category": "Skincare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522400/xma-ai-video-creator/landing/35f816e914fb41dbab06f7c157ec2df5.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "46bea5d969c90a46b8c7a84a75361252",
+    "title": "Glow Store Promo",
+    "category": "UGC",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522405/xma-ai-video-creator/landing/46bea5d969c90a46b8c7a84a75361252.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "da34ba74cd4cf352f61f6e3188649c2a",
+    "title": "POV Hair Before & After",
+    "category": "UGC",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522413/xma-ai-video-creator/landing/da34ba74cd4cf352f61f6e3188649c2a.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "00d0f44aff134fe233ae5e982aacaf6c",
+    "title": "Shampoo Product",
+    "category": "Haircare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522415/xma-ai-video-creator/landing/00d0f44aff134fe233ae5e982aacaf6c.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "915ce17603a3a34d4beea0a472f18bc9",
+    "title": "Byte Snack",
+    "category": "Food & Beverage",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522418/xma-ai-video-creator/landing/915ce17603a3a34d4beea0a472f18bc9.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "51b859cec4fd8a490986949e826d81a6",
+    "title": "oiuoiu Skincare Brand",
+    "category": "Skincare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522425/xma-ai-video-creator/landing/51b859cec4fd8a490986949e826d81a6.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "06b1c92242ce511f3701613757b6a8e3",
+    "title": "Shampoo Magazine Cover",
+    "category": "Haircare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522432/xma-ai-video-creator/landing/06b1c92242ce511f3701613757b6a8e3.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "e22994b385d82ab2792f8453fb410182",
+    "title": "Lilo Drinkware",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522434/xma-ai-video-creator/landing/e22994b385d82ab2792f8453fb410182.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "f22a6dd69424bdfb494f5d9243df32bc",
+    "title": "Skincare Review Cards",
+    "category": "Skincare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522436/xma-ai-video-creator/landing/f22a6dd69424bdfb494f5d9243df32bc.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "34086a763b7e56642779f31d69f7d432",
+    "title": "Shampoo Brand",
+    "category": "Haircare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522442/xma-ai-video-creator/landing/34086a763b7e56642779f31d69f7d432.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "7d349151423bdb7bdec056c964a71df7",
+    "title": "Shampoo Brand",
+    "category": "Haircare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522445/xma-ai-video-creator/landing/7d349151423bdb7bdec056c964a71df7.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "1b69da1ab10a634e2bcc45df62308a15",
+    "title": "Desert Bull Scene",
+    "category": "CGI & 3D",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522450/xma-ai-video-creator/landing/1b69da1ab10a634e2bcc45df62308a15.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "7dc15cdb03b5072153dcb5148e980b36",
+    "title": "Lilo Mermaid Product Hold",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522452/xma-ai-video-creator/landing/7dc15cdb03b5072153dcb5148e980b36.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "cb2d9ca0532965992bb4c590b655e0a1",
+    "title": "Store Review",
+    "category": "Food & Beverage",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522457/xma-ai-video-creator/landing/cb2d9ca0532965992bb4c590b655e0a1.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "460a4a3bfe2d0505c3dd55a198085632",
+    "title": "Blue Ruffled Outfit",
+    "category": "Fashion & Lifestyle",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522460/xma-ai-video-creator/landing/460a4a3bfe2d0505c3dd55a198085632.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "ddd58304c75eb886b4139ddbb62cd97a",
+    "title": "Purple Shampoo Brand",
+    "category": "Haircare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522467/xma-ai-video-creator/landing/ddd58304c75eb886b4139ddbb62cd97a.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "35a0f314c4296704126ad934711f57e0",
+    "title": "Byte Snacks Package",
+    "category": "Food & Beverage",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522474/xma-ai-video-creator/landing/35a0f314c4296704126ad934711f57e0.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "efb606b771979083cbc1006435ccd03f",
+    "title": "KAYALI Perfume Mermaid",
+    "category": "CGI & 3D",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522477/xma-ai-video-creator/landing/efb606b771979083cbc1006435ccd03f.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "df90be678ee2833ba9a12653b43386a0",
+    "title": "Dewy Glow Product",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522480/xma-ai-video-creator/landing/df90be678ee2833ba9a12653b43386a0.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "82842627a62f1782f52b248d9fe18d98",
+    "title": "Vantori Vitamin C",
+    "category": "Food & Beverage",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522484/xma-ai-video-creator/landing/82842627a62f1782f52b248d9fe18d98.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "ec0b9b55af0c10db6ed43adec04d6adc",
+    "title": "Ice Cream City Shot",
+    "category": "CGI & 3D",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522487/xma-ai-video-creator/landing/ec0b9b55af0c10db6ed43adec04d6adc.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "a383434d33d7ed24a3f89f679d7a5c67",
+    "title": "Collagen Wine Glass",
+    "category": "Food & Beverage",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522496/xma-ai-video-creator/landing/a383434d33d7ed24a3f89f679d7a5c67.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "76287ddc0815ab472fac55e9086edfe7",
+    "title": "Shampoo Brand CGI",
+    "category": "CGI & 3D",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522503/xma-ai-video-creator/landing/76287ddc0815ab472fac55e9086edfe7.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "2acde87715155e390fbc2a3febb08eea",
+    "title": "Hair Tie Product Shot",
+    "category": "Haircare",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522506/xma-ai-video-creator/landing/2acde87715155e390fbc2a3febb08eea.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "fb3aad7effbdca8c4368117533e2af94",
+    "title": "Lilo Flamingo Pool Party",
+    "category": "Product Ads",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522509/xma-ai-video-creator/landing/fb3aad7effbdca8c4368117533e2af94.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "f441fd81045be040528a009dcad8e6eb",
+    "title": "Product Review Creator",
+    "category": "UGC",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522514/xma-ai-video-creator/landing/f441fd81045be040528a009dcad8e6eb.mp4",
+    "featured": false,
+    "hero": false
+  }
+]

@@ -1,6 +1,7 @@
+import { readFileSync } from "fs";
+import { join } from "path";
 import { sanityFetch } from "@/sanity/lib/live";
 import { PORTFOLIO_SECTION_QUERY } from "@/sanity/lib/queries";
-import { PORTFOLIO_ITEMS } from "@/app/(landing)/_lib/landing-content";
 import { SectionHeader } from "./section-header";
 import { CategoryPillsMarquee } from "./category-pills-marquee";
 import { PortfolioCarousel } from "./portfolio-carousel";
@@ -8,6 +9,21 @@ import { PortfolioGrid } from "./portfolio-grid";
 import { MagneticButton } from "@/app/_components/magnetic-button";
 
 const FALLBACK_CATEGORIES = ["Haircare", "Food & Beverage", "Product Ads", "UGC", "CGI & 3D", "Skincare", "Fragrance", "Fashion & Lifestyle"];
+
+type CloudinaryVideoEntry = {
+  id: string;
+  title: string;
+  category: string;
+  videoUrl: string;
+  featured: boolean;
+};
+
+function getFeaturedItems() {
+  const raw = readFileSync(join(process.cwd(), "public/videos/cloudinary-videos.json"), "utf-8");
+  return (JSON.parse(raw) as CloudinaryVideoEntry[])
+    .filter((e) => e.featured)
+    .map((e) => ({ id: e.id, title: e.title, category: e.category, videoSrc: e.videoUrl }));
+}
 
 export async function PortfolioSection() {
   const { data } = await sanityFetch({ query: PORTFOLIO_SECTION_QUERY });
@@ -19,12 +35,7 @@ export async function PortfolioSection() {
   };
   const viewAllText = data?.viewAllLinkText ?? "View All Work";
   const categories = data?.categoryPills ?? FALLBACK_CATEGORIES;
-  const items = data?.featuredItems?.map((item: { _id: string; title?: string; category?: string; videoUrl?: string }) => ({
-    id: item._id,
-    title: item.title ?? "",
-    category: item.category ?? "",
-    videoSrc: item.videoUrl ?? "",
-  })) ?? PORTFOLIO_ITEMS;
+  const items = getFeaturedItems();
 
   return (
     <section id="portfolio" className="py-16 md:py-24 lg:py-32">

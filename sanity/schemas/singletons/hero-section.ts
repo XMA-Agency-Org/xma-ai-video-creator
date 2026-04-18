@@ -40,14 +40,13 @@ export const heroSection = defineType({
           fields: [
             defineField({ name: "label", title: "Label", type: "string" }),
             defineField({
-              name: "videoUrl",
-              title: "Video URL",
-              type: "url",
-              validation: (rule) => rule.required(),
+              name: "video",
+              title: "Video",
+              type: "cloudinary.asset",
             }),
           ],
           preview: {
-            select: { title: "label", subtitle: "videoUrl" },
+            select: { title: "label", subtitle: "video.secure_url" },
           },
         },
       ],

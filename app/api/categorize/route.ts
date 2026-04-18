@@ -1,70 +1,67 @@
 import { NextResponse } from "next/server";
-import { client } from "@/sanity/lib/client";
-import { writeClient } from "@/sanity/lib/write-client";
+import { readFileSync, writeFileSync } from "fs";
+import { join } from "path";
 
-const ALL_ITEMS_QUERY = `*[_type == "portfolioItem"] | order(orderRank asc){
-  _id,
-  title,
-  "slug": slug.current,
-  category,
-  "videoUrl": video.asset->url
-}`;
+const JSON_PATH = join(process.cwd(), "public/videos/cloudinary-videos.json");
+
+type CloudinaryVideoEntry = {
+  id: string;
+  title: string;
+  category: string;
+  videoUrl: string;
+  featured: boolean;
+};
+
+function readVideos(): CloudinaryVideoEntry[] {
+  return JSON.parse(readFileSync(JSON_PATH, "utf-8"));
+}
+
+function writeVideos(videos: CloudinaryVideoEntry[]) {
+  writeFileSync(JSON_PATH, JSON.stringify(videos, null, 2), "utf-8");
+}
 
 export async function GET() {
-  if (!client) {
-    return NextResponse.json({ error: "Sanity client not configured" }, { status: 500 });
-  }
-
-  const items = await client.fetch(ALL_ITEMS_QUERY);
-
-  const entries = items.map((item: { _id: string; title: string; category: string; videoUrl: string }) => ({
-    id: item._id,
-    title: item.title ?? "",
-    category: item.category ?? "Uncategorized",
-    videoUrl: item.videoUrl ?? "",
-  }));
-
-  return NextResponse.json(entries);
+  const videos = readVideos();
+  return NextResponse.json(
+    videos.map((v) => ({ id: v.id, title: v.title, category: v.category, videoUrl: v.videoUrl }))
+  );
 }
 
 export async function PATCH(request: Request) {
-  if (!writeClient) {
-    return NextResponse.json({ error: "Sanity write client not configured" }, { status: 500 });
-  }
-
   const { id, category, title } = await request.json();
 
   if (!id) {
-    return NextResponse.json({ error: "Missing document id" }, { status: 400 });
+    return NextResponse.json({ error: "Missing id" }, { status: 400 });
   }
 
-  const patch = writeClient.patch(id);
+  const videos = readVideos();
+  const idx = videos.findIndex((v) => v.id === id);
 
-  if (category) patch.set({ category });
-  if (title) {
-    patch.set({
-      title,
-      slug: { _type: "slug", current: title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") },
-    });
+  if (idx === -1) {
+    return NextResponse.json({ error: "Entry not found" }, { status: 404 });
   }
 
-  const updated = await patch.commit();
+  if (category) videos[idx].category = category;
+  if (title) videos[idx].title = title;
 
-  return NextResponse.json({ success: true, entry: updated });
+  writeVideos(videos);
+  return NextResponse.json({ success: true, entry: videos[idx] });
 }
 
 export async function DELETE(request: Request) {
-  if (!writeClient) {
-    return NextResponse.json({ error: "Sanity write client not configured" }, { status: 500 });
-  }
-
   const { id } = await request.json();
 
   if (!id) {
-    return NextResponse.json({ error: "Missing document id" }, { status: 400 });
+    return NextResponse.json({ error: "Missing id" }, { status: 400 });
   }
 
-  await writeClient.delete(id);
+  const videos = readVideos();
+  const filtered = videos.filter((v) => v.id !== id);
 
+  if (filtered.length === videos.length) {
+    return NextResponse.json({ error: "Entry not found" }, { status: 404 });
+  }
+
+  writeVideos(filtered);
   return NextResponse.json({ success: true });
 }

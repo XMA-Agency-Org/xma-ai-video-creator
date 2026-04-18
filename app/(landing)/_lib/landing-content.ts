@@ -100,37 +100,37 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     id: "pink-drinkware",
     title: "Pink Drinkware",
     category: "Product Ads",
-    videoSrc: "https://ruyastudio.my.canva.site/_assets/video/15d0747cd01e85bf11581cb7ba703714.mp4",
+    videoSrc: "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522369/xma-ai-video-creator/landing/15d0747cd01e85bf11581cb7ba703714.mp4",
   },
   {
     id: "store-product-showcase",
     title: "Store Product Showcase",
     category: "UGC",
-    videoSrc: "https://ruyastudio.my.canva.site/_assets/video/932e344e91a9ecf30d7d8bfcb3d35a1f.mp4",
+    videoSrc: "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522373/xma-ai-video-creator/landing/932e344e91a9ecf30d7d8bfcb3d35a1f.mp4",
   },
   {
     id: "kayali-perfume",
     title: "Kayali Perfume",
     category: "Fragrance",
-    videoSrc: "https://ruyastudio.my.canva.site/_assets/video/db1a94876e5ed903b58d5848c774d72f.mp4",
+    videoSrc: "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522377/xma-ai-video-creator/landing/db1a94876e5ed903b58d5848c774d72f.mp4",
   },
   {
     id: "vantori-vitamin-c",
     title: "Vantori Vitamin C",
     category: "Food & Beverage",
-    videoSrc: "https://ruyastudio.my.canva.site/_assets/video/fa8e67902c10c3a2caf799515bb777fd.mp4",
+    videoSrc: "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522380/xma-ai-video-creator/landing/fa8e67902c10c3a2caf799515bb777fd.mp4",
   },
   {
     id: "shampoo-brand",
     title: "Shampoo Brand",
     category: "Haircare",
-    videoSrc: "https://ruyastudio.my.canva.site/_assets/video/66cb8849cb34a43c0fda09c9db05565f.mp4",
+    videoSrc: "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522382/xma-ai-video-creator/landing/66cb8849cb34a43c0fda09c9db05565f.mp4",
   },
   {
     id: "clothing-brand",
     title: "Clothing Brand",
     category: "Fashion & Lifestyle",
-    videoSrc: "https://ruyastudio.my.canva.site/_assets/video/c575974a8de5ce1f51ca43223b89f1f4.mp4",
+    videoSrc: "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522397/xma-ai-video-creator/landing/c575974a8de5ce1f51ca43223b89f1f4.mp4",
   },
 ];
 

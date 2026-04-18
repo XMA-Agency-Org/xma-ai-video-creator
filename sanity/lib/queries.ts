@@ -15,7 +15,7 @@ export const HERO_QUERY = defineQuery(`
     subheadline,
     primaryCta { label, href, style },
     secondaryCta { label, href, style },
-    heroVideos[]{ _key, label, videoUrl },
+    heroVideos[]{ _key, label, "videoUrl": video.secure_url },
     floatingBadges[]{ _key, iconName, text, style }
   }
 `);
@@ -38,7 +38,7 @@ export const PORTFOLIO_SECTION_QUERY = defineQuery(`
     header { subtitle, heading, description },
     viewAllLinkText,
     categoryPills,
-    featuredItems[]->{ _id, title, category, "slug": slug.current, "videoUrl": video.asset->url }
+    featuredItems[]->{ _id, title, category, "slug": slug.current, "videoUrl": video.secure_url }
   }
 `);
 
@@ -90,7 +90,7 @@ export const ALL_PORTFOLIO_ITEMS_QUERY = defineQuery(`
     title,
     "slug": slug.current,
     category,
-    "videoUrl": video.asset->url
+    "videoUrl": video.secure_url
   }
 `);
 

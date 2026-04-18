@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
-import { ALL_PORTFOLIO_ITEMS_QUERY, WORK_PAGE_QUERY } from "@/sanity/lib/queries";
+import { WORK_PAGE_QUERY } from "@/sanity/lib/queries";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { WorkPageContent } from "./_components/work-page-content";
@@ -13,27 +13,26 @@ export const metadata: Metadata = {
   description: "Browse our full portfolio of AI-generated video content for brands.",
 };
 
-function getFallbackVideos(): VideoEntry[] {
-  try {
-    const manifestPath = join(process.cwd(), "public/videos/manifest-final.json");
-    const raw = readFileSync(manifestPath, "utf-8");
-    const entries: VideoEntry[] = JSON.parse(raw);
-    return entries.map((e: { id: string; video: string; category: string; title: string }) => ({
-      id: e.id,
-      videoUrl: e.video,
-      category: e.category,
-      title: e.title,
-    }));
-  } catch {
-    return [];
-  }
+type CloudinaryVideoEntry = {
+  id: string;
+  title: string;
+  category: string;
+  videoUrl: string;
+  featured: boolean;
+};
+
+function getCloudinaryVideos(): VideoEntry[] {
+  const raw = readFileSync(join(process.cwd(), "public/videos/cloudinary-videos.json"), "utf-8");
+  return (JSON.parse(raw) as CloudinaryVideoEntry[]).map((e) => ({
+    id: e.id,
+    videoUrl: e.videoUrl,
+    category: e.category,
+    title: e.title,
+  }));
 }
 
 export default async function WorkPage() {
-  const [{ data: pageData }, { data: portfolioData }] = await Promise.all([
-    sanityFetch({ query: WORK_PAGE_QUERY }),
-    sanityFetch({ query: ALL_PORTFOLIO_ITEMS_QUERY }),
-  ]);
+  const { data: pageData } = await sanityFetch({ query: WORK_PAGE_QUERY });
 
   const header = pageData?.header ?? {
     subtitle: "PORTFOLIO",
@@ -41,15 +40,7 @@ export default async function WorkPage() {
     description: "Browse our complete collection of AI-generated video content. Hover to preview, click for fullscreen.",
   };
   const backText = pageData?.backLinkText ?? "Back to Home";
-
-  const videos = portfolioData?.length
-    ? portfolioData.map((item) => ({
-        id: item._id,
-        videoUrl: item.videoUrl ?? "",
-        category: item.category ?? "",
-        title: item.title ?? "",
-      }))
-    : getFallbackVideos();
+  const videos = getCloudinaryVideos();
 
   return (
     <section className="py-12 md:py-20">

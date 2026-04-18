@@ -2,6 +2,7 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { presentationTool } from "sanity/presentation";
 import { schemaMarkup } from "@operationnation/sanity-plugin-schema-markup";
+import { cloudinarySchemaPlugin } from "sanity-plugin-cloudinary";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schemas";
@@ -22,6 +23,7 @@ export default defineConfig({
     presentationTool({
       previewUrl: "/",
     }),
+    cloudinarySchemaPlugin(),
     schemaMarkup(),
   ],
   document: {

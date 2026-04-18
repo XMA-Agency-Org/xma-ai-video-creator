@@ -43,8 +43,7 @@ export const portfolioItem = defineType({
     defineField({
       name: "video",
       title: "Video",
-      type: "file",
-      options: { accept: "video/*" },
+      type: "cloudinary.asset",
     }),
     defineField({
       name: "orderRank",
