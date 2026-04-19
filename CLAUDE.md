@@ -74,6 +74,33 @@ All base components (`app/_components/primitives/`) use `class-variance-authorit
 - Server: `posthog-node` singleton in `app/_lib/posthog-server.ts`
 - Proxied through Next.js rewrites (`/ingest/*` → `eu.i.posthog.com`)
 
+### Qualification Popup
+
+Multi-step lead qualification form that intercepts all "Book a Call" CTAs.
+
+**Flow**: intro → business-type → spend → timeline → contact → qualified | not-a-fit
+
+**Trigger points**:
+- Scroll past hero (once per session via `sessionStorage` key `qp_shown`) — `ScrollTrigger` component after `<HeroSection />`
+- Every "Book a Call" CTA: nav, mobile menu, hero, cta-banner, guarantee section, what-we-need section
+
+**Qualification logic** (`app/(landing)/_lib/qualification-scorer.ts`):
+- Disqualify if `role ∈ {employee, agency}` OR `timeline === "exploring"` OR `spend === "lt_5k"`
+- Qualified → redirect to booking widget; NOT-a-fit → polite closing screen (stays in popup)
+
+**Key files**:
+- `app/(landing)/_lib/qualification-config.ts` — all copy, option labels, `BOOKING_URL`
+- `app/(landing)/_lib/qualification-scorer.ts` — scoring logic (edit thresholds here)
+- `app/(landing)/_components/qualification-popup/` — all step components + provider
+- `app/(landing)/_hooks/use-qualification-popup.ts` — `useQualificationPopup()` hook
+- `app/api/ghl-lead/route.ts` — POST handler: score → GHL webhook → Meta CAPI (qualified only)
+
+**Provider location**: `app/layout.tsx` (root) — must be here because NavigationHeader/MobileMenu appear in blog/portfolio layouts too, not just (landing).
+
+**Meta CAPI**: `Lead` event fires server-side only when `qualified === true`. Client pixel dedup via shared `eventId` from `step-qualified.tsx`.
+
+**GHL webhook**: `GHL_WEBHOOK_URL` env var — 4s timeout, failure is logged but doesn't block the user response. Without this var, leads are scored/redirected correctly but NOT stored in GHL CRM.
+
 ## Preferences & Rules
 
 - **Colors**: oklch only — no hex, no rgb, ever
@@ -102,4 +129,5 @@ SANITY_API_READ_TOKEN, SANITY_API_WRITE_TOKEN
 NEXT_PUBLIC_POSTHOG_KEY, NEXT_PUBLIC_POSTHOG_HOST
 NEXT_PUBLIC_BASE_URL
 META_PIXEL_ID, META_CAPI_ACCESS_TOKEN, NEXT_PUBLIC_META_PIXEL_ID
+GHL_WEBHOOK_URL          # GoHighLevel Workflow Inbound Webhook URL — required for CRM lead storage
 ```

@@ -12,11 +12,13 @@ import { FaqSection } from "./_components/faq-section";
 import { CtaBannerSection } from "./_components/cta-banner-section";
 import { GuaranteeSection } from "./_components/guarantee-section";
 import { LocationStripSection } from "./_components/location-strip-section";
+import { ScrollTrigger } from "./_components/qualification-popup/scroll-trigger";
 
 export default function LandingPage() {
   return (
     <>
       <HeroSection />
+      <ScrollTrigger />
       <LogoStripSection />
       <PortfolioSection />
       <MarqueeSection />

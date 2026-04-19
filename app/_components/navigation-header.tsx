@@ -11,6 +11,7 @@ import { Logo } from "./logo";
 import { MenuToggle } from "./menu-toggle";
 import { MobileMenu } from "./mobile-menu";
 import { MagneticButton } from "./magnetic-button";
+import { useQualificationPopup } from "@/app/(landing)/_hooks/use-qualification-popup";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "/#how-it-works" },
@@ -24,6 +25,7 @@ export function NavigationHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const reduced = useReducedMotion();
+  const { open: openQualification } = useQualificationPopup();
 
   useEffect(() => {
     function handleScroll() {
@@ -69,13 +71,15 @@ export function NavigationHeader() {
       </ul>
 
       <MagneticButton className="hidden md:inline-flex">
-        <a
-          href="https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B"
-          onClick={() => posthog.capture("nav_book_call_clicked", { location: "header" })}
-          className="inline-flex rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary-600 transition-all duration-200 hover:bg-lime-300 hover:text-primary-800"
+        <button
+          onClick={() => {
+            posthog.capture("nav_book_call_clicked", { location: "header" });
+            openQualification("nav");
+          }}
+          className="inline-flex rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary-600 transition-all duration-200 hover:bg-lime-300 hover:text-primary-800 cursor-pointer"
         >
           BOOK A CALL
-        </a>
+        </button>
       </MagneticButton>
 
       <MenuToggle

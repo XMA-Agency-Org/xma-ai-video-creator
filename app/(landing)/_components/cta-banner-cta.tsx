@@ -2,6 +2,7 @@
 
 import { posthog } from "@/app/_lib/posthog-client";
 import { MagneticButton } from "@/app/_components/magnetic-button";
+import { useQualificationPopup } from "@/app/(landing)/_hooks/use-qualification-popup";
 
 type CtaBannerCtaProps = {
   label: string;
@@ -9,8 +10,12 @@ type CtaBannerCtaProps = {
 };
 
 export function CtaBannerCta({ label, href }: CtaBannerCtaProps) {
-  function handleClick() {
+  const { open } = useQualificationPopup();
+
+  function handleClick(e: React.MouseEvent) {
+    e.preventDefault();
     posthog.capture("cta_banner_clicked", { label, href });
+    open("cta_banner");
   }
 
   return (

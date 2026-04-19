@@ -4,7 +4,8 @@ import { getIcon } from "@/app/(landing)/_lib/icon-map";
 import { AnimateIn } from "./animate-in";
 import { StaggerGroup, StaggerItem } from "./stagger-group";
 import { GuaranteeCounter } from "./guarantee-counter";
-import { MagneticButton } from "@/app/_components/magnetic-button";
+import { BookingCta } from "./booking-cta";
+import { BOOKING_URL } from "@/app/(landing)/_lib/qualification-config";
 
 export function GuaranteeSection() {
   const pillars = GUARANTEE_PILLARS;
@@ -69,14 +70,11 @@ export function GuaranteeSection() {
         </StaggerGroup>
 
         <AnimateIn y={15} delay={0.2} className="mt-12">
-          <MagneticButton>
-            <a
-              href="https://link.xmaboost.com/widget/booking/xbKo8dQfKzvGRRu4Gy0B"
-              className="inline-flex items-center gap-2 rounded-full bg-lime-300 px-8 py-4 text-base font-black text-foreground transition-all hover:bg-lime-400"
-            >
-              Book Your Free Strategy Call &rarr;
-            </a>
-          </MagneticButton>
+          <BookingCta
+            label="Book Your Free Strategy Call"
+            href={BOOKING_URL}
+            source="cta_banner"
+          />
         </AnimateIn>
       </div>
     </section>
