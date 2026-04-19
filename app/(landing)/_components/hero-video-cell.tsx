@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
 import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
 
@@ -11,6 +11,16 @@ type HeroVideoCellProps = {
 export function HeroVideoCell({ src }: HeroVideoCellProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (!video.getAttribute("src")) {
+      video.src = getCloudinaryVideoUrl(src, "hero");
+      video.load();
+    }
+    video.play().catch(() => {});
+  }, [src]);
 
   function toggleMute() {
     const next = !muted;
@@ -23,12 +33,10 @@ export function HeroVideoCell({ src }: HeroVideoCellProps) {
       <video
         ref={videoRef}
         className="h-full w-full object-cover"
-        autoPlay
         muted
         loop
         playsInline
-        suppressHydrationWarning
-        src={getCloudinaryVideoUrl(src, "hero")}
+        preload="none"
         poster={getCloudinaryPosterUrl(src, "hero")}
       />
       <button
