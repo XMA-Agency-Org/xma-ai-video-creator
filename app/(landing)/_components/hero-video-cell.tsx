@@ -27,7 +27,6 @@ export function HeroVideoCell({ src }: HeroVideoCellProps) {
         muted
         loop
         playsInline
-        preload="metadata"
         suppressHydrationWarning
         src={getCloudinaryVideoUrl(src, "hero")}
         poster={getCloudinaryPosterUrl(src, "hero")}
