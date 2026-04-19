@@ -21,11 +21,14 @@ function injectTransforms(url: string, transforms: string): string {
   return `${before}${transforms}/${after}`;
 }
 
-// Returns the original URL — video transforms (q_auto, w_N, vc_auto) require
-// on-demand transcoding which causes severe latency on first request.
-// Cloudinary's CDN delivers the original fast; lazy loading handles bandwidth.
-export function getCloudinaryVideoUrl(url: string, _preset: CloudinaryPreset): string {
-  return url;
+// Hero videos get a 720p width cap so mobile can load them quickly.
+// Other presets return the original URL — lazy loading handles bandwidth for
+// below-the-fold tiles, and on-demand transcoding on first request would
+// cause severe latency for videos the user is actively waiting on.
+export function getCloudinaryVideoUrl(url: string, preset: CloudinaryPreset): string {
+  if (preset !== "hero") return url;
+  if (!isCloudinaryVideoUrl(url)) return url;
+  return injectTransforms(url, "c_limit,f_mp4,q_auto,w_1280");
 }
 
 // Image-only transforms (no vc_auto/f_auto) so Cloudinary can serve the
