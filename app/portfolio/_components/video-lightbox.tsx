@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
+import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
 
 type VideoLightboxProps = {
   videoUrl: string;
@@ -75,7 +76,8 @@ export function VideoLightbox({
           <video
             ref={videoRef}
             className="max-h-[85vh] w-auto rounded-2xl"
-            src={videoUrl}
+            src={getCloudinaryVideoUrl(videoUrl, "lightbox")}
+            poster={getCloudinaryPosterUrl(videoUrl, "lightbox")}
             controls
             autoPlay
             playsInline

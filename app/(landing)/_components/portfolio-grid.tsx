@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useInView } from "motion/react";
 import type { PortfolioItem } from "@/app/(landing)/_types/landing-types";
+import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
 
 type PortfolioGridProps = {
   items: PortfolioItem[];
@@ -16,8 +17,19 @@ function PortfolioGridCard({
   index: number;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(cardRef, { once: true, margin: "-50px" });
   const isOffset = index % 2 === 1;
+
+  useEffect(() => {
+    if (!isInView || !videoRef.current) return;
+    const video = videoRef.current;
+    if (!video.getAttribute("src")) {
+      video.src = getCloudinaryVideoUrl(item.videoSrc, "grid");
+      video.load();
+    }
+    video.play().catch(() => {});
+  }, [isInView, item.videoSrc]);
 
   if (!item.videoSrc) return null;
 
@@ -34,13 +46,13 @@ function PortfolioGridCard({
     >
       <div className="aspect-[9/16]">
         <video
+          ref={videoRef}
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          src={item.videoSrc}
           muted
           loop
           playsInline
-          autoPlay
-          preload="auto"
+          preload="none"
+          poster={getCloudinaryPosterUrl(item.videoSrc, "grid")}
         />
       </div>
 

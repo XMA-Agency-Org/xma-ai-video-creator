@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import type { PortfolioItem } from "@/app/(landing)/_types/landing-types";
+import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
 
 type PortfolioItemCardProps = {
   item: PortfolioItem;
@@ -55,7 +56,8 @@ export function PortfolioItemCard({ item }: PortfolioItemCardProps) {
         <video
           ref={videoRef}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          src={item.videoSrc}
+          src={getCloudinaryVideoUrl(item.videoSrc, "card")}
+          poster={getCloudinaryPosterUrl(item.videoSrc, "card")}
           muted
           loop
           playsInline

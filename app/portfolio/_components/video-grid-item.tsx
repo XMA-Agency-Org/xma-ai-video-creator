@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
 import { VideoLightbox } from "./video-lightbox";
 import { posthog } from "@/app/_lib/posthog-client";
+import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
 
 type VideoGridItemProps = {
   videoUrl: string;
@@ -60,7 +61,8 @@ export function VideoGridItem({ videoUrl, title, category }: VideoGridItemProps)
           <video
             ref={videoRef}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            src={videoUrl}
+            src={getCloudinaryVideoUrl(videoUrl, "card")}
+            poster={getCloudinaryPosterUrl(videoUrl, "card")}
             muted
             loop
             playsInline

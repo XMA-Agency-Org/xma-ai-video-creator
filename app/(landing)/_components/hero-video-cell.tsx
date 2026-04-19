@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
+import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
 
 type HeroVideoCellProps = {
   src: string;
@@ -26,8 +27,10 @@ export function HeroVideoCell({ src }: HeroVideoCellProps) {
         muted
         loop
         playsInline
+        preload="metadata"
         suppressHydrationWarning
-        src={src}
+        src={getCloudinaryVideoUrl(src, "hero")}
+        poster={getCloudinaryPosterUrl(src, "hero")}
       />
       <button
         onClick={toggleMute}

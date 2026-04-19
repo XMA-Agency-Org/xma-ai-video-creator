@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { PortfolioItem } from "@/app/(landing)/_types/landing-types";
+import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
 
 type PortfolioCarouselProps = {
   items: PortfolioItem[];
@@ -81,7 +82,8 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
                 <video
                   ref={(el) => { videoRefs.current[i] = el; }}
                   className="h-full w-full object-cover"
-                  src={item.videoSrc}
+                  src={getCloudinaryVideoUrl(item.videoSrc, "carousel")}
+                  poster={getCloudinaryPosterUrl(item.videoSrc, "carousel")}
                   muted
                   playsInline
                   preload={i <= 1 ? "metadata" : "none"}
