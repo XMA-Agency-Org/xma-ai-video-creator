@@ -13,7 +13,11 @@ export function HeroVideoCell({ src }: HeroVideoCellProps) {
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
-    videoRef.current?.play().catch(() => {});
+    const video = videoRef.current;
+    if (!video) return;
+    const onCanPlay = () => video.play().catch(() => {});
+    video.addEventListener("canplay", onCanPlay, { once: true });
+    return () => video.removeEventListener("canplay", onCanPlay);
   }, []);
 
   function toggleMute() {
