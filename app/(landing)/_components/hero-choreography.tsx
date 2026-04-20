@@ -28,6 +28,10 @@ export function HeroChoreography({ element, children, className }: HeroChoreogra
     return <div className={className}>{children}</div>;
   }
 
+  if (element === "media") {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}
