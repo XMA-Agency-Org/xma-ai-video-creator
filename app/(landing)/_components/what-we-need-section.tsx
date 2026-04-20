@@ -55,7 +55,6 @@ export function WhatWeNeedSection() {
             <BookingCta
               label="Book Your Strategy Call"
               href={BOOKING_URL}
-              source="cta_banner"
               size="sm"
               className="mt-6"
             />

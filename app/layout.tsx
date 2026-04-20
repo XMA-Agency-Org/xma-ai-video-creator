@@ -6,8 +6,7 @@ import { projectId } from "@/sanity/env";
 import { SanityLive } from "@/sanity/lib/live";
 import { PostHogProvider } from "@/app/_components/posthog-provider";
 import { SmoothScrollProvider } from "@/app/_components/smooth-scroll-provider";
-import { QualificationPopupProvider } from "@/app/(landing)/_components/qualification-popup/qualification-popup-provider";
-import { QualificationPopup } from "@/app/(landing)/_components/qualification-popup/qualification-popup";
+import { WhatsAppWidget } from "@/app/_components/whatsapp-widget";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -96,12 +95,10 @@ fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID}');`,
         <SmoothScrollProvider />
         <Suspense>
           <PostHogProvider>
-            <QualificationPopupProvider>
-              {children}
-              <QualificationPopup />
-            </QualificationPopupProvider>
+            {children}
           </PostHogProvider>
         </Suspense>
+        <WhatsAppWidget />
         {projectId && <SanityLive />}
       </body>
     </html>

@@ -11,7 +11,7 @@ import { Logo } from "./logo";
 import { MenuToggle } from "./menu-toggle";
 import { MobileMenu } from "./mobile-menu";
 import { MagneticButton } from "./magnetic-button";
-import { useQualificationPopup } from "@/app/(landing)/_hooks/use-qualification-popup";
+import { BOOKING_URL } from "@/app/(landing)/_lib/qualification-config";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "/#how-it-works" },
@@ -25,7 +25,6 @@ export function NavigationHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const reduced = useReducedMotion();
-  const { open: openQualification } = useQualificationPopup();
 
   useEffect(() => {
     function handleScroll() {
@@ -70,28 +69,26 @@ export function NavigationHeader() {
         ))}
       </ul>
 
-      <MagneticButton className="hidden md:inline-flex">
-        <button
-          onClick={() => {
-            posthog.capture("nav_book_call_clicked", { location: "header" });
-            openQualification("nav");
-          }}
-          className="inline-flex rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary-600 transition-all duration-200 hover:bg-lime-300 hover:text-primary-800 cursor-pointer"
-        >
-          BOOK A CALL
-        </button>
-      </MagneticButton>
+      <a
+        href={BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => posthog.capture("nav_book_call_clicked", { location: "header" })}
+        className="hidden md:inline-flex rounded-full bg-white px-6 py-2 text-sm font-bold text-primary-600 transition-all duration-200 hover:bg-lime-300 hover:text-primary-800"
+      >
+        BOOK A CALL
+      </a>
 
       <div className="flex items-center gap-2">
-        <button
-          onClick={() => {
-            posthog.capture("nav_book_call_clicked", { location: "header_mobile" });
-            openQualification("nav");
-          }}
-          className="inline-flex md:hidden rounded-full bg-white px-4 py-2 text-xs font-bold text-primary-600 cursor-pointer"
+        <a
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => posthog.capture("nav_book_call_clicked", { location: "header_mobile" })}
+          className="inline-flex md:hidden rounded-full bg-white px-4 py-2 text-xs font-bold text-primary-600"
         >
           BOOK A CALL
-        </button>
+        </a>
         <MenuToggle
           open={mobileMenuOpen}
           onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}

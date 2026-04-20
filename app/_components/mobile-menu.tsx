@@ -6,7 +6,7 @@ import {
   AnimatePresence,
   type Variants,
 } from "motion/react";
-import { useQualificationPopup } from "@/app/(landing)/_hooks/use-qualification-popup";
+import { BOOKING_URL } from "@/app/(landing)/_lib/qualification-config";
 
 type MobileMenuProps = {
   open: boolean;
@@ -72,8 +72,6 @@ const footerVariants: Variants = {
 };
 
 export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
-  const { open: openQualification } = useQualificationPopup();
-
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -151,15 +149,15 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
             </motion.nav>
 
             <motion.div className="mt-10 px-4" variants={ctaVariants} initial="closed" animate="open" exit="exit">
-              <button
-                className="flex w-full items-center justify-center rounded-full bg-white px-8 py-5 font-heading text-lg font-bold text-primary-600 transition-colors hover:bg-accent-light hover:text-primary-800 cursor-pointer"
-                onClick={() => {
-                  onClose();
-                  setTimeout(() => openQualification("mobile_menu"), 300);
-                }}
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full items-center justify-center rounded-full bg-white px-8 py-5 font-heading text-lg font-bold text-primary-600 transition-colors hover:bg-accent-light hover:text-primary-800"
+                onClick={onClose}
               >
                 BOOK A CALL
-              </button>
+              </a>
             </motion.div>
           </div>
 

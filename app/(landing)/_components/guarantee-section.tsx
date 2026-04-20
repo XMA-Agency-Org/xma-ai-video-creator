@@ -73,7 +73,6 @@ export function GuaranteeSection() {
           <BookingCta
             label="Book Your Free Strategy Call"
             href={BOOKING_URL}
-            source="cta_banner"
           />
         </AnimateIn>
       </div>
