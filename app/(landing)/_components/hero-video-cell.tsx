@@ -13,14 +13,8 @@ export function HeroVideoCell({ src }: HeroVideoCellProps) {
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (!video.getAttribute("src")) {
-      video.src = getCloudinaryVideoUrl(src, "hero");
-      video.load();
-    }
-    video.play().catch(() => {});
-  }, [src]);
+    videoRef.current?.play().catch(() => {});
+  }, []);
 
   function toggleMute() {
     const next = !muted;
@@ -33,11 +27,13 @@ export function HeroVideoCell({ src }: HeroVideoCellProps) {
       <video
         ref={videoRef}
         className="h-full w-full object-cover"
+        src={getCloudinaryVideoUrl(src, "hero")}
+        poster={getCloudinaryPosterUrl(src, "hero")}
+        autoPlay
         muted
         loop
         playsInline
-        preload="none"
-        poster={getCloudinaryPosterUrl(src, "hero")}
+        preload="auto"
       />
       <button
         onClick={toggleMute}
