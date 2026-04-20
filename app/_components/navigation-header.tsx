@@ -82,10 +82,21 @@ export function NavigationHeader() {
         </button>
       </MagneticButton>
 
-      <MenuToggle
-        open={mobileMenuOpen}
-        onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
-      />
+      <div className="flex items-center gap-2">
+        <button
+          onClick={() => {
+            posthog.capture("nav_book_call_clicked", { location: "header_mobile" });
+            openQualification("nav");
+          }}
+          className="inline-flex md:hidden rounded-full bg-white px-4 py-2 text-xs font-bold text-primary-600 cursor-pointer"
+        >
+          BOOK A CALL
+        </button>
+        <MenuToggle
+          open={mobileMenuOpen}
+          onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
+        />
+      </div>
     </nav>
   );
 
