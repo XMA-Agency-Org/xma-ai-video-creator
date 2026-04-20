@@ -16,20 +16,12 @@
     "hero": true
   },
   {
-    "id": "vip-motors-bugatti-reveal",
-    "title": "VIP Motors Bugatti Reveal",
-    "category": "Real Estate",
-    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522233/xma-ai-video-creator/portfolio/vip-motors-bugatti-reveal.mp4",
-    "featured": true,
-    "hero": true
-  },
-  {
     "id": "xma-ai-ad-big-guy-testimonial",
     "title": "XMA AI Ad - Testimonial",
     "category": "UGC",
     "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522309/xma-ai-video-creator/portfolio/xma-ai-ad-big-guy-testimonial.mp4",
     "featured": true,
-    "hero": false
+    "hero": true
   },
   {
     "id": "mega-ai-video-1",
@@ -52,7 +44,7 @@
     "title": "Mega AI Video 3",
     "category": "Product Ads",
     "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522276/xma-ai-video-creator/portfolio/mega-ai-video-3.mp4",
-    "featured": false,
+    "featured": true,
     "hero": false
   },
   {

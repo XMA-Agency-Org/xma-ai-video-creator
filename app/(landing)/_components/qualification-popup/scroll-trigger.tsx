@@ -10,17 +10,13 @@ export function ScrollTrigger() {
   useEffect(() => {
     if (sessionStorage.getItem(POPUP_SESSION_KEY)) return;
 
-    function onScroll() {
-      const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-      if (scrolled < 0.3) return;
+    const timer = setTimeout(() => {
       if (sessionStorage.getItem(POPUP_SESSION_KEY)) return;
       sessionStorage.setItem(POPUP_SESSION_KEY, "1");
-      window.removeEventListener("scroll", onScroll);
-      setTimeout(() => open("scroll"), 600);
-    }
+      open("scroll");
+    }, 5000);
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => clearTimeout(timer);
   }, [open]);
 
   return null;
