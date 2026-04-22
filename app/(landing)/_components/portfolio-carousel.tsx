@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { PortfolioItem } from "@/app/(landing)/_types/landing-types";
-import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
+import { getCloudinaryVideoUrl } from "@/app/_lib/cloudinary-video";
 
 type PortfolioCarouselProps = {
   items: PortfolioItem[];
@@ -58,10 +58,9 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
                 ref={(el) => { videoRefs.current[i] = el; }}
                 className="h-full w-full object-cover"
                 src={getCloudinaryVideoUrl(item.videoSrc, "carousel")}
-                poster={getCloudinaryPosterUrl(item.videoSrc, "carousel")}
                 muted
                 playsInline
-                preload={i <= 1 ? "metadata" : "none"}
+                preload="none"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
@@ -79,7 +78,7 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
 
           <button
             onClick={goPrev}
-            className="absolute left-3 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50"
+            className="absolute left-3 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80"
             aria-label="Previous video"
           >
             <ChevronLeft size={18} />
@@ -87,7 +86,7 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
 
           <button
             onClick={goNext}
-            className="absolute right-3 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50"
+            className="absolute right-3 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80"
             aria-label="Next video"
           >
             <ChevronRight size={18} />

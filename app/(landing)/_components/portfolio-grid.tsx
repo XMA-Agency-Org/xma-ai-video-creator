@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import type { PortfolioItem } from "@/app/(landing)/_types/landing-types";
-import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
+import { getCloudinaryVideoUrl } from "@/app/_lib/cloudinary-video";
 
 type PortfolioGridProps = {
   items: PortfolioItem[];
@@ -67,7 +67,6 @@ function PortfolioGridCard({
           loop
           playsInline
           preload="none"
-          poster={getCloudinaryPosterUrl(item.videoSrc, "grid")}
         />
       </div>
 

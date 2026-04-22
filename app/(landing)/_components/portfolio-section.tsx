@@ -1,12 +1,27 @@
 import { readFileSync } from "fs";
 import { join } from "path";
+import dynamic from "next/dynamic";
 import { sanityFetch } from "@/sanity/lib/live";
 import { PORTFOLIO_SECTION_QUERY } from "@/sanity/lib/queries";
 import { SectionHeader } from "./section-header";
 import { CategoryPillsMarquee } from "./category-pills-marquee";
-import { PortfolioCarousel } from "./portfolio-carousel";
-import { PortfolioGrid } from "./portfolio-grid";
 import { MagneticButton } from "@/app/_components/magnetic-button";
+
+const PortfolioCarousel = dynamic(
+  () => import("./portfolio-carousel").then((m) => m.PortfolioCarousel),
+  {
+    ssr: false,
+    loading: () => <div className="aspect-[9/16] max-h-[85vh] rounded-[var(--radius-2xl)] bg-foreground/5" />,
+  }
+);
+
+const PortfolioGrid = dynamic(
+  () => import("./portfolio-grid").then((m) => m.PortfolioGrid),
+  {
+    ssr: false,
+    loading: () => <div className="h-[520px] rounded-[var(--radius-2xl)] bg-foreground/5" />,
+  }
+);
 
 const FALLBACK_CATEGORIES = ["Haircare", "Food & Beverage", "Product Ads", "UGC", "CGI & 3D", "Skincare", "Fragrance", "Fashion & Lifestyle"];
 
