@@ -1,11 +1,19 @@
 [
   {
+    "id": "we-make-ai-ads",
+    "title": "We Make AI Ads",
+    "category": "Service Business",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776522213/xma-ai-video-creator/portfolio/we-make-ai-ads.mp4",
+    "featured": false,
+    "hero": true
+  },
+  {
     "id": "novo-baby-1",
     "title": "Novo Baby",
     "category": "Product Ads",
     "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776876057/xma-ai-video-creator/portfolio/novo-baby-1.mp4",
     "featured": true,
-    "hero": true
+    "hero": false
   },
   {
     "id": "xma-ai-ad-saas",
