@@ -10,7 +10,7 @@ type HeroCtaProps = {
 
 export function HeroCta({ label, href }: HeroCtaProps) {
   return (
-    <MagneticButton>
+    <MagneticButton className="w-fit">
       <a
         href={href}
         target="_blank"
