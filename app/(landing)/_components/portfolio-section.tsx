@@ -1,27 +1,11 @@
 import { readFileSync } from "fs";
 import { join } from "path";
-import dynamic from "next/dynamic";
 import { sanityFetch } from "@/sanity/lib/live";
 import { PORTFOLIO_SECTION_QUERY } from "@/sanity/lib/queries";
 import { SectionHeader } from "./section-header";
 import { CategoryPillsMarquee } from "./category-pills-marquee";
 import { MagneticButton } from "@/app/_components/magnetic-button";
-
-const PortfolioCarousel = dynamic(
-  () => import("./portfolio-carousel").then((m) => m.PortfolioCarousel),
-  {
-    ssr: false,
-    loading: () => <div className="aspect-[9/16] max-h-[85vh] rounded-[var(--radius-2xl)] bg-foreground/5" />,
-  }
-);
-
-const PortfolioGrid = dynamic(
-  () => import("./portfolio-grid").then((m) => m.PortfolioGrid),
-  {
-    ssr: false,
-    loading: () => <div className="h-[520px] rounded-[var(--radius-2xl)] bg-foreground/5" />,
-  }
-);
+import { PortfolioMedia } from "./portfolio-media";
 
 const FALLBACK_CATEGORIES = ["Haircare", "Food & Beverage", "Product Ads", "UGC", "CGI & 3D", "Skincare", "Fragrance", "Fashion & Lifestyle"];
 
@@ -75,12 +59,7 @@ export async function PortfolioSection() {
         <CategoryPillsMarquee categories={categories} />
       </div>
 
-      <div className="mt-8 hidden px-6 lg:block">
-        <PortfolioGrid items={items} />
-      </div>
-      <div className="mx-auto mt-8 max-w-[var(--container-max-width)] px-6 lg:hidden">
-        <PortfolioCarousel items={items} />
-      </div>
+      <PortfolioMedia items={items} />
     </section>
   );
 }
