@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { useInView } from "motion/react";
+import { useRef, useEffect, useState } from "react";
 import type { PortfolioItem } from "@/app/(landing)/_types/landing-types";
 import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
 
@@ -18,8 +17,24 @@ function PortfolioGridCard({
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const isInView = useInView(cardRef, { once: true, margin: "-50px" });
+  const [isInView, setIsInView] = useState(false);
   const isOffset = index % 2 === 1;
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "-50px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!isInView || !videoRef.current) return;

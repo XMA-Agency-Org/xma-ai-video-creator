@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
 
 const WHATSAPP_NUMBER = "971503636856";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -11,35 +10,26 @@ export function WhatsAppWidget() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-      <AnimatePresence>
-        {hovered && (
-          <motion.span
-            initial={{ opacity: 0, x: 8, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 8, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background shadow-lg whitespace-nowrap"
-          >
-            Chat on WhatsApp
-          </motion.span>
-        )}
-      </AnimatePresence>
+      <span
+        className={`rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background shadow-lg whitespace-nowrap transition-all duration-200 ${
+          hovered ? "opacity-100 translate-x-0 scale-100" : "opacity-0 translate-x-2 scale-95 pointer-events-none"
+        }`}
+      >
+        Chat on WhatsApp
+      </span>
 
-      <motion.a
+      <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with us on WhatsApp"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 400, damping: 20 }}
-        className="flex size-14 items-center justify-center rounded-full shadow-xl"
+        className="flex size-14 items-center justify-center rounded-full shadow-xl transition-transform duration-150 hover:scale-110 active:scale-95"
         style={{ backgroundColor: "oklch(0.59 0.2 145)" }}
       >
         <WhatsAppIcon />
-      </motion.a>
+      </a>
     </div>
   );
 }
