@@ -92,7 +92,7 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <span className="inline-flex rounded-full bg-primary-500/80 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
+                  <span className="inline-flex rounded-full bg-primary-600 px-3 py-1 text-xs font-bold text-white">
                     {item.category}
                   </span>
                   <h3 className="mt-2 font-heading text-xl font-bold text-white md:text-2xl">

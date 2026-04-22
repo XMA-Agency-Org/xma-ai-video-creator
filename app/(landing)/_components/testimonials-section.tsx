@@ -69,7 +69,7 @@ export async function TestimonialsSection() {
           <StaggerGroup className="flex flex-col gap-6" stagger={0.12}>
             {sidebar.map((testimonial: { id: string; quote: string; clientName: string; clientRole: string; company: string }) => (
               <StaggerItem key={testimonial.id} y={25} x={15}>
-                <div className="flex flex-1 flex-col justify-between rounded-[var(--radius-2xl)] bg-white/10 p-7 backdrop-blur-sm">
+                <div className="flex flex-1 flex-col justify-between rounded-[var(--radius-2xl)] bg-white/15 p-7">
                   <blockquote className="text-sm leading-relaxed text-white/90">
                     &ldquo;{testimonial.quote}&rdquo;
                   </blockquote>

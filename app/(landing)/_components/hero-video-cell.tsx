@@ -42,7 +42,7 @@ export function HeroVideoCell({ src, isPrimary = false }: HeroVideoCellProps) {
       />
       <button
         onClick={toggleMute}
-        className="absolute bottom-3 right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-foreground/50 text-white backdrop-blur-sm transition-colors hover:bg-foreground/70"
+        className="absolute bottom-3 right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-foreground/75 text-white transition-colors hover:bg-foreground/90"
         aria-label={muted ? "Unmute video" : "Mute video"}
       >
         {muted ? <VolumeOff className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}

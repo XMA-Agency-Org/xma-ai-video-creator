@@ -59,7 +59,7 @@ function PortfolioGridCard({
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
       <div className="absolute bottom-0 left-0 right-0 flex flex-col p-4 lg:p-5 translate-y-2 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-        <span className="inline-flex w-fit rounded-full bg-primary-500/80 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
+        <span className="inline-flex w-fit rounded-full bg-primary-600 px-3 py-1 text-xs font-bold text-white">
           {item.category}
         </span>
         <h3 className="mt-2 font-heading text-base font-bold text-white lg:text-lg">
