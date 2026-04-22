@@ -4,6 +4,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { urlFor } from "@/sanity/lib/image";
 import {
   BLOG_POST_QUERY,
+  BLOG_ALL_SLUGS_QUERY,
   RELATED_POSTS_QUERY,
 } from "@/sanity/lib/queries";
 import { SectionContainer } from "@/app/_components/primitives";
@@ -15,6 +16,11 @@ import { BlogSchemaScript } from "../_components/blog-schema-script";
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateStaticParams() {
+  const { data } = await sanityFetch({ query: BLOG_ALL_SLUGS_QUERY });
+  return ((data ?? []) as { slug: string }[]).map((post) => ({ slug: post.slug }));
+}
 
 async function getPost(slug: string) {
   const { data } = await sanityFetch({

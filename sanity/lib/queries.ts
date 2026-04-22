@@ -174,3 +174,9 @@ export const RELATED_POSTS_QUERY = defineQuery(`
     categories[]->{ title, "slug": slug.current }
   }
 `);
+
+export const BLOG_ALL_SLUGS_QUERY = defineQuery(`
+  *[_type == "blogPost" && defined(slug.current)]{
+    "slug": slug.current
+  }
+`);
