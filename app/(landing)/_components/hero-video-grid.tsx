@@ -9,7 +9,7 @@ export function HeroVideoGrid({ videos }: HeroVideoGridProps) {
     <div className="grid grid-cols-5 grid-rows-6 gap-3 h-[520px] lg:h-[580px]">
       {videos[0] && (
         <div className="col-span-3 row-span-6 rounded-2xl overflow-clip shadow-2xl border-2 border-primary-200/40">
-          <HeroVideoCell src={videos[0]} />
+          <HeroVideoCell src={videos[0]} isPrimary />
         </div>
       )}
       {videos[1] && (

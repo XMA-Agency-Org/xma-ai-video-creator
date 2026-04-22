@@ -6,9 +6,10 @@ import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudi
 
 type HeroVideoCellProps = {
   src: string;
+  isPrimary?: boolean;
 };
 
-export function HeroVideoCell({ src }: HeroVideoCellProps) {
+export function HeroVideoCell({ src, isPrimary = false }: HeroVideoCellProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
 
@@ -37,7 +38,7 @@ export function HeroVideoCell({ src }: HeroVideoCellProps) {
         muted
         loop
         playsInline
-        preload="auto"
+        preload={isPrimary ? "metadata" : "none"}
       />
       <button
         onClick={toggleMute}
