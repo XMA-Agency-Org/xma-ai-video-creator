@@ -13,7 +13,6 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
   const items = allItems.filter((i) => i.videoSrc).slice(0, 6);
   const [activeIndex, setActiveIndex] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goTo = useCallback(
     (index: number) => {
@@ -42,27 +41,12 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
     return () => video.removeEventListener("ended", handleEnded);
   }, [activeIndex, goNext]);
 
-  useEffect(() => {
-    intervalRef.current = setInterval(goNext, 8000);
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [goNext]);
-
-  function resetAutoplay() {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(goNext, 8000);
-  }
-
   if (items.length === 0) return null;
 
   return (
     <div className="relative flex items-center gap-3">
       <button
-        onClick={() => {
-          goPrev();
-          resetAutoplay();
-        }}
+        onClick={goPrev}
         className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border-2 border-foreground/10 text-foreground transition-colors hover:bg-foreground hover:text-background"
         aria-label="Previous video"
       >
@@ -108,10 +92,7 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
           {items.map((_, i) => (
             <button
               key={i}
-              onClick={() => {
-                goTo(i);
-                resetAutoplay();
-              }}
+              onClick={() => goTo(i)}
               className={`h-2 cursor-pointer rounded-full transition-all duration-300 ${
                 i === activeIndex
                   ? "w-8 bg-primary-500"
@@ -125,10 +106,7 @@ export function PortfolioCarousel({ items: allItems }: PortfolioCarouselProps) {
       </div>
 
       <button
-        onClick={() => {
-          goNext();
-          resetAutoplay();
-        }}
+        onClick={goNext}
         className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border-2 border-foreground/10 text-foreground transition-colors hover:bg-foreground hover:text-background"
         aria-label="Next video"
       >
