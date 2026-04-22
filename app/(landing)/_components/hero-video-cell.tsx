@@ -2,14 +2,13 @@
 
 import { useRef, useState, useEffect } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
-import { getCloudinaryVideoUrl, getCloudinaryPosterUrl } from "@/app/_lib/cloudinary-video";
+import { getCloudinaryVideoUrl } from "@/app/_lib/cloudinary-video";
 
 type HeroVideoCellProps = {
   src: string;
-  isPrimary?: boolean;
 };
 
-export function HeroVideoCell({ src, isPrimary = false }: HeroVideoCellProps) {
+export function HeroVideoCell({ src }: HeroVideoCellProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
 
@@ -33,12 +32,11 @@ export function HeroVideoCell({ src, isPrimary = false }: HeroVideoCellProps) {
         ref={videoRef}
         className="h-full w-full object-cover"
         src={getCloudinaryVideoUrl(src, "hero")}
-        poster={getCloudinaryPosterUrl(src, "hero")}
         autoPlay
         muted
         loop
         playsInline
-        preload={isPrimary ? "metadata" : "none"}
+        preload="none"
       />
       <button
         onClick={toggleMute}
