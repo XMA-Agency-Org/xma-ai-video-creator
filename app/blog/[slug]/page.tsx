@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { sanityFetch } from "@/sanity/lib/live";
 import { urlFor } from "@/sanity/lib/image";
@@ -141,10 +142,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="flex items-start gap-4">
                 {post.author.avatar && (
                   <div className="relative h-16 w-16 shrink-0 overflow-clip rounded-full">
-                    <img
+                    <Image
                       src={urlFor(post.author.avatar)?.width(128).height(128).format("webp").url() ?? ""}
                       alt={post.author.name ?? ""}
-                      className="h-full w-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="64px"
                     />
                   </div>
                 )}

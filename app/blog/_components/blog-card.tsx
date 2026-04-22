@@ -60,6 +60,7 @@ export function BlogCard({
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"}
+            priority={featured}
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-primary-100">
