@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
+const NOT_FOUND = () => NextResponse.json({ error: "Not found" }, { status: 404 });
+const isProduction = process.env.NODE_ENV === "production";
+
 const JSON_PATH = join(process.cwd(), "public/videos/cloudinary-videos.json");
 
 type CloudinaryVideoEntry = {
@@ -21,6 +24,7 @@ function writeVideos(videos: CloudinaryVideoEntry[]) {
 }
 
 export async function GET() {
+  if (isProduction) return NOT_FOUND();
   const videos = readVideos();
   return NextResponse.json(
     videos.map((v) => ({ id: v.id, title: v.title, category: v.category, videoUrl: v.videoUrl }))
@@ -28,6 +32,7 @@ export async function GET() {
 }
 
 export async function PATCH(request: Request) {
+  if (isProduction) return NOT_FOUND();
   const { id, category, title } = await request.json();
 
   if (!id) {
@@ -49,6 +54,7 @@ export async function PATCH(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+  if (isProduction) return NOT_FOUND();
   const { id } = await request.json();
 
   if (!id) {
