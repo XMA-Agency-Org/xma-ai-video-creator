@@ -1,5 +1,53 @@
 [
   {
+    "id": "aroma-argan-oil-ad",
+    "title": "Aroma Argan Oil Ad",
+    "category": "",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776932151/xma-ai-video-creator/portfolio/aroma-argan-oil-ad.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "richie-serum-cgi-ad",
+    "title": "Richie Serum CGI Ad",
+    "category": "",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776932155/xma-ai-video-creator/portfolio/richie-serum-cgi-ad.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "so20-product-ad",
+    "title": "SO20 Product Ad",
+    "category": "",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776932167/xma-ai-video-creator/portfolio/so20-product-ad.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "xma-lego-ad",
+    "title": "XMA Lego Ad",
+    "category": "",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776932666/xma-ai-video-creator/portfolio/xma-lego-ad.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
+    "id": "xma-realism-ad",
+    "title": "XMA Realism Ad",
+    "category": "",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776932689/xma-ai-video-creator/portfolio/xma-realism-ad.mp4",
+    "featured": true,
+    "hero": false
+  },
+  {
+    "id": "floarea-1",
+    "title": "Floarea 1",
+    "category": "",
+    "videoUrl": "https://res.cloudinary.com/dw1j7izud/video/upload/v1776932181/xma-ai-video-creator/portfolio/floarea-1.mp4",
+    "featured": false,
+    "hero": false
+  },
+  {
     "id": "we-make-ai-ads",
     "title": "We Make AI Ads",
     "category": "Service Business",

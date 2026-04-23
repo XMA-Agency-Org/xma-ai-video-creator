@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync-videos": "node scripts/sync-videos.mjs"
   },
   "dependencies": {
     "@operationnation/sanity-plugin-schema-markup": "^2.0.0",

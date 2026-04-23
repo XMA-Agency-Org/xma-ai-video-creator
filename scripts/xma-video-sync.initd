@@ -1,0 +1,11 @@
+#!/sbin/openrc-run
+
+name="xma-video-sync"
+description="Watches public/videos/xma for new videos and syncs to Cloudinary + Sanity"
+
+command="/usr/local/bin/xma-video-sync"
+command_user="faezix:faezix"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"
+output_log="/var/log/${RC_SVCNAME}.log"
+error_log="/var/log/${RC_SVCNAME}.log"
