@@ -41,7 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 # local video files (served from CDN)
-public/videos/*.mp4
+public/videos/**/*.mp4
+public/videos/**/*.mov
 
 # sanity generated types
 sanity.types.ts
