@@ -58,7 +58,7 @@ export async function POST(request: Request): Promise<NextResponse<GhlLeadRespon
       fbp,
       fbc,
       email,
-    }).catch(() => {});
+    }).catch((err) => console.error("[Meta CAPI] Lead event failed:", err));
   }
 
   if (GHL_WEBHOOK_URL) {

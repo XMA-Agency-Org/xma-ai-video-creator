@@ -28,7 +28,8 @@ function generateEventId(): string {
 }
 
 async function sendMetaEvent(params: MetaEventParams): Promise<void> {
-  if (!PIXEL_ID || !ACCESS_TOKEN) return;
+  if (!PIXEL_ID) throw new Error("META_PIXEL_ID is not set");
+  if (!ACCESS_TOKEN) throw new Error("META_CAPI_ACCESS_TOKEN is not set");
 
   const userData: Record<string, unknown> = {};
 
