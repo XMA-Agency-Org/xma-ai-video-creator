@@ -25,7 +25,7 @@ export async function POST(request: Request): Promise<NextResponse<GhlLeadRespon
     );
   }
 
-  const { businessType, spend, timeline, role, firstName, lastName, email, phone, website, sourceUrl, utm } = body;
+  const { businessType, spend, timeline, role, firstName, lastName, email, phone, website, sourceUrl, utm, fbp: bodyFbp, fbc: bodyFbc } = body as GhlLeadRequest & { fbp?: string; fbc?: string };
 
   if (!firstName || !lastName || !email || !phone) {
     return NextResponse.json(
@@ -43,7 +43,9 @@ export async function POST(request: Request): Promise<NextResponse<GhlLeadRespon
     requestHeaders.get("x-real-ip") ??
     undefined;
   const cookieHeader = requestHeaders.get("cookie") ?? "";
-  const { fbp, fbc } = parseFbCookies(cookieHeader);
+  const cookieParsed = parseFbCookies(cookieHeader);
+  const fbp = bodyFbp || cookieParsed.fbp;
+  const fbc = bodyFbc || cookieParsed.fbc;
 
   let eventId: string | undefined;
 

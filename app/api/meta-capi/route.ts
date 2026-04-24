@@ -7,7 +7,8 @@ function parseCookie(cookieHeader: string, name: string): string | undefined {
 }
 
 export async function POST(request: Request) {
-  const { eventName, eventId, sourceUrl, customData } = await request.json();
+  const { eventName, eventId, sourceUrl, customData, fbp: bodyFbp, fbc: bodyFbc } =
+    await request.json();
 
   const cookieHeader = request.headers.get("cookie") ?? "";
 
@@ -20,8 +21,8 @@ export async function POST(request: Request) {
       request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
       request.headers.get("x-real-ip") ??
       undefined,
-    fbp: parseCookie(cookieHeader, "_fbp"),
-    fbc: parseCookie(cookieHeader, "_fbc"),
+    fbp: bodyFbp || parseCookie(cookieHeader, "_fbp"),
+    fbc: bodyFbc || parseCookie(cookieHeader, "_fbc"),
     customData,
   });
 

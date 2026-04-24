@@ -105,9 +105,23 @@ export function QualificationPopup() {
 
     const searchParams = new URLSearchParams(window.location.search);
     const currentForm = form;
+
+    const readCookie = (name: string) =>
+      document.cookie.match(new RegExp(`(?:^|;\\s*)${name}=([^;]*)`))?.[1];
+    const fbp = readCookie("_fbp");
+    const fbc =
+      readCookie("_fbc") ??
+      (() => {
+        const fbclid = searchParams.get("fbclid");
+        if (fbclid) return `fb.1.${Date.now()}.${fbclid}`;
+        try { return sessionStorage.getItem("_fbc_session") ?? undefined; } catch { return undefined; }
+      })();
+
     const payload = {
       ...currentForm,
       sourceUrl: window.location.href,
+      fbp,
+      fbc,
       utm: {
         source: searchParams.get("utm_source") ?? undefined,
         medium: searchParams.get("utm_medium") ?? undefined,
