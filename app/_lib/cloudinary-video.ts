@@ -21,14 +21,9 @@ function injectTransforms(url: string, transforms: string): string {
   return `${before}${transforms}/${after}`;
 }
 
-// Returns the original URL for all presets. On-demand video transcoding
-// (width/quality transforms) causes severe first-request latency on Cloudinary
-// because the full video must be re-encoded before any bytes are served.
-// Cloudinary's CDN streams the original progressively, which is faster on
-// mobile than waiting for transcoding. Use the prewarm script + eager transforms
-// at upload time if resized versions are needed.
 export function getCloudinaryVideoUrl(url: string, _preset: CloudinaryPreset): string {
-  return url;
+  if (!isCloudinaryVideoUrl(url)) return url;
+  return injectTransforms(url, "q_auto:good,f_auto,vc_auto,w_720,c_scale,br_2000k");
 }
 
 // Image-only transforms (no vc_auto/f_auto) so Cloudinary can serve the

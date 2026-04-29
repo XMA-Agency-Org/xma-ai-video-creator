@@ -18,7 +18,9 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       : url;
 
     posthog.capture("$pageview", { $current_url: fullUrl });
-    trackMetaEvent("PageView");
+
+    const t = setTimeout(() => trackMetaEvent("PageView"), 100);
+    return () => clearTimeout(t);
   }, [pathname, searchParams]);
 
   return <>{children}</>;
