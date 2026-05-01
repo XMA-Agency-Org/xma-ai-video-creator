@@ -22,7 +22,7 @@ type BlogPostPageProps = {
 };
 
 export async function generateStaticParams() {
-  const { data } = await sanityFetch({ query: BLOG_ALL_SLUGS_QUERY });
+  const { data } = await sanityFetch({ query: BLOG_ALL_SLUGS_QUERY, tags: ["blog-posts"] });
   return ((data ?? []) as { slug: string }[]).map((post) => ({ slug: post.slug }));
 }
 
@@ -30,6 +30,7 @@ async function getPost(slug: string) {
   const { data } = await sanityFetch({
     query: BLOG_POST_QUERY,
     params: { slug },
+    tags: ["blog-posts", `blog-post-${slug}`],
   });
   return data;
 }
@@ -86,6 +87,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { data: relatedPosts } = await sanityFetch({
     query: RELATED_POSTS_QUERY,
     params: { currentSlug: slug, categorySlugs },
+    tags: ["blog-posts"],
   });
 
   return (

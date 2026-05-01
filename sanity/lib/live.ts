@@ -4,15 +4,17 @@ import { client } from "./client";
 export async function sanityFetch({
   query,
   params,
+  tags,
 }: {
   query: string;
   params?: Record<string, unknown>;
+  tags?: string[];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }): Promise<{ data: any }> {
   if (!client) return { data: null };
   try {
     const data = await client.fetch(query, params ?? {}, {
-      cache: "force-cache",
+      next: { tags: tags ?? ["sanity"] },
     });
     return { data };
   } catch {

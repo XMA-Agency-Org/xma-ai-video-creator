@@ -130,4 +130,5 @@ NEXT_PUBLIC_POSTHOG_KEY, NEXT_PUBLIC_POSTHOG_HOST
 NEXT_PUBLIC_BASE_URL
 META_PIXEL_ID, META_CAPI_ACCESS_TOKEN, NEXT_PUBLIC_META_PIXEL_ID
 GHL_WEBHOOK_URL          # GoHighLevel Workflow Inbound Webhook URL — required for CRM lead storage
+SANITY_WEBHOOK_SECRET    # HMAC secret for /api/revalidate webhook — must match Sanity dashboard webhook config
 ```

@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const [postsResult, categoriesResult] = await Promise.all([
-    sanityFetch({ query: BLOG_POSTS_QUERY }),
-    sanityFetch({ query: BLOG_CATEGORIES_QUERY }),
+    sanityFetch({ query: BLOG_POSTS_QUERY, tags: ["blog-posts"] }),
+    sanityFetch({ query: BLOG_CATEGORIES_QUERY, tags: ["blog-categories"] }),
   ]);
 
   return (
