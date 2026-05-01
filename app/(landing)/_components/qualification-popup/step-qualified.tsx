@@ -32,7 +32,7 @@ export function StepQualified({ redirectUrl, eventId }: StepQualifiedProps) {
   return (
     <div className="flex flex-col items-center gap-6 p-8 text-center">
       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-lime-100">
-        <span className="text-3xl">🎉</span>
+        <span className="text-3xl">✅</span>
       </div>
 
       <div className="flex flex-col gap-2">

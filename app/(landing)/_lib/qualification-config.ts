@@ -40,25 +40,25 @@ export const ROLE_OPTIONS: OptionItem<Role>[] = [
 
 export const POPUP_COPY = {
   intro: {
-    eyebrow: "Limited spots this month",
-    headline: "Get your ad made free — if you qualify.",
-    body: "Answer 4 quick questions. If you're a good fit, we'll build your first creative at no cost.",
-    cta: "See if I qualify →",
+    eyebrow: "Free 30-min Strategy Call",
+    headline: "See exactly how we'd scale your brand with AI video.",
+    body: "Answer 4 quick questions so we can prepare a specific plan before we talk.",
+    cta: "Book My Strategy Call →",
   },
   steps: [
     { label: "Business", question: "What kind of business are you running?" },
-    { label: "Ad Spend", question: "What's your current monthly ad spend or revenue?" },
-    { label: "Timeline", question: "When do you need new creatives?" },
-    { label: "About you", question: "What's your role, and how do we reach you?" },
+    { label: "Ad Spend", question: "What's your current monthly ad spend?" },
+    { label: "Timeline", question: "When are you looking to get started?" },
+    { label: "About you", question: "Last step — how do we reach you?" },
   ],
   qualified: {
-    eyebrow: "You qualify 🎉",
-    headline: "Great news — you're a strong fit.",
-    body: "Taking you to our booking page now so you can grab a time that works for you.",
+    eyebrow: "You're all set",
+    headline: "Pick a time that works for you.",
+    body: "We'll review your answers before the call so we come prepared with a plan specific to your brand.",
   },
   notAFit: {
     eyebrow: "Thanks for sharing",
-    headline: "You're not quite the right fit today.",
-    body: "That's okay — we'll reach out by email within 48 hours with resources that can help, and we'll revisit when the time is right.",
+    headline: "We want to make sure we can actually help you.",
+    body: "Based on your answers, we don't think we're the best fit right now — but we'll follow up by email with resources that might be useful.",
   },
 };

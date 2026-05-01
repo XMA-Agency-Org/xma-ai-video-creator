@@ -25,7 +25,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <SectionContainer className="pb-0 pt-12">
+      <SectionContainer className="pb-0 pt-12 py-14">
         <div className="text-center">
           <span className="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary-600">
             Blog
