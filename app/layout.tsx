@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import dynamic from "next/dynamic";
 import Script from "next/script";
 import { Manrope, DM_Sans } from "next/font/google";
 import { projectId } from "@/sanity/env";
@@ -9,12 +8,7 @@ import { PostHogProvider } from "@/app/_components/posthog-provider";
 import { SmoothScrollProvider } from "@/app/_components/smooth-scroll-provider";
 import { WhatsAppWidget } from "@/app/_components/whatsapp-widget";
 import { QualificationPopupProvider } from "@/app/(landing)/_components/qualification-popup/qualification-popup-provider";
-
-const QualificationPopup = dynamic(
-  () => import("@/app/(landing)/_components/qualification-popup/qualification-popup").then((m) => m.QualificationPopup),
-  { ssr: false }
-);
-
+import { QualificationPopupClient } from "@/app/(landing)/_components/qualification-popup/qualification-popup-client";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -108,7 +102,7 @@ fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID}');`,
             </PostHogProvider>
           </Suspense>
           <WhatsAppWidget />
-          <QualificationPopup />
+          <QualificationPopupClient />
         </QualificationPopupProvider>
         {projectId && <SanityLive />}
       </body>
