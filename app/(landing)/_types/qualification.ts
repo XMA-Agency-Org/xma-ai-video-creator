@@ -47,9 +47,4 @@ export type PopupStep =
   | "qualified"
   | "not-a-fit";
 
-export type PopupTriggerSource =
-  | "scroll"
-  | "hero_cta"
-  | "cta_banner"
-  | "nav"
-  | "mobile_menu";
+export type { PopupTriggerSource } from "@/app/_lib/qualification-popup-context";

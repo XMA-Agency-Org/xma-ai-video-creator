@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
+import { InlineCtaBlock } from "./inline-cta-block";
 
 const portableTextComponents: PortableTextComponents = {
   block: {
@@ -54,6 +57,13 @@ const portableTextComponents: PortableTextComponents = {
     },
   },
   types: {
+    blogCtaBlock: ({ value }) => (
+      <InlineCtaBlock
+        headline={value?.headline ?? "Ready to scale with AI video?"}
+        description={value?.description}
+        buttonLabel={value?.buttonLabel ?? "Book a Strategy Call"}
+      />
+    ),
     image: ({ value }) => {
       const imageUrl = value?.asset
         ? urlFor(value.asset)?.width(1200).format("webp").url()

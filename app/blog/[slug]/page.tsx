@@ -13,6 +13,9 @@ import { PostHeader } from "../_components/post-header";
 import { PostBody } from "../_components/post-body";
 import { BlogCard } from "../_components/blog-card";
 import { BlogSchemaScript } from "../_components/blog-schema-script";
+import { SidebarCta } from "../_components/sidebar-cta";
+import { EndOfPostCta } from "../_components/end-of-post-cta";
+import { BlogScrollTrigger } from "../_components/blog-scroll-trigger";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -90,117 +93,59 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <BlogSchemaScript schemaMarkup={post.schemaMarkup} />
 
       <SectionContainer className="pt-12">
-        <div className="mx-auto max-w-3xl">
-          <nav className="mb-8">
-            <a
-              href="/blog"
-              className="group inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="transition-transform group-hover:-translate-x-0.5"
+        <BlogScrollTrigger />
+        <div className="mx-auto max-w-3xl lg:max-w-none lg:grid lg:grid-cols-[1fr_288px] lg:gap-12 lg:items-start">
+          <div className="min-w-0">
+            <nav className="mb-8">
+              <a
+                href="/blog"
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary-500"
               >
-                <path d="m15 18-6-6 6-6" />
-              </svg>
-              Back to Blog
-            </a>
-          </nav>
-
-          <PostHeader
-            title={post.title}
-            coverImage={post.coverImage}
-            publishedAt={post.publishedAt}
-            author={post.author}
-            categories={post.categories}
-          />
-
-          {post.body && <PostBody body={post.body} />}
-
-          {post.tags && post.tags.length > 0 && (
-            <div className="mt-12 flex flex-wrap gap-2 border-t border-border pt-6">
-              {post.tags.map((tag: string) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform group-hover:-translate-x-0.5"
                 >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          )}
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+                Back to Blog
+              </a>
+            </nav>
 
-          {post.author && (
-            <div className="mt-10 rounded-[var(--radius-xl)] border border-border bg-muted/50 p-6">
-              <div className="flex items-start gap-4">
-                {post.author.avatar && (
-                  <div className="relative h-16 w-16 shrink-0 overflow-clip rounded-full">
-                    <Image
-                      src={urlFor(post.author.avatar)?.width(128).height(128).format("webp").url() ?? ""}
-                      alt={post.author.name ?? ""}
-                      fill
-                      className="object-cover"
-                      sizes="64px"
-                    />
-                  </div>
-                )}
-                <div>
-                  <p className="font-heading text-base font-bold text-foreground">
-                    {post.author.name}
-                  </p>
-                  {post.author.role && (
-                    <p className="text-sm text-muted-foreground">{post.author.role}</p>
-                  )}
-                  {post.author.bio && (
-                    <p className="mt-2 text-sm leading-relaxed text-foreground/70">
-                      {post.author.bio}
-                    </p>
-                  )}
-                  {post.author.socialLinks && (
-                    <div className="mt-3 flex gap-3">
-                      {post.author.socialLinks.twitter && (
-                        <a
-                          href={post.author.socialLinks.twitter}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-medium text-primary-500 hover:text-primary-600"
-                        >
-                          Twitter/X
-                        </a>
-                      )}
-                      {post.author.socialLinks.linkedin && (
-                        <a
-                          href={post.author.socialLinks.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-medium text-primary-500 hover:text-primary-600"
-                        >
-                          LinkedIn
-                        </a>
-                      )}
-                      {post.author.socialLinks.website && (
-                        <a
-                          href={post.author.socialLinks.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-medium text-primary-500 hover:text-primary-600"
-                        >
-                          Website
-                        </a>
-                      )}
-                    </div>
-                  )}
-                </div>
+            <PostHeader
+              title={post.title}
+              coverImage={post.coverImage}
+              publishedAt={post.publishedAt}
+              author={post.author}
+              categories={post.categories}
+            />
+
+            {post.body && <PostBody body={post.body} />}
+
+            <EndOfPostCta />
+
+            {post.tags && post.tags.length > 0 && (
+              <div className="mt-12 flex flex-wrap gap-2 border-t border-border pt-6">
+                {post.tags.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground"
+                  >
+                    #{tag}
+                  </span>
+                ))}
               </div>
-            </div>
-          )}
+            )}
+          </div>
+
+          <SidebarCta />
         </div>
       </SectionContainer>
 

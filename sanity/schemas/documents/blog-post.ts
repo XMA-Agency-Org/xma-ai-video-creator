@@ -99,6 +99,7 @@ export const blogPost = defineType({
             ],
           },
         }),
+        defineArrayMember({ type: "blogCtaBlock" }),
         defineArrayMember({
           type: "image",
           options: { hotspot: true },

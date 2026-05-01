@@ -1,6 +1,7 @@
 import type { SchemaTypeDefinition } from "sanity";
 
 import { cta } from "./objects/cta";
+import { blogCtaBlock } from "./objects/blog-cta-block";
 import { sectionHeader } from "./objects/section-header";
 import { statItem } from "./objects/stat-item";
 import { processStep } from "./objects/process-step";
@@ -29,6 +30,7 @@ import { workPage } from "./singletons/work-page";
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     cta,
+    blogCtaBlock,
     sectionHeader,
     statItem,
     processStep,

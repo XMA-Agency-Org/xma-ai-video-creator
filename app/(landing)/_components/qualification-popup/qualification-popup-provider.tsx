@@ -1,16 +1,11 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
-import type { PopupTriggerSource } from "@/app/(landing)/_types/qualification";
-
-type QualificationPopupContextValue = {
-  isOpen: boolean;
-  source: PopupTriggerSource | null;
-  open: (source: PopupTriggerSource) => void;
-  close: () => void;
-};
-
-const QualificationPopupContext = createContext<QualificationPopupContextValue | null>(null);
+import { useContext, useState, useCallback, type ReactNode } from "react";
+import {
+  QualificationPopupContext,
+  type QualificationPopupContextValue,
+  type PopupTriggerSource,
+} from "@/app/_lib/qualification-popup-context";
 
 export function useQualificationPopupContext() {
   const ctx = useContext(QualificationPopupContext);
