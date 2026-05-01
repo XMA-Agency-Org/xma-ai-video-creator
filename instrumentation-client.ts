@@ -6,5 +6,8 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
   defaults: "2026-01-30",
   capture_exceptions: true,
   disable_session_recording: false,
+  session_recording: {
+    inlineStylesheet: true,
+  },
   debug: process.env.NODE_ENV === "development",
 });

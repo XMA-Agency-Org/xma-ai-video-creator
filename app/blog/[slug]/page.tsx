@@ -8,7 +8,7 @@ import {
   BLOG_ALL_SLUGS_QUERY,
   RELATED_POSTS_QUERY,
 } from "@/sanity/lib/queries";
-import { SectionContainer } from "@/app/_components/primitives";
+import { Link, SectionContainer } from "@/app/_components/primitives";
 import { PostHeader } from "../_components/post-header";
 import { PostBody } from "../_components/post-body";
 import { BlogCard } from "../_components/blog-card";
@@ -92,12 +92,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <>
       <BlogSchemaScript schemaMarkup={post.schemaMarkup} />
 
-      <SectionContainer className="pt-12">
+      <SectionContainer className="pt-12 md:pt-12">
         <BlogScrollTrigger />
         <div className="mx-auto max-w-3xl lg:max-w-none lg:grid lg:grid-cols-[1fr_288px] lg:gap-12 lg:items-start">
           <div className="min-w-0">
             <nav className="mb-8">
-              <a
+              <Link
                 href="/blog"
                 className="group inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary-500"
               >
@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <path d="m15 18-6-6 6-6" />
                 </svg>
                 Back to Blog
-              </a>
+              </Link>
             </nav>
 
             <PostHeader

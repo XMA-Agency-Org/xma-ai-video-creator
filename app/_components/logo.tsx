@@ -12,10 +12,10 @@ export function Logo({ size = 32, className }: LogoProps) {
     <Image
       src={LogoImg}
       alt="XMA logo"
-      width={size}
-      height={size}
+      width={881}
+      height={896}
       className={cn("rounded-lg", className)}
-      style={{ width: "auto", height: "auto" }}
+      style={{ height: size, width: "auto" }}
     />
   );
 }
