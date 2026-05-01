@@ -12,10 +12,10 @@ function verifySignature(secret: string, body: string, signatureHeader: string):
 
   const expected = createHmac("sha256", secret)
     .update(`${timestamp}.${body}`)
-    .digest("hex");
+    .digest();
 
   try {
-    return timingSafeEqual(Buffer.from(signature, "hex"), Buffer.from(expected, "hex"));
+    return timingSafeEqual(Buffer.from(signature, "base64"), expected);
   } catch {
     return false;
   }
@@ -31,12 +31,6 @@ export async function POST(req: NextRequest) {
   const signatureHeader = req.headers.get("sanity-webhook-signature") ?? "";
 
   if (!verifySignature(secret, body, signatureHeader)) {
-    console.error("[revalidate] 401 debug", {
-      secretLength: secret.length,
-      signatureHeader,
-      bodyLength: body.length,
-      bodyPreview: body.slice(0, 100),
-    });
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
   }
 
