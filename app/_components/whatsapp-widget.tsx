@@ -1,12 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const WHATSAPP_NUMBER = "971503636856";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export function WhatsAppWidget() {
   const [hovered, setHovered] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/studio")) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">

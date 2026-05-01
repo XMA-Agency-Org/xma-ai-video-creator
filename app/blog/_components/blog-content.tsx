@@ -39,12 +39,18 @@ export function BlogContent({ posts, categories }: BlogContentProps) {
       )
     : posts;
 
-  const featuredPost = !category
+  const featuredCandidate = !category
     ? filteredPosts.find((post) => post.featured)
     : null;
 
+  const candidateRegularPosts = featuredCandidate
+    ? filteredPosts.filter((post) => post._id !== featuredCandidate._id)
+    : filteredPosts;
+
+  const featuredPost = candidateRegularPosts.length >= 2 ? featuredCandidate : null;
+
   const regularPosts = featuredPost
-    ? filteredPosts.filter((post) => post._id !== featuredPost._id)
+    ? candidateRegularPosts
     : filteredPosts;
 
   return (

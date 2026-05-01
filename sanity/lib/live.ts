@@ -14,7 +14,7 @@ export async function sanityFetch({
   if (!client) return { data: null };
   try {
     const data = await client.fetch(query, params ?? {}, {
-      next: { tags: tags ?? ["sanity"] },
+      next: { tags: tags ?? ["sanity"], revalidate: 3600 },
     });
     return { data };
   } catch {
