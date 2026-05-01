@@ -44,15 +44,15 @@ export async function POST(req: NextRequest) {
   const { _type, slug } = payload;
 
   if (_type === "blogPost") {
-    revalidateTag("blog-posts");
+    revalidateTag("blog-posts", "max");
     if (slug?.current) {
-      revalidateTag(`blog-post-${slug.current}`);
+      revalidateTag(`blog-post-${slug.current}`, "max");
     }
   } else if (_type === "category") {
-    revalidateTag("blog-categories");
-    revalidateTag("blog-posts");
+    revalidateTag("blog-categories", "max");
+    revalidateTag("blog-posts", "max");
   } else {
-    revalidateTag("sanity");
+    revalidateTag("sanity", "max");
   }
 
   return NextResponse.json({ revalidated: true, type: _type });
